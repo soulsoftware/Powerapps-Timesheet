@@ -394,7 +394,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "Parent.Height * 0.6\r\n",
+                "InvariantScript": "Parent.Height * 0.6\n",
                 "Property": "Height",
                 "RuleProviderType": "Unknown"
               },
@@ -745,7 +745,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "Parent.Height * 0.6\r\n",
+                "InvariantScript": "Parent.Height * 0.6\n",
                 "Property": "Height",
                 "RuleProviderType": "Unknown"
               },
@@ -1176,7 +1176,7 @@
       },
       "OnAction"
     ],
-    "LastModifiedTimestamp": "638321144720666219",
+    "LastModifiedTimestamp": "638321155702687413",
     "Name": "CollapsableBar",
     "Rules": [
       {
@@ -1308,7 +1308,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321144720666219",
+  "LastModifiedTimestamp": "638321155702687413",
   "Name": "b87145aec5964dcd8528b487a89f2ac9",
   "OverridableProperties": {},
   "TemplateOriginalName": "979cf6285133455da5cd1636bd707730",

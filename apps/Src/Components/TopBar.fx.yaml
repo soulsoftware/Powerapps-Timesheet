@@ -1,9 +1,9 @@
 TopBar As CanvasComponent:
     Caption: ="Caption"
     Fill: =RGBA(0, 0, 0, 0)
-    Height: =100
+    Height: =50
     Version: =
-    Width: =450
+    Width: =500
     X: =0
     Y: =0
     ZIndex: =11
@@ -18,13 +18,15 @@ TopBar As CanvasComponent:
         ZIndex: =3
 
         c01_img_Logo As image:
+            AlignInContainer: =AlignInContainer.Center
             BorderColor: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            Height: =52
+            Height: =80
             Image: =soul
+            ImagePosition: =ImagePosition.Stretch
             PaddingLeft: =5
-            Width: =80
+            Width: =200
             X: =18
             Y: =24
             ZIndex: =1

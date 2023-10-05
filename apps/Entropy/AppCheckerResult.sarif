@@ -14,156 +14,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ExcelButton.Container3_1.Button1_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ExcelButton.Container3_1.Button1_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ExcelButton",
-                "type": "ExcelButton.Container3_1.Button1_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_SortByDate.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_SortByDate.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CFilterCriteriaOverlay",
-                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_SortByDate"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_rbt_ApprovalStatus.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_rbt_ApprovalStatus.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CFilterCriteriaOverlay",
-                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_rbt_ApprovalStatus"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_IncludeDraft.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_IncludeDraft.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CFilterCriteriaOverlay",
-                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_IncludeDraft"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.'c03_btn_ResetApproval Status'.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.'c03_btn_ResetApproval Status'.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CFilterCriteriaOverlay",
-                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.'c03_btn_ResetApproval Status'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "OpenChartButton.Container3.Button1.AccessibleLabel"
                 }
               ],
@@ -297,6 +147,36 @@
                 "member": "AccessibleLabel",
                 "module": "CReportByMonthOverlay",
                 "type": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ExcelButton.Container3_1.Button1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ExcelButton.Container3_1.Button1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ExcelButton",
+                "type": "ExcelButton.Container3_1.Button1_1"
               }
             }
           ],
@@ -518,6 +398,126 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_SortByDate.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_SortByDate.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CFilterCriteriaOverlay",
+                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_SortByDate"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_rbt_ApprovalStatus.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_rbt_ApprovalStatus.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CFilterCriteriaOverlay",
+                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_rbt_ApprovalStatus"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_IncludeDraft.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_IncludeDraft.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CFilterCriteriaOverlay",
+                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.c03_IncludeDraft"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.'c03_btn_ResetApproval Status'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CFilterCriteriaOverlay.c03_MainContainer.Container4.'c03_btn_ResetApproval Status'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CFilterCriteriaOverlay",
+                "type": "CFilterCriteriaOverlay.c03_MainContainer.Container4.'c03_btn_ResetApproval Status'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
