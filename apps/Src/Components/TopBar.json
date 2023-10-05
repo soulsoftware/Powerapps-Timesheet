@@ -816,9 +816,9 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "80",
+            "InvariantScript": "Parent.Height",
             "Property": "Height",
-            "RuleProviderType": "Unknown"
+            "RuleProviderType": "User"
           }
         ],
         "StyleName": "defaultImageStyle",
@@ -876,7 +876,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638321167395725165",
+    "LastModifiedTimestamp": "638321167761411938",
     "Name": "TopBar",
     "Rules": [
       {
@@ -966,7 +966,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321167395725165",
+  "LastModifiedTimestamp": "638321167761411938",
   "Name": "63807736bd8e405290bb8ee07fc69983",
   "OverridableProperties": {},
   "TemplateOriginalName": "ed7db1e4e3ca4e8397a6a74bab216c5f",
