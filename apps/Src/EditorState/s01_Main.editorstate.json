@@ -4432,7 +4432,7 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "System"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",

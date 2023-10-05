@@ -18,7 +18,7 @@
       "Name": "GetWeekDayText",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "7",
+        "PropertyScopeRuleNamespaceKey": "76",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "GetWeekDayText_Date",
@@ -47,7 +47,7 @@
       "Name": "MailToName",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "7",
+        "PropertyScopeRuleNamespaceKey": "76",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "MailToName_mail",
@@ -78,7 +78,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321155702605670",
+  "LastModifiedTimestamp": "638321165789360906",
   "Name": "eff47f7cef5941778d0d103b53021acb",
   "OverridableProperties": {},
   "TemplateOriginalName": "e52a83e19ccd4ffb935855b11de04687",
