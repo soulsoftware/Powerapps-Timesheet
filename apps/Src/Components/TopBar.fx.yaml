@@ -17,24 +17,9 @@ TopBar As CanvasComponent:
         Width: =Parent.Width
         ZIndex: =3
 
-        c01_img_Logo As image:
-            AlignInContainer: =AlignInContainer.Center
-            BorderColor: =RGBA(0, 18, 107, 1)
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            Height: =80
-            Image: =soul
-            ImagePosition: =ImagePosition.Stretch
-            PaddingLeft: =5
-            Width: =Parent.Width * 0.3
-            X: =18
-            Y: =24
-            ZIndex: =1
-
         c01_html_Caption As htmlViewer:
             AlignInContainer: =AlignInContainer.Start
             Color: =RGBA(255, 255, 255, 1)
-            FillPortions: =1
             Height: =Parent.Height
             HtmlText: |
                 =// With( { ver:PowerAppsforMakers.GetApp("8c46d614-e6ac-45ec-b056-ed2ccdc73cfb").properties.minClientVersion },
@@ -42,5 +27,19 @@ TopBar As CanvasComponent:
             PaddingBottom: =1
             PaddingTop: =1
             Size: =15
+            Width: =Parent.Width
             ZIndex: =3
+
+    c01_img_Logo As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =80
+        Image: =soul
+        ImagePosition: =ImagePosition.Stretch
+        PaddingBottom: =2
+        PaddingTop: =2
+        Width: =Parent.Width * 0.3
+        Y: =20
+        ZIndex: =4
 
