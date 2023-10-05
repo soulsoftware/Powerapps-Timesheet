@@ -714,7 +714,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "0",
+            "InvariantScript": "2",
             "Property": "PaddingLeft",
             "RuleProviderType": "Unknown"
           },
@@ -876,7 +876,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638321167237401677",
+    "LastModifiedTimestamp": "638321167395725165",
     "Name": "TopBar",
     "Rules": [
       {
@@ -966,7 +966,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321167237401677",
+  "LastModifiedTimestamp": "638321167395725165",
   "Name": "63807736bd8e405290bb8ee07fc69983",
   "OverridableProperties": {},
   "TemplateOriginalName": "ed7db1e4e3ca4e8397a6a74bab216c5f",
