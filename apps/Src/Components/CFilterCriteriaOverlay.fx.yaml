@@ -1,0 +1,223 @@
+CFilterCriteriaOverlay As CanvasComponent:
+    ConfirmText: ="Apply"
+    Fill: =RGBA(230, 230, 230, 1)
+    Filters: =
+    Height: =640
+    OnCancel: =true
+    OnConfirm: =true
+    PromptText: ="Set Filters"
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    c03_MainContainer As groupContainer.verticalAutoLayoutContainer:
+        BorderThickness: =1
+        Fill: =Parent.Fill
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =2
+
+        c03_lbl_Title As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(98, 100, 167, 1)
+            Fill: =RGBA(0, 0, 0, 0.1)
+            Height: =50
+            Live: =Live.Assertive
+            Text: =CFilterCriteriaOverlay.PromptText
+            Width: =Min(350, Parent.Width * 0.8) 
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =
+            ZIndex: =1
+
+        Container4 As groupContainer.verticalAutoLayoutContainer:
+            BorderThickness: |
+                =1
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingTop: =10
+            ZIndex: =3
+
+            c03_Label3 As Label:
+                Color: =
+                DisplayMode: =DisplayMode.View
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Sort Criteria"
+                TextRole: ='Label.TextRole'.Heading2
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            c03_SortByDate As Toggle:
+                AlignInContainer: =AlignInContainer.Start
+                Checked: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: |
+                    =10
+                FontWeight: ="normal"
+                Height: =32
+                Italic: =false
+                LayoutMinHeight: =32
+                LayoutMinWidth: =160
+                OffFillColor: =RGBA(255, 255, 255, 1)
+                OffText: ="Sort by Created"
+                OnChange: =
+                OnCheck: =
+                OnFillColor: =RGBA(59, 121, 183, 1)
+                OnText: ="Sort by Date"
+                OnUncheck: =
+                PaddingBottom: =0
+                PaddingTop: =0
+                PCFTeamsTheme: ="default"
+                Strikethrough: =false
+                Underline: =false
+                Width: =200
+                X: =426
+                Y: =10
+                ZIndex: =2
+
+            c03_Label2 As Label:
+                DisplayMode: =DisplayMode.View
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Approval Status"
+                TextRole: ='Label.TextRole'.Heading2
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+            "c03_rbt_ApprovalStatus As 'Radio group'.pcfdataset":
+                DefaultSelectedItems: |-
+                    =// Table( { Value: 'Approval Status'.Pending } )
+                DisplayMode: =DisplayMode.Edit
+                Height: =80
+                Items: |
+                    =
+                LayoutMinHeight: =100
+                LayoutMinWidth: =320
+                RadioBorderColor: =Color.Black
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =4
+
+                Value1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Value"
+                    FieldName: ="Value"
+                    FieldType: ="l"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =6
+
+            c03_IncludeDraft As Toggle:
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                LayoutMinHeight: =32
+                LayoutMinWidth: =160
+                OffText: ="exclude Draft"
+                OnFillColor: =RGBA(39, 113, 194, 1)
+                OnText: ="include Draft"
+                PaddingBottom: =0
+                Width: =160
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+            "'c03_btn_ResetApproval Status' As Button":
+                BorderColor: =RGBA(0, 94, 146, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =1
+                ButtonType: ='Button.ButtonType'.Standard
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =10.5
+                Height: =24
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: |-
+                    =Reset( c03_rbt_ApprovalStatus );
+                    Reset( c03_IncludeDraft )
+                PaddingTop: =0
+                Text: ="Reset"
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =6
+
+        Separator_6 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(98, 100, 167, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =1
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            Width: =Parent.Width - 10
+            ZIndex: =4
+
+        CommandsContainer_6 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =50
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =5
+
+            c01_btn_Cancel_3 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                Height: =32
+                OnSelect: =CFilterCriteriaOverlay.OnCancel()
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Text: ="Close"
+                Width: =96
+                X: =185
+                Y: =324
+                ZIndex: =1
+
+            c03_btn_Confirm As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =
+                Fill: =RGBA(255, 0, 0, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                Height: =32
+                OnSelect: =CFilterCriteriaOverlay.OnConfirm()
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Text: =CFilterCriteriaOverlay.ConfirmText
+                Width: =96
+                X: =349
+                Y: =324
+                ZIndex: =2
+

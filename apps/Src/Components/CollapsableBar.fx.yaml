@@ -1,0 +1,74 @@
+CollapsableBar As CanvasComponent:
+    OnAction(Collapsed As Boolean):
+        Collapsed:
+            Default: =true
+        ThisProperty:
+            Default: =true
+    Caption: ="Text"
+    Collapsed: =true
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =40
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =10
+
+    c001_Container_1 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =CollapsableBar.Fill
+        Height: =Parent.Height
+        LayoutGap: =10
+        LayoutJustifyContent: =LayoutJustifyContent.End
+        LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =10
+        PaddingRight: =Self.LayoutGap
+        Width: =Parent.Width
+        ZIndex: =3
+
+        c001_lbl_Caption As Label:
+            AlignInContainer: =AlignInContainer.Stretch
+            Alignment: =Align.Justify
+            DisplayMode: =DisplayMode.Edit
+            FillPortions: =1
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =320
+            Text: =CollapsableBar.Caption
+            Width: =320
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        c001_ico_collapse As icon.Check:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(167, 182, 203, 1)
+            DisplayMode: =If( CollapsableBar.Collapsed, DisplayMode.Edit, DisplayMode.Disabled ) 
+            Height: |
+                =Parent.Height * 0.6
+            Icon: =Icon.ChevronUp
+            OnSelect: |
+                =CollapsableBar.OnAction( false );
+            Width: =Self.Height
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+        c001_ico_expand As icon.Cancel:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(167, 182, 203, 1)
+            DisplayMode: =If( Not(CollapsableBar.Collapsed), DisplayMode.Edit, DisplayMode.Disabled ) 
+            Height: |
+                =Parent.Height * 0.6
+            Icon: =Icon.ChevronDown
+            OnSelect: |
+                =CollapsableBar.OnAction( true );
+            Width: =Self.Height
+            X: =40
+            Y: =40
+            ZIndex: =3
+
