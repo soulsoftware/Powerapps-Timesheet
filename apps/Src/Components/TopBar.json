@@ -80,11 +80,18 @@
             "ControlUniqueId": "60",
             "DynamicProperties": [
               {
-                "ControlPropertyState": "FillPortions",
+                "ControlPropertyState": {
+                  "AFDDataSourceName": "",
+                  "AutoRuleBindingEnabled": false,
+                  "AutoRuleBindingString": "",
+                  "InvariantPropertyName": "FillPortions",
+                  "IsLockable": false,
+                  "NameMapSourceSchema": "?"
+                },
                 "PropertyName": "FillPortions",
                 "Rule": {
                   "Category": "Design",
-                  "InvariantScript": "0",
+                  "InvariantScript": "1",
                   "Property": "FillPortions",
                   "RuleProviderType": "Unknown"
                 }
@@ -904,7 +911,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638321159099388556",
+    "LastModifiedTimestamp": "638321159977233421",
     "Name": "TopBar",
     "Rules": [
       {
@@ -994,7 +1001,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321159099388556",
+  "LastModifiedTimestamp": "638321159977233421",
   "Name": "63807736bd8e405290bb8ee07fc69983",
   "OverridableProperties": {},
   "TemplateOriginalName": "ed7db1e4e3ca4e8397a6a74bab216c5f",
