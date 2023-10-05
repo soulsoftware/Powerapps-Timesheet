@@ -36,7 +36,6 @@ TopBar As CanvasComponent:
         DisabledFill: =RGBA(244, 244, 244, 1)
         Height: =Parent.Height
         Image: =soul
-        ImagePosition: =ImagePosition.Stretch
         PaddingBottom: =2
         PaddingLeft: =2
         PaddingTop: =2
