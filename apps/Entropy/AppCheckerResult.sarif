@@ -14,36 +14,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "CReportByMonthOverlay",
-                "type": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ExcelButton.Container3_1.Button1_1.AccessibleLabel"
                 }
               ],
@@ -117,6 +87,36 @@
                 "member": "AccessibleLabel",
                 "module": "CEditProjectOverlay",
                 "type": "CEditProjectOverlay.MainContainer_5.c01_lst_Projects"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "CReportByMonthOverlay",
+                "type": "CReportByMonthOverlay.MainContainer_4.c02_DatePicker"
               }
             }
           ],
