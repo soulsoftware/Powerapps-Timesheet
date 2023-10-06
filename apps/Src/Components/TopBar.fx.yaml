@@ -45,12 +45,15 @@ TopBar As CanvasComponent:
 
     c01_html_Caption As htmlViewer:
         Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.View
         Height: =Parent.Height
         HtmlText: |
             =// With( { ver:PowerAppsforMakers.GetApp("8c46d614-e6ac-45ec-b056-ed2ccdc73cfb").properties.minClientVersion },
             $"<center><b>{TopBar.Caption}</b><center><font size='2'>{If(Not(IsBlank(TopBar.Version)), $"Version: {TopBar.Version}", "")}</font>"
-        PaddingBottom: =1
-        PaddingTop: =1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
         Size: =15
         Width: =Parent.Width
         X: =20

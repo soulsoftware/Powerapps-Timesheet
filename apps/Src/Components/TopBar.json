@@ -820,7 +820,14 @@
         "AllowAccessToGlobals": true,
         "Children": [],
         "ControlPropertyState": [
-          "DisplayMode",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "DisplayMode",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "DisabledFill",
           "Font",
           {
@@ -874,7 +881,23 @@
             "IsLockable": false,
             "NameMapSourceSchema": "?"
           },
-          "ContentLanguage"
+          "ContentLanguage",
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "PaddingLeft",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "PaddingRight",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          }
         ],
         "ControlUniqueId": "127",
         "HasDynamicProperties": false,
@@ -905,7 +928,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "DisplayMode.Edit",
+            "InvariantScript": "DisplayMode.View",
             "Property": "DisplayMode",
             "RuleProviderType": "Unknown"
           },
@@ -1001,14 +1024,26 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "1",
+            "InvariantScript": "0",
             "Property": "PaddingTop",
             "RuleProviderType": "Unknown"
           },
           {
             "Category": "Design",
-            "InvariantScript": "1",
+            "InvariantScript": "0",
             "Property": "PaddingBottom",
+            "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "0",
+            "Property": "PaddingLeft",
+            "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "0",
+            "Property": "PaddingRight",
             "RuleProviderType": "Unknown"
           }
         ],
@@ -1067,7 +1102,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638321868888079718",
+    "LastModifiedTimestamp": "638321869425623874",
     "Name": "TopBar",
     "Rules": [
       {
@@ -1157,7 +1192,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321868888079718",
+  "LastModifiedTimestamp": "638321869425623874",
   "Name": "63807736bd8e405290bb8ee07fc69983",
   "OverridableProperties": {},
   "TemplateOriginalName": "ed7db1e4e3ca4e8397a6a74bab216c5f",
