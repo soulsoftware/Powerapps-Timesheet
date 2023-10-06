@@ -37,9 +37,8 @@ TopBar As CanvasComponent:
             BorderThickness: =2
             DisabledFill: =RGBA(200, 198, 196, 1)
             Fill: =RGBA(98, 100, 167, 1)
-            FillPortions: =1
             FocusedBorderColor: =RGBA(98, 100, 167, 1)
-            Height: =Parent.Height
+            Height: =
             HoverFill: =RGBA(98, 100, 167, 1)
             PressedFill: =RGBA(98, 100, 167, 1)
             ZIndex: =5

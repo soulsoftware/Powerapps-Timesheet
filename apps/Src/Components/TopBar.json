@@ -41,7 +41,7 @@
                 "PropertyName": "FillPortions",
                 "Rule": {
                   "Category": "Design",
-                  "InvariantScript": "1",
+                  "InvariantScript": "0",
                   "Property": "FillPortions",
                   "RuleProviderType": "Unknown"
                 }
@@ -171,7 +171,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "Parent.Height",
+                "InvariantScript": "",
                 "Property": "Height",
                 "RuleProviderType": "User"
               },
@@ -1067,7 +1067,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638321868445875474",
+    "LastModifiedTimestamp": "638321868888079718",
     "Name": "TopBar",
     "Rules": [
       {
@@ -1157,7 +1157,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638321868445875474",
+  "LastModifiedTimestamp": "638321868888079718",
   "Name": "63807736bd8e405290bb8ee07fc69983",
   "OverridableProperties": {},
   "TemplateOriginalName": "ed7db1e4e3ca4e8397a6a74bab216c5f",
