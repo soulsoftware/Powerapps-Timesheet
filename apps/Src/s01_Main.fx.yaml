@@ -19,6 +19,7 @@ s01_Main As screen:
 
         s01_TopBar As TopBar:
             AlignInContainer: =AlignInContainer.Stretch
+            Caption: ="Timesheet User Management"
             LayoutMinHeight: =640
             LayoutMinWidth: =0
             ZIndex: =1

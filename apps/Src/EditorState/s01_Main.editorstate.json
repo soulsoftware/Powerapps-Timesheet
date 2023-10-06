@@ -4310,7 +4310,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"TestoTitolo\"",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Caption",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
