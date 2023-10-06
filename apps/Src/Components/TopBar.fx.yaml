@@ -31,6 +31,19 @@ TopBar As CanvasComponent:
             Width: =150
             ZIndex: =4
 
+        c01_rct_Filler As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            Fill: =RGBA(98, 100, 167, 1)
+            FillPortions: =1
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =Parent.Height
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            ZIndex: =5
+
     c01_html_Caption As htmlViewer:
         Color: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height
