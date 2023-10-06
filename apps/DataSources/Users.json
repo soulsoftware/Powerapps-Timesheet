@@ -43,7 +43,6 @@
       "employeeid": "Employee",
       "entityimage": "Entity Image",
       "entityimageid": "Entity Image Id",
-      "exchangerate": "Exchange Rate",
       "firstname": "First Name",
       "flowmachinegroup_PasswordChangedBy": "Flow Machine Groups (flowmachinegroup_PasswordChangedBy)",
       "flowmachinegroup_RotationStartedBy": "Flow Machine Groups (flowmachinegroup_RotationStartedBy)",

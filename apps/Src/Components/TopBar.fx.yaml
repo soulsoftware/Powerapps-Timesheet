@@ -38,10 +38,9 @@ TopBar As CanvasComponent:
         Height: =Parent.Height
         Image: =soul
         ImagePosition: =ImagePosition.Stretch
-        PaddingBottom: =2
-        PaddingLeft: =2
-        PaddingTop: =2
-        Width: =Parent.Width * 0.3
-        Y: =20
+        PaddingBottom: =1
+        PaddingLeft: =1
+        PaddingTop: =1
+        Width: =Parent.Width * 0.25
         ZIndex: =4
 
