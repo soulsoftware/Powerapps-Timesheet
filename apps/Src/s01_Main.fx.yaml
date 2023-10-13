@@ -55,11 +55,9 @@ s01_Main As screen:
             Items: |-
                 =// Filter(Users, 'Users (Views)'.'Enabled Users')
                 With({
-                    view: s01_TabList.Selected.view 
+                    view: Switch( s01_TabList.Selected.view, 1, 'Users (Views)'.'TS Users', 2, 'Users (Views)'.'Enabled Users' )
                 },
-                Switch( view, 
-                1, Filter(Users, 'Users (Views)'.'TS Users'), 
-                2, Filter(Users, 'Users (Views)'.'Enabled Users')))
+                Filter(Users, view)))
             LayoutMinHeight: =500
             LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
             PCFTeamsTheme: ="default"
