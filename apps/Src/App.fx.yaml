@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    Formulas: =AppVersion =  "0.0.1";
+    Formulas: =AppVersion =  "0.0.2";
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
