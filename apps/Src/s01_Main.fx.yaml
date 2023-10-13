@@ -38,6 +38,14 @@ s01_Main As screen:
             Y: =40
             ZIndex: =2
 
+            TextInput1 As pcfDataField.textualColumn:
+                FieldDisplayName: ="text"
+                FieldName: ="text"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =1
+                ZIndex: =14
+
         "s01_grd_User As 'Table (Dataverse only)'.pcfdataset":
             AlignInContainer: =AlignInContainer.Stretch
             DisplayMode: =DisplayMode.Edit
