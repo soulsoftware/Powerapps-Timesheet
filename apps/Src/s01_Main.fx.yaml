@@ -53,12 +53,13 @@ s01_Main As screen:
             FillPortions: =1
             Height: =496
             Items: |-
-                =With({
+                =// Filter(Users, 'Users (Views)'.'Enabled Users')
+                With({
                     view: s01_TabList.Selected.view 
                 },
                 Switch( view, 
                 1, Filter(Users, 'Users (Views)'.'TS Users'), 
-                2, Users))
+                2, Filter(Users, 'Users (Views)'.'Enabled Users')))
             LayoutMinHeight: =500
             LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
             PCFTeamsTheme: ="default"
@@ -68,13 +69,37 @@ s01_Main As screen:
             Y: =0
             ZIndex: =3
 
+            "'First Name1' As pcfDataField.textualColumn":
+                FieldDisplayName: ="First Name"
+                FieldName: ="firstname"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =1
+                ZIndex: =15
+
+            "'Last Name1' As pcfDataField.textualColumn":
+                FieldDisplayName: ="Last Name"
+                FieldName: ="lastname"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =2
+                ZIndex: =16
+
             "'Full Name1' As pcfDataField.textualColumn":
                 FieldDisplayName: ="Full Name"
                 FieldName: ="fullname"
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
                 Order: =3
-                ZIndex: =3
+                ZIndex: =17
+
+            "'Invitation Status1' As pcfDataField.textualColumn":
+                FieldDisplayName: ="Invitation Status"
+                FieldName: ="invitestatuscode"
+                FieldType: ="l"
+                FieldVariantName: ="textualColumn"
+                Order: =4
+                ZIndex: =18
 
             "'Alternative Email 11' As pcfDataField.textualColumn":
                 FieldDisplayName: ="Alternative Email 1"
@@ -82,71 +107,23 @@ s01_Main As screen:
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
                 Order: =5
-                ZIndex: =5
+                ZIndex: =19
 
             "'Alternative Email 21' As pcfDataField.textualColumn":
                 FieldDisplayName: ="Alternative Email 2"
                 FieldName: ="soul_alternativeemail2"
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
-                Order: =5
-                ZIndex: =6
+                Order: =6
+                ZIndex: =20
 
             "'Alternative Email 31' As pcfDataField.textualColumn":
                 FieldDisplayName: ="Alternative Email 3"
                 FieldName: ="soul_alternativeemail3"
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
-                Order: =6
-                ZIndex: =7
-
-            "'Access Mode1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="Access Mode"
-                FieldName: ="accessmode"
-                FieldType: ="l"
-                FieldVariantName: ="textualColumn"
-                Order: =6
-                ZIndex: =8
-
-            "'Job Title1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="Job Title"
-                FieldName: ="jobtitle"
-                FieldType: ="s"
-                FieldVariantName: ="textualColumn"
-                Order: =9
-                ZIndex: =9
-
-            "'License Type1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="License Type"
-                FieldName: ="caltype"
-                FieldType: ="l"
-                FieldVariantName: ="textualColumn"
-                Order: =8
-                ZIndex: =10
-
-            "'Organization 1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="Organization "
-                FieldName: ="organizationid"
-                FieldType: ="g"
-                FieldVariantName: ="textualColumn"
-                Order: =10
-                ZIndex: =11
-
-            "'User License Type1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="User License Type"
-                FieldName: ="userlicensetype"
-                FieldType: ="n"
-                FieldVariantName: ="textualColumn"
                 Order: =7
-                ZIndex: =12
-
-            "'User Licensed1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="User Licensed"
-                FieldName: ="islicensed"
-                FieldType: ="l"
-                FieldVariantName: ="textualColumn"
-                Order: =7
-                ZIndex: =13
+                ZIndex: =21
 
         s01_CollapsableBar As CollapsableBar:
             AlignInContainer: =AlignInContainer.Stretch
