@@ -167,7 +167,7 @@
             "Name": "c01_img_Logo",
             "Parent": "TopBar_Container",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 41,
+            "PublishOrderIndex": 38,
             "Rules": [
               {
                 "Category": "Data",
@@ -448,7 +448,7 @@
             "Name": "c01_rct_Filler",
             "Parent": "TopBar_Container",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 42,
+            "PublishOrderIndex": 39,
             "Rules": [
               {
                 "Category": "Design",
@@ -647,7 +647,7 @@
         "Name": "TopBar_Container",
         "Parent": "TopBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 40,
+        "PublishOrderIndex": 37,
         "Rules": [
           {
             "Category": "Design",
@@ -926,7 +926,7 @@
         "Name": "c01_html_Caption",
         "Parent": "TopBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 43,
+        "PublishOrderIndex": 40,
         "Rules": [
           {
             "Category": "Data",
