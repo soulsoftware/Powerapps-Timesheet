@@ -29,7 +29,8 @@ s01_Main As screen:
             AlignInContainer: =AlignInContainer.Stretch
             DisplayMode: =DisplayMode.Edit
             Height: =55
-            Items: =[  "TS Users", "All Users" ]
+            Items: |-
+                =[  { text: "TS Users" }, { text: "All Users" } ]
             LayoutMinHeight: =55
             LayoutMinWidth: =280
             Width: =280
