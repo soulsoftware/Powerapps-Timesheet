@@ -28,8 +28,8 @@ s01_Main As screen:
         "s01_TabList As 'Tab list'.pcfdataset":
             AlignInContainer: =AlignInContainer.Stretch
             DisplayMode: =DisplayMode.Edit
-            Height: =40
-            Items: =[ "Enabled Users", "TS Users" ]
+            Height: =55
+            Items: =[  "TS Users", "All Users" ]
             LayoutMinHeight: =55
             LayoutMinWidth: =280
             Width: =280
