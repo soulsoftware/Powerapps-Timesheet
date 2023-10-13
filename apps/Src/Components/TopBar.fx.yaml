@@ -55,8 +55,6 @@ TopBar As CanvasComponent:
         PaddingRight: =0
         PaddingTop: =0
         Size: =15
-        Width: =Parent.Width
-        X: =20
-        Y: =20
+        Width: =TopBar.Width
         ZIndex: =4
 
