@@ -495,3 +495,12 @@ s01_Main As screen:
             Version: =AppVersion
             ZIndex: =5
 
+    "s01_TabList As 'Tab list'.pcfdataset":
+        DisplayMode: =DisplayMode.Edit
+        Height: =55
+        Items: =[ "Enabled Users", "TS Users" ]
+        Width: =280
+        X: =40
+        Y: =40
+        ZIndex: =4
+

@@ -7,12 +7,12 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 1,
         "SectionName": null,
         "Type": 0,
         "WizardStep": null
       },
-      "Appearance": {
+      "Alignment": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
@@ -23,29 +23,18 @@
         "Type": 0,
         "WizardStep": null
       },
-      "DisplayMode": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 2,
-        "SectionName": null,
-        "Type": 27,
-        "WizardStep": null
-      },
       "Height": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
         "PropertyGroupName": "Size",
         "PropertyKind": 2,
-        "SectionIndex": 3,
+        "SectionIndex": 2,
         "SectionName": null,
         "Type": 0,
         "WizardStep": null
       },
-      "Text": {
+      "Items": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
@@ -56,13 +45,24 @@
         "Type": 0,
         "WizardStep": null
       },
+      "Size": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "Type": 0,
+        "WizardStep": null
+      },
       "Width": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
         "PropertyGroupName": "Size",
         "PropertyKind": 2,
-        "SectionIndex": 3,
+        "SectionIndex": 2,
         "SectionName": null,
         "Type": 0,
         "WizardStep": null
@@ -73,7 +73,7 @@
         "Hidden": false,
         "PropertyGroupName": "Position",
         "PropertyKind": 2,
-        "SectionIndex": 3,
+        "SectionIndex": 2,
         "SectionName": null,
         "Type": 0,
         "WizardStep": null
@@ -84,7 +84,7 @@
         "Hidden": false,
         "PropertyGroupName": "Position",
         "PropertyKind": 2,
-        "SectionIndex": 3,
+        "SectionIndex": 2,
         "SectionName": null,
         "Type": 0,
         "WizardStep": null
@@ -94,15 +94,22 @@
   "CommonEvents": [
     {
       "Description": "",
+      "DisplayName": "OnChange",
+      "Hidden": false,
+      "IsPrimaryInput": false,
+      "Name": "OnChange"
+    },
+    {
+      "Description": "",
       "DisplayName": "OnSelect",
       "Hidden": false,
       "IsPrimaryInput": false,
       "Name": "OnSelect"
     }
   ],
-  "ControlConstructor": "ButtonCanvas",
+  "ControlConstructor": "TabList",
   "ControlNamespace": "PowerApps.CoreControls",
-  "DisplayNameKey": "ButtonCanvas",
+  "DisplayNameKey": "TabList_Display_Key",
   "IncludedProperties": [
     {
       "Category": "design",
@@ -162,7 +169,7 @@
     },
     {
       "Category": "design",
-      "DefaultValue": "96",
+      "DefaultValue": "280",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Width",
@@ -181,16 +188,16 @@
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": null,
-      "PhoneDefaultValue": "96",
+      "PhoneDefaultValue": "280",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 2,
       "Usage": 2,
-      "WebDefaultValue": "96"
+      "WebDefaultValue": "280"
     },
     {
       "Category": "design",
-      "DefaultValue": "32",
+      "DefaultValue": "55",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Height",
@@ -209,12 +216,12 @@
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": null,
-      "PhoneDefaultValue": "32",
+      "PhoneDefaultValue": "55",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 2,
       "Usage": 2,
-      "WebDefaultValue": "32"
+      "WebDefaultValue": "55"
     },
     {
       "Category": "design",
@@ -273,106 +280,36 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Button",
+  "Name": "Tab list",
   "Properties": [
     {
       "Category": "data",
-      "DefaultValue": "true",
-      "Description": "Whether this field can be reached with Tab key.",
-      "DescriptionResourceString": "ButtonCanvas_AcceptsFocus_Desc",
-      "DisplayName": "Accepts focus",
-      "DisplayNameResourceString": "ButtonCanvas_AcceptsFocus",
-      "EnumValues": [],
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "AcceptsFocus",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 20,
-      "Usage": 0,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Label read out by screen readers.",
-      "DescriptionResourceString": "ButtonCanvas_AccessibleLabel_Desc",
-      "DisplayName": "Accessible label",
-      "DisplayNameResourceString": "ButtonCanvas_AccessibleLabel",
-      "EnumValues": [],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "AccessibleLabel",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 6,
-      "Usage": 0,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "Primary",
-      "Description": "Display as one of button types.",
-      "DescriptionResourceString": "ButtonCanvas_Appearance_Desc",
-      "DisplayName": "Type",
-      "DisplayNameResourceString": "ButtonCanvas_Appearance",
+      "DefaultValue": "Large",
+      "Description": "Select from different size",
+      "DescriptionResourceString": "TabList_Size_Desc_Key",
+      "DisplayName": "Size",
+      "DisplayNameResourceString": "TabList_Size_Display_Key",
       "EnumValues": [
         {
-          "Description": "Primary",
-          "DisplayName": "Primary",
-          "IsDefaultValue": true,
-          "Name": "Primary",
-          "Value": "Primary"
+          "Description": "Small",
+          "DisplayName": "Small",
+          "IsDefaultValue": false,
+          "Name": "Small",
+          "Value": "Small"
         },
         {
-          "Description": "Secondary",
-          "DisplayName": "Secondary",
+          "Description": "Medium",
+          "DisplayName": "Medium",
           "IsDefaultValue": false,
-          "Name": "Secondary",
-          "Value": "Secondary"
+          "Name": "Medium",
+          "Value": "Medium"
         },
         {
-          "Description": "Outline",
-          "DisplayName": "Outline",
+          "Description": "Large",
+          "DisplayName": "Large",
           "IsDefaultValue": false,
-          "Name": "Outline",
-          "Value": "Outline"
-        },
-        {
-          "Description": "Subtle",
-          "DisplayName": "Subtle",
-          "IsDefaultValue": false,
-          "Name": "Subtle",
-          "Value": "Subtle"
-        },
-        {
-          "Description": "Transparent",
-          "DisplayName": "Transparent",
-          "IsDefaultValue": false,
-          "Name": "Transparent",
-          "Value": "Transparent"
+          "Name": "Large",
+          "Value": "Large"
         }
       ],
       "HelperUI": null,
@@ -384,35 +321,78 @@
       "IsPrimaryOutput": false,
       "IsResettable": false,
       "IsResettableToManifestDefault": false,
-      "Name": "Appearance",
+      "Name": "Size",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": "",
-      "PhoneDefaultValue": "Primary",
+      "PhoneDefaultValue": "",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 1,
       "Usage": 0,
-      "WebDefaultValue": "Primary"
+      "WebDefaultValue": ""
     },
     {
       "Category": "data",
-      "DefaultValue": "Button",
-      "Description": "Text to display in the button.",
-      "DescriptionResourceString": "ButtonCanvas_Text_Desc",
-      "DisplayName": "Text",
-      "DisplayNameResourceString": "ButtonCanvas_Text",
+      "DefaultValue": "Horizontal",
+      "Description": "Alignment of the component that tabs are laid out. ",
+      "DescriptionResourceString": "TabList_Alignment_Desc_Key",
+      "DisplayName": "Alignment",
+      "DisplayNameResourceString": "TabList_Alignment_Display_Key",
+      "EnumValues": [
+        {
+          "Description": "Vertical",
+          "DisplayName": "Vertical",
+          "IsDefaultValue": false,
+          "Name": "Vertical",
+          "Value": "Vertical"
+        },
+        {
+          "Description": "Horizontal",
+          "DisplayName": "Horizontal",
+          "IsDefaultValue": false,
+          "Name": "Horizontal",
+          "Value": "Horizontal"
+        }
+      ],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "Alignment",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 1,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "",
+      "Description": "Accessibility Label for TabList ",
+      "DescriptionResourceString": "TabList_AccessibleLabel_Desc_Key",
+      "DisplayName": "Accessibility Label",
+      "DisplayNameResourceString": "TabList_AccessibleLabel_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
       "Hidden": false,
       "IsDataSourceProperty": false,
       "IsLinkableToParentTheme": false,
       "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": true,
+      "IsPrimaryInput": false,
       "IsPrimaryOutput": false,
       "IsResettable": false,
       "IsResettableToManifestDefault": false,
-      "Name": "Text",
+      "Name": "AccessibleLabel",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": "",
@@ -508,6 +488,118 @@
       "WebDefaultValue": ""
     },
     {
+      "Category": "data",
+      "DefaultValue": "",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
+      "DisplayName": "Items(##PCFDatasetItems##)",
+      "DisplayNameResourceString": "Items",
+      "HelperUI": "",
+      "Hidden": false,
+      "IsDataSourceProperty": true,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": true,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "Items",
+      "NullDefaultValue": "",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": null,
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 26,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
+      "DisplayName": "Items(##PCFDatasetSelected##)",
+      "DisplayNameResourceString": "Items",
+      "HelperUI": "",
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": true,
+      "IsResettableToManifestDefault": false,
+      "Name": "Selected",
+      "NullDefaultValue": "",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "Items",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 5,
+      "Usage": 1,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
+      "DisplayName": "Items(##PCFDatasetSelectedItems##)",
+      "DisplayNameResourceString": "Items",
+      "HelperUI": "",
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": true,
+      "IsResettableToManifestDefault": false,
+      "Name": "SelectedItems",
+      "NullDefaultValue": "",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "Items",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 26,
+      "Usage": 1,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
+      "DisplayName": "Items(##PCFDatasetDefaultSelectedItems##)",
+      "DisplayNameResourceString": "Items",
+      "HelperUI": "",
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "DefaultSelectedItems",
+      "NullDefaultValue": "",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "Items",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 26,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
       "Category": "design",
       "DefaultValue": "",
       "Description": "",
@@ -534,6 +626,28 @@
       "Type": 3,
       "Usage": 0,
       "WebDefaultValue": ""
+    }
+  ],
+  "PropertyDependencies": [
+    {
+      "Input": "DefaultSelectedItems",
+      "Output": "Selected",
+      "RequiredFor": ""
+    },
+    {
+      "Input": "DefaultSelectedItems",
+      "Output": "SelectedItems",
+      "RequiredFor": ""
+    },
+    {
+      "Input": "Items",
+      "Output": "Selected",
+      "RequiredFor": ""
+    },
+    {
+      "Input": "Items",
+      "Output": "SelectedItems",
+      "RequiredFor": ""
     }
   ],
   "Resources": [
@@ -583,35 +697,35 @@
       "IsControlSpecific": false,
       "LoadingOrder": 7,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.ButtonCanvas\",\"CustomControlId\":\"PowerApps.CoreControls.ButtonCanvas\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"AcceptsFocus\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"true\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Appearance\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Primary\"},\"Text\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Button\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.TabList\",\"CustomControlId\":\"PowerApps.CoreControls.TabList\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Items\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"Size\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Large\"},\"Alignment\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Horizontal\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":null},\"Events\":null,\"CommonEvents\":{\"OnChange\":{\"EventName\":\"OnChange\"},\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"AcceptsFocus\",\"Type\":\"TwoOptions\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Appearance\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Text\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
+      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Size\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Alignment\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Items\",\"Type\":\"DataSet\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"Selected\",\"Type\":\"Object\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"SelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"DefaultSelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"0.0.19\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"2.2.1\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/ButtonCanvas.js",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1033.resx",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1033.resx",
       "Type": 2
     },
     {
@@ -625,322 +739,322 @@
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1025.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1025.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1026.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1026.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1027.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1027.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1028.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1028.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1029.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1029.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1030.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1030.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1031.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1031.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1032.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1032.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1033.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1033.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1035.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1035.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1036.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1036.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1037.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1037.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1038.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1038.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1040.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1040.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1041.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1041.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1042.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1042.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1043.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1043.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1044.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1044.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1045.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1045.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1046.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1046.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1048.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1048.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1049.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1049.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1050.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1050.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1051.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1051.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1053.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1053.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1054.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1054.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1055.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1055.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1057.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1057.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1058.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1058.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1060.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1060.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1061.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1061.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1062.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1062.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1063.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1063.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1066.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1066.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1069.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1069.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1081.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1081.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1086.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1086.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1087.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1087.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.1110.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1110.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.2052.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.2052.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.2070.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.2070.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.2074.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.2074.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.3076.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.3076.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.3082.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.3082.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_ButtonCanvas/strings/ButtonCanvas.3098.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.3098.json",
       "Type": 5
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"ButtonCanvas\":\"Button\",\"ButtonCanvas_Desc\":\"Let users to click or tap to perform an action.\",\"ButtonCanvas_Appearance\":\"Type\",\"ButtonCanvas_Appearance_Desc\":\"Display as one of button types.\",\"ButtonCanvas_Appearance_Secondary\":\"Secondary\",\"ButtonCanvas_Appearance_Primary\":\"Primary\",\"ButtonCanvas_Appearance_Outline\":\"Outline\",\"ButtonCanvas_Appearance_Subtle\":\"Subtle\",\"ButtonCanvas_Appearance_Transparent\":\"Transparent\",\"ButtonCanvas_Text\":\"Text\",\"ButtonCanvas_Text_Desc\":\"Text to display in the button.\",\"ButtonCanvas_AcceptsFocus\":\"Accepts focus\",\"ButtonCanvas_AcceptsFocus_Desc\":\"Whether this field can be reached with Tab key.\",\"ButtonCanvas_AccessibleLabel\":\"Accessible label\",\"ButtonCanvas_AccessibleLabel_Desc\":\"Label read out by screen readers.\",\"Base_Palette_Color\":\"Base palette color\",\"Base_Palette_Color_description\":\"You can provide a different color palette for the selected item by specifying a base palette color. This color generates a set of similar colors that are then applied to different aspects of the item, most commonly: fill, border, and interaction states. A blank value indicates the item will use the color palette of the app's theme.\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"TabList_Display_Key\":\"Tab list\",\"TabList_Desc_Key\":\"Let users select from a list of items.\",\"TabList_Alignment_Display_Key\":\"Alignment\",\"TabList_Alignment_Desc_Key\":\"Alignment of the component that tabs are laid out. \",\"TabList_Size_Display_Key\":\"Size\",\"TabList_Size_Desc_Key\":\"Select from different size\",\"TabList_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"TabList_AccessibleLabel_Desc_Key\":\"Accessibility Label for TabList \",\"TabList_Items_Display_Key\":\"Items\",\"TabList_Items_Desc_Key\":\"Items: The items to display in the tab list.\",\"TabList_Size_Small\":\"Small\",\"TabList_Size_Medium\":\"Medium\",\"TabList_Size_Large\":\"Large\",\"TabList_Alignment_Vertical\":\"Vertical\",\"TabList_Alignment_Horizontal\":\"Horizontal\",\"Base_Palette_Color\":\"Base palette color\",\"Base_Palette_Color_description\":\"You can provide a different color palette for the selected item by specifying a base palette color. This color generates a set of similar colors that are then applied to different aspects of the item, most commonly: fill, border, and interaction states. A blank value indicates the item will use the color palette of the app's theme.\"}}}",
       "Type": 3
     },
     {
@@ -956,11 +1070,14 @@
       "ModifiedPath": "",
       "Path": "Fluent/9.4.0/9.4.0",
       "Type": 4
+    },
+    {
+      "IsControlSpecific": false,
+      "LoadingOrder": 0,
+      "ModifiedPath": "",
+      "Path": "React/16.8.6/16.8.6",
+      "Type": 4
     }
   ],
-  "SubscribedFunctionalities": {
-    "autoDisabledViewState": "true",
-    "supportSetFocus": "true"
-  },
-  "Version": "0.0.19"
+  "Version": "2.2.1"
 }
