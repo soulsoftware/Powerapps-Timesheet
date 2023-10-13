@@ -30,7 +30,7 @@ s01_Main As screen:
             DisplayMode: =DisplayMode.Edit
             Height: =55
             Items: |-
-                =[  { text: "TS Users" }, { text: "All Users" } ]
+                =[  { text: "TS Users", view:1 }, { text: "All Users", view:2 } ]
             LayoutMinHeight: =55
             LayoutMinWidth: =280
             Width: =280
