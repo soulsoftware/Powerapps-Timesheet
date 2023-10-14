@@ -95,7 +95,7 @@ s01_Main As screen:
                 With({
                     view: Switch( s01_TabList.Selected.view, 1, 'Users (Views)'.'TS Users', 2, 'Users (Views)'.'Disabled Users')
                 },
-                Filter(Users, view))
+                Filter(AddColumns(Users, "utype", 'User License Type'), view))
             LayoutMinHeight: =500
             LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
             PCFTeamsTheme: ="default"
@@ -156,7 +156,7 @@ s01_Main As screen:
             userlicensetype1 As pcfDataField.textualColumn:
                 FieldDisplayName: ="userlicensetype"
                 FieldName: ="userlicensetype"
-                FieldType: ="a"
+                FieldType: ="n"
                 FieldVariantName: ="textualColumn"
                 Order: =7
                 ZIndex: =23
