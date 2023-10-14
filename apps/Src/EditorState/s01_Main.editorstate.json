@@ -4282,9 +4282,17 @@
         "X",
         "Y",
         "Width",
-        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ZIndex",
-        "Text"
+        "Text",
+        "OnSelect"
       ],
       "DynamicProperties": [
         {
@@ -4348,7 +4356,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s01_lbl_AccessControl",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4385,6 +4393,11 @@
           "Category": "Design",
           "PropertyName": "Height",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSelect",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -4464,7 +4477,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s01_lbl_AltMail1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4585,7 +4598,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s01_lbl_FullName",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4932,7 +4945,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s01_tgl_Licensed",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
