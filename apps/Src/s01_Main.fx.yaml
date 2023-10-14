@@ -25,26 +25,39 @@ s01_Main As screen:
             LayoutMinWidth: =0
             ZIndex: =1
 
-        "s01_TabList As 'Tab list'.pcfdataset":
-            AlignInContainer: =AlignInContainer.Stretch
-            DisplayMode: =DisplayMode.Edit
+        s01_Container3 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
             Height: =55
-            Items: |-
-                =[  { text: "TS Users", view:1 }, { text: "Disabled Users", view:2 },  { text: "Enabled Users", view:3 }]
-            LayoutMinHeight: =55
-            LayoutMinWidth: =280
-            Width: =280
-            X: =40
-            Y: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =2
 
-            TextInput1 As pcfDataField.textualColumn:
-                FieldDisplayName: ="text"
-                FieldName: ="text"
-                FieldType: ="s"
-                FieldVariantName: ="textualColumn"
-                Order: =1
-                ZIndex: =14
+            "s01_TabList As 'Tab list'.pcfdataset":
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                Height: =55
+                Items: |-
+                    =[  { text: "TS Users", view:1 }, { text: "Disabled Users", view:2 },  { text: "Enabled Users", view:3 }]
+                LayoutMinHeight: =Parent.Height
+                LayoutMinWidth: =280
+                Width: =280
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+                TextInput1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="text"
+                    FieldName: ="text"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =14
 
         "s01_grd_User As 'Table (Dataverse only)'.pcfdataset":
             AlignInContainer: =AlignInContainer.Stretch
@@ -65,7 +78,7 @@ s01_Main As screen:
             Width: =1366
             X: =0
             Y: =0
-            ZIndex: =3
+            ZIndex: =4
 
             "'First Name1' As pcfDataField.textualColumn":
                 FieldDisplayName: ="First Name"
@@ -132,7 +145,7 @@ s01_Main As screen:
             LayoutMinWidth: =0
             OnAction: |-
                 =UpdateContext({ formCollapsed: Collapsed })
-            ZIndex: =4
+            ZIndex: =5
 
         s01_Container2 As groupContainer.verticalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -146,7 +159,7 @@ s01_Main As screen:
             RadiusTopLeft: =4
             RadiusTopRight: =4
             Visible: =Not(s01_CollapsableBar.Collapsed)
-            ZIndex: =5
+            ZIndex: =6
 
             s01_frm_User As form:
                 BorderColor: =RGBA(243, 242, 241, 1)
@@ -496,5 +509,5 @@ s01_Main As screen:
             LayoutMinHeight: =640
             LayoutMinWidth: =0
             Version: =AppVersion
-            ZIndex: =6
+            ZIndex: =7
 

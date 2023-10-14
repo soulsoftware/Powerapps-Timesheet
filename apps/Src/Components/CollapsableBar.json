@@ -1176,7 +1176,7 @@
       },
       "OnAction"
     ],
-    "LastModifiedTimestamp": "638328132018289739",
+    "LastModifiedTimestamp": "638329029546766167",
     "Name": "CollapsableBar",
     "Rules": [
       {
@@ -1308,7 +1308,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638328132018289739",
+  "LastModifiedTimestamp": "638329029546766167",
   "Name": "b87145aec5964dcd8528b487a89f2ac9",
   "OverridableProperties": {},
   "TemplateOriginalName": "979cf6285133455da5cd1636bd707730",
