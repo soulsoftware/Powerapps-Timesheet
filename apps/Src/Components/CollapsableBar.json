@@ -103,7 +103,7 @@
             "Name": "c001_lbl_Caption",
             "Parent": "c001_Container_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 42,
+            "PublishOrderIndex": 46,
             "Rules": [
               {
                 "Category": "Data",
@@ -330,7 +330,7 @@
             "Name": "c001_ico_collapse",
             "Parent": "c001_Container_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 43,
+            "PublishOrderIndex": 47,
             "Rules": [
               {
                 "Category": "Design",
@@ -675,7 +675,7 @@
             "Name": "c001_ico_expand",
             "Parent": "c001_Container_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 44,
+            "PublishOrderIndex": 48,
             "Rules": [
               {
                 "Category": "Design",
@@ -968,7 +968,7 @@
         "Name": "c001_Container_1",
         "Parent": "CollapsableBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 41,
+        "PublishOrderIndex": 45,
         "Rules": [
           {
             "Category": "Design",

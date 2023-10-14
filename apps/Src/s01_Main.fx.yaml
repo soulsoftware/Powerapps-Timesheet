@@ -97,14 +97,67 @@ s01_Main As screen:
                 Filter(Users, view))
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
-            LayoutMinWidth: =320
+            LayoutMinWidth: =Parent.Width
             LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+            TemplateSize: =50
             ZIndex: =4
+
+            s01_Container4 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =50
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =3
+
+                s01_lbl_FullName As Label:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    OnSelect: =Select(Parent)
+                    Text: =$"{ThisItem.'Last Name'} {ThisItem.'First Name'}"
+                    Width: =320
+                    X: =40
+                    Y: =18
+                    ZIndex: =1
+
+                s01_lbl_AltMail1 As Label:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Text: =ThisItem.'Alternative Email 1'
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                Toggle1 As Toggle:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Checked: =ThisItem.'User Licensed'
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =35
+                    Label: ="Licensed"
+                    LabelPosition: ='Toggle.LabelPosition'.Before
+                    LayoutMinHeight: =35
+                    LayoutMinWidth: =110
+                    Width: =110
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
 
         s01_CollapsableBar As CollapsableBar:
             AlignInContainer: =AlignInContainer.Stretch
-            Caption: =s01_grd_User.Selected.'Full Name'
+            Caption: =s01_gly_User.Selected.'Full Name'
             Collapsed: =formCollapsed
             Height: =32
             LayoutMinHeight: =640
@@ -132,7 +185,7 @@ s01_Main As screen:
                 BorderColor: =RGBA(243, 242, 241, 1)
                 DataSource: =Users
                 Height: =180
-                Item: =s01_grd_User.Selected
+                Item: =s01_gly_User.Selected
                 LayoutMinHeight: =50
                 LayoutMinWidth: =400
                 NumberOfColumns: =4
