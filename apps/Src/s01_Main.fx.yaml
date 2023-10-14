@@ -32,6 +32,7 @@ s01_Main As screen:
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingRight: =10
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
             RadiusTopLeft: =4
@@ -61,6 +62,7 @@ s01_Main As screen:
                     ZIndex: =14
 
             Icon2 As icon.Reload:
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(0, 0, 0, 0)
                 Color: =RGBA(98, 100, 167, 1)
                 DisabledBorderColor: =RGBA(243, 242, 241, 1)

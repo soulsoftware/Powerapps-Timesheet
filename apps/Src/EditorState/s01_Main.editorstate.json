@@ -2697,7 +2697,14 @@
           "PropertyName": "FillPortions"
         },
         {
-          "ControlPropertyState": "AlignInContainer",
+          "ControlPropertyState": {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "AlignInContainer",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "Property": {
             "Category": "Design",
             "PropertyName": "AlignInContainer",
@@ -4022,7 +4029,15 @@
         "RadiusTopLeft",
         "RadiusTopRight",
         "RadiusBottomLeft",
-        "RadiusBottomRight"
+        "RadiusBottomRight",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "PaddingRight",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -4195,6 +4210,11 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "PaddingRight",
           "RuleProviderType": "Unknown"
         }
       ],
