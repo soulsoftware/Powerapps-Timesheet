@@ -156,7 +156,7 @@ s01_Main As screen:
             userlicensetype1 As pcfDataField.textualColumn:
                 FieldDisplayName: ="userlicensetype"
                 FieldName: ="userlicensetype"
-                FieldType: ="l"
+                FieldType: ="lookup"
                 FieldVariantName: ="textualColumn"
                 Order: =7
                 ZIndex: =23
