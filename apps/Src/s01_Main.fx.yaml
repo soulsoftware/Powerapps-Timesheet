@@ -158,8 +158,16 @@ s01_Main As screen:
                 FieldName: ="userlicensetype"
                 FieldType: ="n"
                 FieldVariantName: ="textualColumn"
-                Order: =7
+                Order: =8
                 ZIndex: =23
+
+            accessmode1 As pcfDataField.textualColumn:
+                FieldDisplayName: ="accessmode"
+                FieldName: ="accessmode"
+                FieldType: ="l"
+                FieldVariantName: ="textualColumn"
+                Order: =7
+                ZIndex: =24
 
         s01_CollapsableBar As CollapsableBar:
             AlignInContainer: =AlignInContainer.Stretch
