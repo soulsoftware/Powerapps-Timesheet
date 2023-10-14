@@ -2943,7 +2943,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s01_CollapsableBar",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3323,7 +3323,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s01_Container2",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3911,7 +3911,8 @@
           "InvariantPropertyName": "NumberOfColumns",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "OnSuccess"
       ],
       "DynamicProperties": [
         {
@@ -4047,6 +4048,11 @@
           "Category": "Design",
           "PropertyName": "NumberOfColumns",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSuccess",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultFormStyle",

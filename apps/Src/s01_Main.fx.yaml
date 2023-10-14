@@ -218,6 +218,8 @@ s01_Main As screen:
                 LayoutMinHeight: =50
                 LayoutMinWidth: =400
                 NumberOfColumns: =4
+                OnSuccess: |-
+                    =UpdateContext({ formCollapsed: true })
                 Width: =1366
                 Y: =529
                 ZIndex: =2
