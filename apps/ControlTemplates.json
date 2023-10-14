@@ -450,17 +450,17 @@
   "Toggle": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Toggle",
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_Toggle",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": true,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": false,
     "LastModifiedTimestamp": "0",
-    "Name": "PowerApps_CoreControls_Toggle",
+    "Name": "Microsoft_CoreControls_Toggle",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toggle",
-    "Version": "1.0.13"
+    "Version": "1.6.0"
   },
   "typedDataCard": {
     "CustomGroupControlTemplateName": "",

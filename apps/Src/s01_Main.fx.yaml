@@ -134,22 +134,24 @@ s01_Main As screen:
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =320
+                    OnSelect: =Select( s01_gly_User )
                     Text: =ThisItem.'Alternative Email 1'
                     Width: =320
                     X: =0
                     Y: =0
                     ZIndex: =2
 
-                Toggle1 As Toggle:
+                s01_tgl_Licensed As Toggle:
                     AlignInContainer: =AlignInContainer.Stretch
                     Checked: =ThisItem.'User Licensed'
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =35
-                    Label: ="Licensed"
-                    LabelPosition: ='Toggle.LabelPosition'.Before
-                    LayoutMinHeight: =35
-                    LayoutMinWidth: =110
-                    Width: =130
+                    DisplayMode: =DisplayMode.View
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =160
+                    OffText: ="Not Licensed"
+                    OnSelect: =Select( s01_gly_User )
+                    OnText: ="Licensed"
+                    Width: =150
                     X: =0
                     Y: =0
                     ZIndex: =3
