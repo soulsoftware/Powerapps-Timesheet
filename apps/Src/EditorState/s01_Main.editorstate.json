@@ -4292,7 +4292,15 @@
         },
         "ZIndex",
         "Text",
-        "OnSelect"
+        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Alignment",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -4363,6 +4371,11 @@
           "Category": "Data",
           "PropertyName": "Text",
           "RuleProviderType": "User"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Alignment",
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",

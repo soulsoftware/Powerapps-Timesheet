@@ -158,6 +158,7 @@ s01_Main As screen:
 
                 s01_lbl_AccessControl As Label:
                     AlignInContainer: =AlignInContainer.Stretch
+                    Alignment: =Align.Left
                     DisplayMode: =DisplayMode.View
                     FillPortions: =1
                     Height: =32
