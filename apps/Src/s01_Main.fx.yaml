@@ -96,7 +96,7 @@ s01_Main As screen:
                 },
                 Filter(Users, view))
             Layout: =Layout.Vertical
-            LayoutMinHeight: =287
+            LayoutMinHeight: =430
             LayoutMinWidth: =Parent.Width
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =50
