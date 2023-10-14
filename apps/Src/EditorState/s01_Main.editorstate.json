@@ -190,7 +190,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Alternative Email 11",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -437,7 +437,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Alternative Email 21",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -684,7 +684,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Alternative Email 31",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2517,7 +2517,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "First Name1",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2832,7 +2832,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "islicensed1",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2913,7 +2913,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Last Name1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3395,7 +3395,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s01_CollapsableBar",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3775,7 +3775,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s01_Container2",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5452,7 +5452,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "userlicensetype1": {
+    "userlicensetype2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "FieldName",
@@ -5472,11 +5472,11 @@
       "IsDataControl": false,
       "IsFromScreenLayout": false,
       "IsGroupControl": false,
-      "IsLocked": false,
+      "IsLocked": true,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "userlicensetype1",
-      "ParentIndex": 6,
+      "Name": "userlicensetype2",
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5502,7 +5502,7 @@
         {
           "Category": "Data",
           "PropertyName": "FieldType",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",

@@ -153,7 +153,7 @@ s01_Main As screen:
                 Order: =7
                 ZIndex: =22
 
-            userlicensetype1 As pcfDataField.textualColumn:
+            userlicensetype2 As pcfDataField.textualColumn:
                 FieldDisplayName: ="userlicensetype"
                 FieldName: ="userlicensetype"
                 FieldType: ="n"
@@ -176,6 +176,7 @@ s01_Main As screen:
             DropShadow: =DropShadow.Light
             Height: =50
             LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =130
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             PaddingRight: =10
@@ -191,7 +192,7 @@ s01_Main As screen:
                 DataSource: =Users
                 Height: =180
                 Item: =s01_grd_User.Selected
-                LayoutMinHeight: =100
+                LayoutMinHeight: =50
                 LayoutMinWidth: =400
                 NumberOfColumns: =4
                 Width: =1366
