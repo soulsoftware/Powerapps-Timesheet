@@ -73,6 +73,7 @@ s01_Main As screen:
                 HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
                 HoverFill: =RGBA(0, 0, 0, 0)
                 Icon: =Icon.Reload
+                OnSelect: =Refresh(Users)
                 PaddingBottom: =3
                 PaddingLeft: =3
                 PaddingRight: =3
