@@ -824,36 +824,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s01_Main.s01_Container1.s01_gly_User.s01_Container4.s01_tgl_Licensed.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s01_Main.s01_Container1.s01_gly_User.s01_Container4.s01_tgl_Licensed.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s01_Main",
-                "type": "s01_Main.s01_Container1.s01_gly_User.s01_Container4.s01_tgl_Licensed"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.projects"
                 }
               ],
