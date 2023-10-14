@@ -4674,7 +4674,8 @@
         "Width",
         "DisplayMode",
         "ZIndex",
-        "Text"
+        "Text",
+        "Visible"
       ],
       "DynamicProperties": [
         {
@@ -4782,6 +4783,11 @@
           "Category": "Design",
           "PropertyName": "Height",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",

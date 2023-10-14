@@ -179,6 +179,7 @@ s01_Main As screen:
                     LayoutMinHeight: =32
                     LayoutMinWidth: =50
                     Text: =ThisItem.'User License Type'
+                    Visible: =false
                     Width: =320
                     X: =0
                     Y: =0
