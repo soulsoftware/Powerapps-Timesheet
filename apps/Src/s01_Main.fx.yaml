@@ -110,7 +110,7 @@ s01_Main As screen:
                 FieldName: ="firstname"
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
-                Order: =1
+                Order: =2
                 ZIndex: =15
 
             "'Last Name1' As pcfDataField.textualColumn":
@@ -118,24 +118,8 @@ s01_Main As screen:
                 FieldName: ="lastname"
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
-                Order: =2
+                Order: =1
                 ZIndex: =16
-
-            "'Full Name1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="Full Name"
-                FieldName: ="fullname"
-                FieldType: ="s"
-                FieldVariantName: ="textualColumn"
-                Order: =3
-                ZIndex: =17
-
-            "'Invitation Status1' As pcfDataField.textualColumn":
-                FieldDisplayName: ="Invitation Status"
-                FieldName: ="invitestatuscode"
-                FieldType: ="l"
-                FieldVariantName: ="textualColumn"
-                Order: =4
-                ZIndex: =18
 
             "'Alternative Email 11' As pcfDataField.textualColumn":
                 FieldDisplayName: ="Alternative Email 1"
@@ -158,8 +142,24 @@ s01_Main As screen:
                 FieldName: ="soul_alternativeemail3"
                 FieldType: ="s"
                 FieldVariantName: ="textualColumn"
-                Order: =7
+                Order: =6
                 ZIndex: =21
+
+            islicensed1 As pcfDataField.textualColumn:
+                FieldDisplayName: ="islicensed"
+                FieldName: ="islicensed"
+                FieldType: ="l"
+                FieldVariantName: ="textualColumn"
+                Order: =7
+                ZIndex: =22
+
+            userlicensetype1 As pcfDataField.textualColumn:
+                FieldDisplayName: ="userlicensetype"
+                FieldName: ="userlicensetype"
+                FieldType: ="n"
+                FieldVariantName: ="textualColumn"
+                Order: =7
+                ZIndex: =23
 
         s01_CollapsableBar As CollapsableBar:
             AlignInContainer: =AlignInContainer.Stretch
