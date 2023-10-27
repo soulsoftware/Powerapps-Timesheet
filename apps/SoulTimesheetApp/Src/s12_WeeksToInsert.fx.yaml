@@ -20,13 +20,22 @@ s12_WeeksToInsert As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        s12_TopBar As TopBar:
-            Caption: |-
-                =$"<div style='font-size: 1.0em; text-align: center'>{User().Email}</div>"
-                // "Weeks - " & var_selectedYear
-            LayoutMinHeight: =640
-            LayoutMinWidth: =640
-            Width: =1366
+        s12_Header As Header:
+            DisplayMode: =DisplayMode.Edit
+            Height: =75
+            IsProfilePictureVisible: =true
+            LayoutMinHeight: =75
+            LayoutMinWidth: =Parent.Width
+            Logo: =Soul
+            LogoTooltip: ="Soulsoftware"
+            Title: =User().FullName
+            UserEmail: =User().Email
+            UserImage: =User().Image
+            UserName: =User().FullName
+            Width: =Parent.Width
+            X: =0
+            Y: =40
+            ZIndex: =1
 
         s12_Divider As rectangle:
             BorderColor: =RGBA(0, 18, 107, 1)
@@ -35,7 +44,7 @@ s12_WeeksToInsert As screen:
             Height: =1
             Width: =Parent.Width
             Y: =108
-            ZIndex: =2
+            ZIndex: =3
 
         "s12_gal_weeks As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -79,7 +88,7 @@ s12_WeeksToInsert As screen:
             TemplateSize: =Parent.Width
             Width: =1364
             Y: =58
-            ZIndex: =3
+            ZIndex: =4
 
             s12_gal_TimeEntry As gallery.galleryVertical:
                 BorderColor: =RGBA(0, 18, 107, 1)
@@ -856,14 +865,14 @@ s12_WeeksToInsert As screen:
             LayoutMinHeight: =640
             LayoutMinWidth: =640
             Version: =var_current_version
-            ZIndex: =4
+            ZIndex: =5
 
     s12_grp_Add As groupContainer.manualLayoutContainer:
-        Height: =Parent.Height - s12_TopBar.Height
+        Height: =Parent.Height - s12_Header.Height
         Visible: =show_add_form
         Width: =352
         X: =Parent.Width - Self.Width
-        Y: =s12_TopBar.Height
+        Y: =s12_Header.Height
         ZIndex: =2
 
         s12_frm_Add As form:
@@ -2016,17 +2025,4 @@ s12_WeeksToInsert As screen:
         X: =904
         Y: =8
         ZIndex: =11
-
-    Header1 As Header:
-        DisplayMode: =DisplayMode.Edit
-        Height: =75
-        Logo: =soulH
-        Title: =User().FullName
-        UserEmail: =User().Email
-        UserImage: =User().Image
-        UserName: =User().FullName
-        Width: =Parent.Width
-        X: =0
-        Y: =40
-        ZIndex: =12
 
