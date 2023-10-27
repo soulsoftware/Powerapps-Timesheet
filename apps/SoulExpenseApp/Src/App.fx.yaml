@@ -1,6 +1,8 @@
 App As appinfo:
     BackEnabled: =false
-    Formulas: =var_current_version = "1.3.2";
+    Formulas: |-
+        =var_current_version = "1.3.3";
+        var_user_name = User().FullName
     OnError: |-
         =//
         // https://www.matthewdevaney.com/power-apps-onerror-property-capture-log-unexpected-errors/
