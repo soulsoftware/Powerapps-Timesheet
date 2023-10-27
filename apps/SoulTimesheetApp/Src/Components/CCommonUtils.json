@@ -1,0 +1,352 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentDefinitionInfo": {
+    "AllowAccessToGlobals": false,
+    "Children": [],
+    "ControlPropertyState": [
+      "Fill",
+      "Height",
+      "Width",
+      "X",
+      "Y",
+      "ZIndex",
+      "GetWeekNumber_Date",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "100",
+        "InvariantPropertyName": "GetWeekNumber",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "With(\r\n    {dateToEvaluate: Today()},\r\n    If(\r\n        Year(dateToEvaluate) = Year,\r\n        With(\r\n            {\r\n                date1: Date(\r\n                    Year(dateToEvaluate - Weekday(dateToEvaluate - 1) + 4),\r\n                    1,\r\n                    3\r\n                )\r\n            },\r\n            With(\r\n                {\r\n                    rup: RoundUp(\r\n                        dateToEvaluate - date1,\r\n                        0\r\n                    ),\r\n                    wd: Weekday(date1) + 5\r\n                },\r\n                RoundDown(\r\n                    (rup + wd) / 7,\r\n                    0\r\n                ) + 1\r\n            )\r\n        ),\r\n        1\r\n    )\r\n)",
+        "InvariantPropertyName": "GetCurrentWeekNumber",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "GetWeekDayText_Date",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Text\"",
+        "InvariantPropertyName": "GetWeekDayText",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "GetCurrentWeekNumber_pYear",
+      "IsWorkingHoursValid_Minutes",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "true",
+        "InvariantPropertyName": "IsWorkingHoursValid",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "GetDateFromWeekNumber_pWeekNumber",
+      "GetDateFromWeekNumber_pYear",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "Now()",
+        "InvariantPropertyName": "GetDateFromWeekNumber",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      }
+    ],
+    "LastModifiedTimestamp": "638339981336143569",
+    "Name": "CCommonUtils",
+    "Rules": [
+      {
+        "Category": "Data",
+        "InvariantScript": "100",
+        "Property": "GetDateFromWeekNumber_pYear",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "100",
+        "Property": "GetDateFromWeekNumber_pWeekNumber",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "And( Minutes > 0, Minutes < 24*60 )",
+        "Property": "IsWorkingHoursValid",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "100",
+        "Property": "IsWorkingHoursValid_Minutes",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "//\r\n// http://powerappsguide.com/blog/post/get-start-date-from-week-number\r\n//\r\nWith({weekDate: DateAdd(Date(pYear,1,1), 7* pWeekNumber)},\r\n    DateAdd(weekDate,\r\n            -(Weekday(weekDate)),\r\n            TimeUnit.Days\r\n    )\r\n)\r\n",
+        "Property": "GetDateFromWeekNumber",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Switch(Weekday( Date ), 1, \"Sun\", 2, \"Mon\", 3, \"Tue\", 4, \"Wed\", 5, \"Thu\", 6, \"Fri\", 7, \"Sat\") ",
+        "Property": "GetWeekDayText",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Now()",
+        "Property": "GetWeekDayText_Date",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "With({\r\n    dateToEvaluate: Today(),\r\n    adjustment: If( ISOWeekNum( Date(pYear,1,1) ) > 1, 1, 0)\r\n},\r\nIf( Year(dateToEvaluate) = pYear,\r\n    WeekNum(dateToEvaluate) + adjustment\r\n/*\r\n    With({\r\n            date1: Date(\r\n                Year(dateToEvaluate - Weekday(dateToEvaluate - 1) + 4),\r\n                1,\r\n                3\r\n            )\r\n        },\r\n        With({\r\n                rup: RoundUp( dateToEvaluate - date1, 0),\r\n                wd: Weekday(date1) + 5\r\n            },\r\n            RoundDown( (rup + wd) / 7, 0 ) + 1\r\n        )\r\n    )*/,\r\n    1\r\n))",
+        "Property": "GetCurrentWeekNumber",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "With({\r\n    adjustment: If( ISOWeekNum( Date(Year(Date),1,1) ) > 1, 1, 0)\r\n},\r\nWeekNum( Date ) + adjustment )\r\n// WeekNum( Date , StartOfWeek.Monday )\r\n// ISOWeekNum( Date )",
+        "Property": "GetWeekNumber",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "100",
+        "Property": "GetCurrentWeekNumber_pYear",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Now()",
+        "Property": "GetWeekNumber_Date",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "RGBA(0, 0, 0, 0)",
+        "Property": "Fill",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "1",
+        "Property": "ZIndex",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Y",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "X",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "400",
+        "Property": "Width",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "100",
+        "Property": "Height",
+        "RuleProviderType": "Unknown"
+      }
+    ]
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "CCommonUtils",
+    "TemplateGuid": "b3076a5636b549febd7fef9b505c407f"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "GetWeekNumber",
+      "Hidden": true,
+      "Name": "GetWeekNumber",
+      "PropertyDataTypeKey": "Number",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "27",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "GetWeekNumber_Date",
+            "Name": "GetWeekNumber_Date",
+            "PropertyDataTypeKey": "DateTime",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "A parameter",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "Date"
+            },
+            "Tooltip": "A parameter",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "GetCurrentWeekNumber",
+      "Hidden": true,
+      "Name": "GetCurrentWeekNumber",
+      "PropertyDataTypeKey": "Number",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "27",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "GetCurrentWeekNumber_pYear",
+            "Name": "GetCurrentWeekNumber_pYear",
+            "PropertyDataTypeKey": "Number",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "A parameter",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "pYear"
+            },
+            "Tooltip": "A parameter",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "GetWeekDayText",
+      "Hidden": true,
+      "Name": "GetWeekDayText",
+      "PropertyDataTypeKey": "String",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "27",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "GetWeekDayText_Date",
+            "Name": "GetWeekDayText_Date",
+            "PropertyDataTypeKey": "DateTime",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "A parameter",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "Date"
+            },
+            "Tooltip": "A parameter",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "IsWorkingHoursValid",
+      "Hidden": true,
+      "Name": "IsWorkingHoursValid",
+      "PropertyDataTypeKey": "Boolean",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "27",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "IsWorkingHoursValid_Minutes",
+            "Name": "IsWorkingHoursValid_Minutes",
+            "PropertyDataTypeKey": "Number",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "A parameter",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "Minutes"
+            },
+            "Tooltip": "A parameter",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "GetDateFromWeekNumber",
+      "Hidden": true,
+      "Name": "GetDateFromWeekNumber",
+      "PropertyDataTypeKey": "DateTime",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "27",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "GetDateFromWeekNumber_pWeekNumber",
+            "Name": "GetDateFromWeekNumber_pWeekNumber",
+            "PropertyDataTypeKey": "Number",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "week number",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "pWeekNumber"
+            },
+            "Tooltip": "week number",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+          },
+          {
+            "DisplayName": "GetDateFromWeekNumber_pYear",
+            "Name": "GetDateFromWeekNumber_pYear",
+            "PropertyDataTypeKey": "Number",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Week number year",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "pYear"
+            },
+            "Tooltip": "Week number year",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "get the start date from week number",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638339981336143569",
+  "Name": "b3076a5636b549febd7fef9b505c407f",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "c0024ad2ec9b46ea91d272929ba23c0e",
+  "Version": "637960815032991177"
+}
