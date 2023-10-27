@@ -18,7 +18,7 @@
       "Name": "mailId",
       "PropertyDataTypeKey": "String",
       "Tooltip": "mail identifier",
-      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -29,7 +29,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638329029546748951",
+  "LastModifiedTimestamp": "638339977706229560",
   "Name": "d98a4001cdc746879b4ca94d8c3105b1",
   "OverridableProperties": {},
   "TemplateOriginalName": "8fcd6d7845ca4ad1890f694abb1f498f",

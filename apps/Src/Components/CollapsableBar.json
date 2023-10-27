@@ -1176,7 +1176,7 @@
       },
       "OnAction"
     ],
-    "LastModifiedTimestamp": "638329029546766167",
+    "LastModifiedTimestamp": "638339977706321606",
     "Name": "CollapsableBar",
     "Rules": [
       {
@@ -1273,12 +1273,12 @@
               "ScopeVariableName": "Collapsed"
             },
             "Tooltip": "Collapsed Status",
-            "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
           }
         ]
       },
       "Tooltip": "expand or collapse event",
-      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -1288,7 +1288,7 @@
       "Name": "Collapsed",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "Collapse status",
-      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -1297,7 +1297,7 @@
       "Name": "Caption",
       "PropertyDataTypeKey": "String",
       "Tooltip": "Caption Text",
-      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -1308,7 +1308,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638329029546766167",
+  "LastModifiedTimestamp": "638339977706321606",
   "Name": "b87145aec5964dcd8528b487a89f2ac9",
   "OverridableProperties": {},
   "TemplateOriginalName": "979cf6285133455da5cd1636bd707730",

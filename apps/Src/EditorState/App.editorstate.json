@@ -63,7 +63,7 @@
         {
           "Category": "Formulas",
           "PropertyName": "Formulas",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",

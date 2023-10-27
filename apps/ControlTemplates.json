@@ -40,7 +40,7 @@
     "Name": "PowerApps_CoreControls_ButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Button",
-    "Version": "0.0.19"
+    "Version": "0.0.20"
   },
   "circle": {
     "CustomGroupControlTemplateName": "",
@@ -325,7 +325,7 @@
     "Name": "PowerApps_CoreControls_TabList",
     "OverridableProperties": {},
     "TemplateDisplayName": "Tab list",
-    "Version": "2.2.1"
+    "Version": "2.2.2"
   },
   "Teams": {
     "CustomGroupControlTemplateName": "",
@@ -354,7 +354,7 @@
             }
           ]
         },
-        "Version": "1.334"
+        "Version": "1.335"
       },
       "ThisChannel": {
         "Type": {
@@ -382,7 +382,7 @@
             }
           ]
         },
-        "Version": "1.334"
+        "Version": "1.335"
       },
       "ThisMeeting": {
         "Type": {
@@ -398,7 +398,7 @@
             }
           ]
         },
-        "Version": "1.334"
+        "Version": "1.335"
       },
       "ThisTeam": {
         "Type": {
@@ -426,7 +426,7 @@
             }
           ]
         },
-        "Version": "1.334"
+        "Version": "1.335"
       }
     },
     "PCFDynamicSchemaForIRRetrieval": {},
