@@ -1,0 +1,2062 @@
+s12_WeeksToInsert As screen:
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |
+        =UpdateContext({ 
+        show_delete_overlay: false, 
+        show_save_overlay: false,
+        show_submit_overlay: false,
+        show_recall_overlay: false,
+        show_add_form: false,
+        current_week: CommonUtils.GetCurrentWeekNumber(var_selectedYear)
+        });
+        Trace( $"Current Week: {current_week}" )
+
+    s12_Container4 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        s12_Container5 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(15, 108, 189, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutGap: =10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =Parent.Width
+            LayoutMode: =LayoutMode.Auto
+            PaddingRight: =10
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =1
+
+            s12_Header As Header:
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =75
+                IsProfilePictureVisible: =true
+                LayoutMinHeight: =75
+                LayoutMinWidth: |
+                    =100
+                Logo: =Soul2
+                LogoTooltip: ="Soulsoftware"
+                Title: =$"Timesheet - {User().FullName}"
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =40
+                ZIndex: =1
+
+            s12_Ico_Divider As icon.VerticalLine:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.View
+                Height: =35
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.VerticalLine
+                PaddingRight: =20
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =25
+                ZIndex: =2
+
+            s12_SearchBar As SearchBar:
+                AlignInContainer: =AlignInContainer.Center
+                CurrentWeekNumber: |
+                    =current_week
+                Height: =45
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                OnSearch: |+
+                    =Reset( s12_gal_weeks );
+                    Select(s12_gal_weeks, Week);
+                    UpdateContext({ 
+                    current_week: Week
+                    })
+                    
+                Width: =120
+                X: =671
+                Y: =8
+                ZIndex: =3
+
+            s12_btn_CurrentWeek As button:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =ColorFade(Self.Color, -10%)
+                BorderThickness: =1
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(56, 96, 178, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =42
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                OnSelect: |
+                    =With({ 
+                        Week: CommonUtils.GetCurrentWeekNumber(var_selectedYear)
+                    },
+                    Reset( s12_gal_weeks );
+                    Select(s12_gal_weeks, Week);
+                    UpdateContext({ 
+                    current_week: Week
+                    }))
+                PaddingBottom: =0
+                PaddingLeft: =1
+                PaddingRight: =1
+                PaddingTop: =0
+                Size: =gStyles.FontSize
+                Text: ="Current Week"
+                Width: =80
+                X: =794
+                Y: =9
+                ZIndex: =4
+
+            s12_Ico_Divider_1 As icon.VerticalLine:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.View
+                Height: =35
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.VerticalLine
+                PaddingLeft: =20
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =25
+                ZIndex: =5
+
+            s12_ico_Refresh As icon.Home:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =40
+                Icon: =Icon.Reload
+                OnSelect: =Refresh('AH Timesheets')
+                PaddingBottom: =1
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =1
+                Width: =Self.Height
+                X: =Parent.Width - Self.Width
+                Y: =7
+                ZIndex: =6
+
+        s12_Divider As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(56, 96, 178, 1)
+            Height: =1
+            Width: =Parent.Width
+            Y: =108
+            ZIndex: =3
+
+        "s12_gal_weeks As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
+            Height: =710
+            Items: |-
+                =With({ 
+                    start_date: Date(var_selectedYear, 1, 1) 
+                },
+                With({
+                        startDate: DateAdd( start_date, -Weekday(start_date, StartOfWeek.MondayZero) )
+                    },
+                    ForAll(
+                        Sequence(53),
+                        With({
+                                resultDate: DateAdd(
+                                    startDate,
+                                    ((Value - 1) * 7),
+                                    TimeUnit.Days
+                                )
+                            },
+                            {
+                                index: Value,
+                                weekNumber: Value,
+                                weekStartDate: resultDate,
+                                weekEndDate: DateAdd( resultDate, 6 )
+                            }
+                        )
+                    )
+                ))
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            OnSelect: |
+                =Trace( "Select Week" );
+                UpdateContext({ current_week: ThisItem.weekNumber })
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =Parent.Width
+            Width: =1364
+            Y: =58
+            ZIndex: =4
+
+            s12_gal_TimeEntry As gallery.galleryVertical:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                BorderThickness: =1
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: |
+                    =Parent.TemplateHeight - 50
+                Items: |-
+                    =With({ 
+                        // Filtered By Logged User see Timesheet Views
+                        MyTimeEntries: Filter('AH Timesheets', 'AH Timesheets (Views)'.'My TimeEntries View')
+                        // For Development
+                        // MyTimeEntries: Filter('AH Timesheets', sou_resourceemail = User().Email)
+                    },
+                    With({
+                        timeEntryByWeek: Filter(
+                            MyTimeEntries As TE,
+                            // https://docs.microsoft.com/en-us/power-apps/maker/canvas-apps/working-with-references#show-the-fields-of-a-record-owner
+                            // AsType(TS.Owner, Users).'Primary Email' = User().Email,
+                            // TE.'Week Number Fx' = ThisItem.weekNumber,
+                            // TE.Reason = TSReason.WORK,
+                            TE.'Date of Interest' >= ThisItem.weekStartDate,
+                            TE.'Date of Interest' <= ThisItem.weekEndDate
+                            )
+                        },
+                        AddColumns( 
+                            // https://powerusers.microsoft.com/t5/Building-Power-Apps/GroupBy-and-lookup-field/td-p/786256
+                            GroupBy( AddColumns( timeEntryByWeek, "_project", Project.TSProject ) , 
+                            "_project", "sou_reason", "crfc7_approvalstatus", "time_entries" ), 
+                            "week_start_date", ThisItem.weekStartDate )
+                    ))
+                Layout: =Layout.Vertical
+                OnSelect: =Trace("s12_gal_TimeEntry.Select")
+                TemplatePadding: =2
+                TemplateSize: =51
+                Width: =Parent.TemplateWidth
+                Y: =50
+                ZIndex: =6
+
+                s12_Separator_bottom As rectangle:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(153, 153, 153, 1)
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - 1
+                    ZIndex: =1
+
+                s12_Container1 As groupContainer.horizontalAutoLayoutContainer:
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =9
+
+                    "s12_cmb_Project As 'Combo box'.pcfdataset":
+                        Color: =RGBA(0, 18, 107, 1)
+                        DefaultSelectedItems: =LookUp(TSProjects, TSProject = ThisItem._project )
+                        DisplayMode: =DisplayMode.View
+                        Height: =32
+                        Items: =Filter(TSProjects, 'TSProjects (Views)'.'Active TSProjects', Modifiable = 'Modifiable (TSProjects)'.Yes )
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        OnSelect: =true
+                        PaddingEnd: =0
+                        PaddingStart: =0
+                        Text: =
+                        Width: =280
+                        X: =40
+                        Y: =19
+                        ZIndex: =1
+
+                        Name1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="Name"
+                            FieldName: ="soul_name"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =1
+                            ZIndex: =17
+
+                        "'Created On1' As pcfDataField.textualColumn":
+                            FieldDisplayName: ="Created On"
+                            FieldName: ="createdon"
+                            FieldType: ="d"
+                            FieldVariantName: ="textualColumn"
+                            Order: =2
+                            ZIndex: =18
+
+                    "s12_cmb_Reason As 'Combo box'.pcfdataset":
+                        Color: =RGBA(0, 18, 107, 1)
+                        DefaultSelectedItems: =LookUp(Choices('AH Timesheets'.Reason), Value = ThisItem.sou_reason )
+                        DisplayMode: =DisplayMode.View
+                        Height: =32
+                        Items: =Choices('AH Timesheets'.Reason)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Width: =170
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                        Value1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="Value"
+                            FieldName: ="Value"
+                            FieldType: ="l"
+                            FieldVariantName: ="textualColumn"
+                            Order: =5
+                            ZIndex: =23
+
+                    s12_lbl_Day1 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        LayoutMinWidth: =1
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = ThisItem.week_start_date )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Visible: =false
+                        Width: =50
+                        ZIndex: =3
+
+                    "s12_txt_Day1 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: ThisItem.week_start_date
+                            },    
+                            // If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day1.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        OnSelect: =false
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = ThisItem.week_start_date, Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day1
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                    s12_lbl_Day2 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |-
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = DateAdd(ThisItem.week_start_date,1) )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Width: =50
+                        ZIndex: =5
+
+                    "s12_txt_Day2 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: DateAdd(ThisItem.week_start_date, 1)
+                            },    
+                            //If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day2.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = DateAdd(ThisItem.week_start_date,1), Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day2
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =6
+
+                    s12_lbl_Day3 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |-
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = DateAdd(ThisItem.week_start_date,2) )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Width: =50
+                        ZIndex: =7
+
+                    "s12_txt_Day3 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: DateAdd(ThisItem.week_start_date, 2)
+                            },    
+                            //If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day3.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = DateAdd(ThisItem.week_start_date,2), Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day3
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =8
+
+                    s12_lbl_Day4 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |-
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = DateAdd(ThisItem.week_start_date,3) )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Width: =50
+                        ZIndex: =9
+
+                    "s12_txt_Day4 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: DateAdd(ThisItem.week_start_date, 3)
+                            },    
+                            //If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day4.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = DateAdd(ThisItem.week_start_date,3), Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day4
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =10
+
+                    s12_lbl_Day5 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |-
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = DateAdd(ThisItem.week_start_date,4) )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Width: =50
+                        ZIndex: =11
+
+                    "s12_txt_Day5 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: DateAdd(ThisItem.week_start_date, 4)
+                            },    
+                            //If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day5.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        OnSelect: =false
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = DateAdd(ThisItem.week_start_date,4), Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day5
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =12
+
+                    s12_lbl_Day6 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |-
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = DateAdd(ThisItem.week_start_date, 5) )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Width: =50
+                        ZIndex: =13
+
+                    "s12_txt_Day6 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: DateAdd(ThisItem.week_start_date, 5)
+                            },    
+                            //If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day6.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = DateAdd(ThisItem.week_start_date,5), Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day6
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =14
+
+                    s12_lbl_Day7 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( var_debug_mode, RGBA(0, 0, 0, 1) , RGBA(0, 0, 0, 0))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: |-
+                            =With({
+                                entries_by_date: Filter( ThisItem.time_entries, 'Date of Interest' = DateAdd(ThisItem.week_start_date,6) )
+                            },
+                            If( CountRows(entries_by_date) > 0 , Sum( entries_by_date, 'Working Hours' )/60 )
+                            )
+                        Width: =50
+                        ZIndex: =15
+
+                    "s12_txt_Day7 As 'Text box'":
+                        ColorBackground: =RGBA(175, 191, 224, 1)
+                        ColorText: =RGBA(0, 18, 107, 1)
+                        DisplayMode: |-
+                            =With({
+                                //week: Value(s12_lbl_WeekNumber.Text),
+                                day: DateAdd(ThisItem.week_start_date, 6)
+                            },    
+                            //If( And( CommonUtils.GetWeekNumber(day) = week, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            If( And( Year(day) = var_selectedYear, ThisItem.crfc7_approvalstatus =  'Approval Status'.Draft ), DisplayMode.Edit, DisplayMode.View)
+                            )
+                        Height: =32
+                        Italic: =IsBlank(s12_lbl_Day7.Text)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        MaxLength: =2
+                        Tooltip: |-
+                            =With({
+                                comments_by_date: Filter( ThisItem.time_entries, And('Date of Interest' = DateAdd(ThisItem.week_start_date,6), Not(IsBlank(Note))) )
+                            },
+                            Concat( 
+                                comments_by_date, 
+                                $"{Note}
+                            ===================")
+                            )
+                        Value: =s12_lbl_Day7
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =16
+
+                    s12_Container2 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =Parent.Height
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =5
+                        ZIndex: =17
+
+                        s12_lbl_ApprovalStatus As label:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: |-
+                                =Switch(ThisItem.crfc7_approvalstatus, 
+                                    'Approval Status'.Rejected, Color.Red, 
+                                    'Approval Status'.Pending, Color.Orange, 
+                                    'Approval Status'.Pending, Color.Green, 
+                                    RGBA(0, 0, 0, 1))
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FillPortions: =1
+                            FontWeight: =FontWeight.Semibold
+                            LayoutMinWidth: =100
+                            PaddingLeft: =20
+                            Size: =gStyles.FontSize
+                            Text: =ThisItem.crfc7_approvalstatus
+                            ZIndex: =1
+
+                        s12_ico_Save As icon.Save:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(214, 223, 238, 1)
+                            Height: =32
+                            Icon: =Icon.Save
+                            OnSelect: |
+                                =UpdateContext({
+                                    selected_time_entry_update: {
+                                        // week_start_date: ThisItem.week_start_date, 
+                                        records: ThisItem.time_entries,
+                                        project: s12_cmb_Project.Selected,
+                                        reason: ThisItem.sou_reason,
+                                        days: Table(
+                                        { date: ThisItem.week_start_date             , new: s12_txt_Day1.Value, old: s12_lbl_Day1.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 1 ), new: s12_txt_Day2.Value, old: s12_lbl_Day2.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 2 ), new: s12_txt_Day3.Value, old: s12_lbl_Day3.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 3 ), new: s12_txt_Day4.Value, old: s12_lbl_Day4.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 4 ), new: s12_txt_Day5.Value, old: s12_lbl_Day5.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 5 ), new: s12_txt_Day6.Value, old: s12_lbl_Day6.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 6 ), new: s12_txt_Day7.Value, old: s12_lbl_Day7.Text }
+                                    )},
+                                    show_save_overlay: true 
+                                })
+                            Tooltip: ="Save Hours"
+                            Visible: |-
+                                =With({
+                                    approvalstatus: ThisItem.crfc7_approvalstatus,
+                                    project: s12_cmb_Project.Selected,
+                                    reason: s12_cmb_Reason.Selected
+                                },
+                                And(approvalstatus = 'Approval Status'.Draft, Not(IsBlank(project)), Not(IsBlank(reason))))
+                            Width: =Self.Height
+                            X: =1254
+                            Y: =3
+                            ZIndex: =2
+
+                        s12_ico_Delete As icon.Trash:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =34
+                            Icon: =Icon.Trash
+                            OnSelect: |
+                                =UpdateContext({
+                                    selected_time_entry: {
+                                        week_start_date: ThisItem.week_start_date,
+                                        records: ThisItem.time_entries
+                                    }, 
+                                    show_delete_overlay: true 
+                                })
+                            Tooltip: ="Delete Hours"
+                            Visible: |-
+                                =With({
+                                    approvalstatus: ThisItem.crfc7_approvalstatus,
+                                    project: s12_cmb_Project.Selected,
+                                    reason: s12_cmb_Reason.Selected
+                                },
+                                And( approvalstatus = 'Approval Status'.Draft, 
+                                    // Not(IsBlank(project)), 
+                                    Not(IsBlank(reason))))
+                            Width: =Self.Height
+                            X: =1298
+                            ZIndex: =3
+
+                        s12_ico_Submit As icon.Send:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =32
+                            Icon: =Icon.Send
+                            OnSelect: |
+                                =UpdateContext({
+                                    selected_time_entry_update: {
+                                        // week_start_date: ThisItem.week_start_date, 
+                                        records: ThisItem.time_entries,
+                                        project: s12_cmb_Project.Selected,
+                                        reason: ThisItem.sou_reason,
+                                        days: Table(
+                                        { date: ThisItem.week_start_date             , new: s12_txt_Day1.Value, old: s12_lbl_Day1.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 1 ), new: s12_txt_Day2.Value, old: s12_lbl_Day2.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 2 ), new: s12_txt_Day3.Value, old: s12_lbl_Day3.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 3 ), new: s12_txt_Day4.Value, old: s12_lbl_Day4.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 4 ), new: s12_txt_Day5.Value, old: s12_lbl_Day5.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 5 ), new: s12_txt_Day6.Value, old: s12_lbl_Day6.Text },
+                                        { date: DateAdd(ThisItem.week_start_date, 6 ), new: s12_txt_Day7.Value, old: s12_lbl_Day7.Text }
+                                    )},
+                                    show_submit_overlay: true 
+                                })
+                            Tooltip: ="Submit Hours"
+                            Visible: |-
+                                =With({
+                                    approvalstatus: ThisItem.crfc7_approvalstatus,
+                                    project: s12_cmb_Project.Selected,
+                                    reason: s12_cmb_Reason.Selected
+                                },
+                                And(approvalstatus = 'Approval Status'.Draft, Not(IsBlank(project)), Not(IsBlank(reason))))
+                            Width: =Self.Height
+                            ZIndex: =4
+
+                        s12_ico_Recall As icon.Trash:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =34
+                            Icon: =Icon.Reset
+                            OnSelect: |
+                                =UpdateContext({
+                                    selected_time_entry: {
+                                        week_start_date: ThisItem.week_start_date,
+                                        records: ThisItem.time_entries
+                                    }, 
+                                    show_recall_overlay: true 
+                                })
+                            Tooltip: ="Recall Hours"
+                            Visible: |-
+                                =With({
+                                    approvalstatus: ThisItem.crfc7_approvalstatus,
+                                    project: s12_cmb_Project.Selected,
+                                    reason: s12_cmb_Reason.Selected
+                                },
+                                And(approvalstatus = 'Approval Status'.Pending, Not(IsBlank(project)), Not(IsBlank(reason))))
+                            Width: =Self.Height
+                            X: =1298
+                            ZIndex: =5
+
+            s12_Container3 As groupContainer.horizontalAutoLayoutContainer:
+                BorderThickness: =1
+                Height: =50
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =50
+                PaddingRight: =10
+                Width: =Parent.TemplateWidth
+                ZIndex: =8
+
+                s12_lbl_weekStartDayName As label:
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: |
+                        =50
+                    PaddingLeft: =10
+                    Size: =gStyles.FontSize * 1.4
+                    Text: |-
+                        =With({ 
+                            dayOfWeek: CommonUtils.GetWeekDayText(ThisItem.weekStartDate) 
+                        },
+                            $" {Text(ThisItem.weekStartDate, "dd mmm yyyy")}  -  {Text(ThisItem.weekEndDate, "dd mmm yyyy")} "
+                        )
+                    Width: =375
+                    X: =43
+                    Y: =3
+                    ZIndex: =3
+
+                s12_gal_Days As gallery.BrowseLayout_Horizontal_TwoTextOneImageVariant_pcfCore:
+                    AccessibleLabel: =
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    DisplayMode: =DisplayMode.View
+                    Height: =50
+                    Items: |+
+                        =ForAll( Sequence(7,0), 
+                        With({ 
+                            week_date: DateAdd( ThisItem.weekStartDate, Value, TimeUnit.Days ) 
+                        },
+                        {
+                            DayNum: Value,
+                            Date: week_date,
+                            Day: Day(week_date),
+                            WeekDay: CommonUtils.GetWeekDayText(week_date)
+                        }))
+                        
+                        
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =320
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =100
+                    Width: =700
+                    X: =425
+                    ZIndex: =4
+
+                    s12_lbl_Day As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =If( Or(ThisItem.WeekDay = "Sun",ThisItem.WeekDay = "Sat"), Color.Red, Color.Black )
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: |
+                            =With({
+                                week_day: Weekday(ThisItem.Date, StartOfWeek.MondayZero)
+                            },    
+                            If( Year(ThisItem.Date) = var_selectedYear, DisplayMode.View, DisplayMode.Disabled )
+                            )
+                        FontWeight: =FontWeight.Bold
+                        Height: =Parent.TemplateHeight
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =gStyles.FontSize
+                        Text: =ThisItem.Day & Char(10) & ThisItem.WeekDay
+                        Width: =100
+                        ZIndex: =5
+
+                s12_ico_Add As icon.Add:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Height: =32
+                    Icon: =Icon.Add
+                    LayoutMinHeight: =32
+                    OnSelect: |
+                        =Trace( $"weekStartDate: {ThisItem.weekStartDate}" );
+                        Select(s12_gal_weeks); // select current week
+                        ResetForm( s12_frm_Add );
+                        UpdateContext({ 
+                        show_add_form: true,
+                        current_week_start_date: ThisItem.weekStartDate,
+                        billable_hours: true
+                        })
+                    Width: =Self.Height
+                    X: =1322
+                    ZIndex: =5
+
+            "'s12_grp_Week#' As Badge":
+                Content: =ThisItem.weekNumber
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Width: =32
+                X: =5
+                Y: =6
+                ZIndex: =11
+
+        s12_BottomBar As BottomBar:
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderThickness: =1
+            Height: =30
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            Version: =var_current_version
+            ZIndex: =5
+
+    s12_grp_Add As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height - s12_Header.Height
+        Visible: =show_add_form
+        Width: =352
+        X: =Parent.Width - Self.Width
+        Y: =s12_Header.Height
+        ZIndex: =2
+
+        s12_frm_Add As form:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =1
+            DataSource: ='AH Timesheets'
+            DefaultMode: =FormMode.New
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height - s12_AddToolBar.Height - s12_BottomBar.Height - 1
+            NumberOfColumns: =1
+            OnFailure: =Notify( $"Time Entry Error! {NotificationType.Error}", NotificationType.Error )
+            OnSuccess: =Notify( "Time Entry inserted!", NotificationType.Success )
+            Width: =Parent.Width
+            Y: =s12_AddToolBar.Height
+            ZIndex: =1
+
+            WorkingHours_DataCard As typedDataCard.numberEditCard:
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="sou_workinghours"
+                Default: =ThisItem.'Working Hours'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"sou_workinghours")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =Value(s12_card_WorkingHours.Text)*60
+                Width: =352
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey17 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                s12_card_WorkingHours As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    Format: =TextFormat.Number
+                    HoverBorderColor: =RGBA(0, 18, 107, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    MaxLength: =2
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage16 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =gStyles.FontSize
+                    Text: =Coalesce(Parent.Error, If( Not(CommonUtils.IsWorkingHoursValid(WorkingHours_DataCard.Update)), "Hours value not valid!"))
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =s12_card_WorkingHours.Y + s12_card_WorkingHours.Height
+                    ZIndex: =3
+
+                StarVisible16 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey17.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey17.Y
+                    ZIndex: =4
+
+            Project_DataCard1 As typedDataCard.comboBoxEditCard:
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr2b3_Project"
+                Default: =ThisItem.Project
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"cr2b3_Project")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =s12_card_Project.Selected
+                Width: =352
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey14 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                s12_card_Project As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(56, 96, 178, 1)
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    DefaultSelectedItems: =If( billable_hours, Parent.Default, var_nothing_project)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["soul_description"]
+                    DisplayMode: =Parent.DisplayMode
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    IsSearchable: =false
+                    Items: |
+                        =Filter(TSProjects , 'TSProjects (Views)'.'Opened Project')
+                        /*
+                        With({ 
+                            lastDayOfYear: Date(var_selectedYear,12, 31), 
+                            firstDayOfYear:Date(var_selectedYear,1,1),
+                            week_number: CommonUtils.GetWeekNumber( s12_card_DateOfInterest.SelectedDate ),
+                            reason: s12_card_Reason.Selected.Value,
+                            // Filtered By Logged User see Timesheet Views
+                            MyTimeEntries: Filter('AH Timesheets', 'AH Timesheets (Views)'.'My TimeEntries View')
+                        },
+                        With({
+                            timeEntryByWeek: 
+                            ShowColumns(
+                                AddColumns(
+                                    Filter(
+                                        MyTimeEntries As TE,
+                                        TE.'Week Number Fx' = week_number,
+                                        TE.Reason = reason,
+                                        TE.'Date of Interest' >= firstDayOfYear,
+                                        TE.'Date of Interest' <= lastDayOfYear
+                                    ),  
+                                    "project_id", Project.TSProject ) , 
+                                "project_id" ),
+                                modifiable_projects: Filter(TSProjects , 'TSProjects (Views)'.'Modifiable TSProjects')
+                            },
+                            Filter(modifiable_projects, Not( TSProject in timeEntryByWeek.project_id ))
+                        ))
+                        */
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 18, 107, 1)
+                    SearchFields: =["soul_description"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(56, 96, 178, 1)
+                    SelectMultiple: =false
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage13 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =gStyles.FontSize
+                    Text: =Coalesce(Parent.Error, If(IsBlank(s12_card_Project.SelectedItems), "Project is not valid!"))
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =s12_card_Project.Y + s12_card_Project.Height
+                    ZIndex: =3
+
+                StarVisible13 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey14.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And( Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey14.Y
+                    ZIndex: =4
+
+            ResourceEmail_DataCard2 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="sou_resourceemail"
+                Default: |-
+                    =//ThisItem.'Resource Email'
+                    User().Email
+                DisplayMode: |-
+                    =// Parent.DisplayMode
+                    DisplayMode.View
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"sou_resourceemail")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@'AH Timesheets'], DataSourceInfo.MaxLength, "sou_resourceemail")
+                Required: =true
+                Update: =DataCardValue15.Text
+                Width: =352
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                DataCardKey15 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue15 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(241, 244, 249, 1)
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(0, 18, 107, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage14 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue15.Y + DataCardValue15.Height
+                    ZIndex: =3
+
+                StarVisible14 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey15.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey15.Y
+                    ZIndex: =4
+
+            "'Resource Name_DataCard1' As typedDataCard.textualEditCard":
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="sou_resourcename"
+                Default: |-
+                    =// ThisItem.'Resource Name'
+                    User().FullName
+                DisplayMode: |-
+                    =// Parent.DisplayMode
+                    DisplayMode.View
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"sou_resourcename")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@'AH Timesheets'], DataSourceInfo.MaxLength, "sou_resourcename")
+                Required: =false
+                Update: =DataCardValue19.Text
+                Width: =352
+                X: =0
+                Y: =6
+                ZIndex: =1
+
+                DataCardKey19 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue19 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(241, 244, 249, 1)
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(0, 18, 107, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage18 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue19.Y + DataCardValue19.Height
+                    ZIndex: =3
+
+                StarVisible18 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey19.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey19.Y
+                    ZIndex: =4
+
+            DateOfInterest_DataCard2 As typedDataCard.dateEditCard:
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="sou_dateofinterest"
+                Default: |
+                    =Coalesce(ThisItem.'Date of Interest', current_week_start_date, Today())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"sou_dateofinterest")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =75
+                Required: =true
+                Update: =s12_card_DateOfInterest.SelectedDate
+                Width: =352
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+                DataCardKey12 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                s12_card_DateOfInterest As datepicker:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =1
+                    CalendarHeaderFill: =RGBA(56, 96, 178, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DefaultDate: =Parent.Default
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    EndYear: =Year(Today())+100
+                    HoverDateFill: =RGBA(186, 202, 226, 1)
+                    IconBackground: =RGBA(56, 96, 178, 1)
+                    IsEditable: =true
+                    OnChange: |-
+                        =UpdateContext({ 
+                            current_week: CommonUtils.GetWeekNumber(Self.SelectedDate)
+                        }); 
+                        Select(s12_btn_GoToWeek)
+                    PaddingBottom: =0
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SelectedDateFill: =RGBA(56, 96, 178, 1)
+                    Size: =gStyles.FontSize
+                    StartYear: =1899
+                    Tooltip: |
+                        =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage11 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =s12_card_DateOfInterest.Y + s12_card_DateOfInterest.Height
+                    ZIndex: =3
+
+                StarVisible11 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey12.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey12.Y
+                    ZIndex: =4
+
+            Reason_DataCard2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="sou_reason"
+                Default: |-
+                    =// ThisItem.Reason
+                    TSReason.Work
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"sou_reason")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =s12_card_Reason.Selected.Value
+                Width: =351
+                X: =0
+                Y: =1
+                ZIndex: =3
+
+                DataCardKey13 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                s12_card_Reason As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(56, 96, 178, 1)
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    IsSearchable: =false
+                    Items: =Choices(TSReason)
+                    OnChange: =
+                    OnSelect: |
+                        =With({
+                            new_reason: Self.Selected.Value
+                        },
+                        With({
+                            not_billable: Or( 
+                                new_reason = TSReason.Absence, 
+                                new_reason = TSReason.Holiday, 
+                                new_reason = TSReason.'Hours off', 
+                                new_reason = TSReason.ROL, 
+                                new_reason = TSReason.'Sick leave ' )
+                        },
+                        Trace( $"New Value {new_reason} billabe: {Not(not_billable)}" );
+                        UpdateContext({ billable_hours: Not(not_billable) });
+                        If( not_billable, Reset(s12_card_Project) )))
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 18, 107, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(56, 96, 178, 1)
+                    SelectMultiple: =false
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage12 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =s12_card_Reason.Y + s12_card_Reason.Height
+                    ZIndex: =3
+
+                StarVisible12 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey13.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey13.Y
+                    ZIndex: =4
+
+            ApprovalStatus_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderColor: =RGBA(0, 18, 107, 0.5)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="crfc7_approvalstatus"
+                Default: |-
+                    =// ThisItem.'Approval Status'
+                    'Approval Status'.Draft
+                DisplayMode: |-
+                    =// Parent.DisplayMode
+                    DisplayMode.View
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"crfc7_approvalstatus")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =DataCardValue11.Selected.Value
+                Width: =351
+                X: =0
+                Y: =4
+                ZIndex: =3
+
+                DataCardKey11 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =gStyles.FontSize
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue11 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    ChevronBackground: =RGBA(56, 96, 178, 1)
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(241, 244, 249, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    IsSearchable: =false
+                    Items: =Choices('Approval Status')
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 18, 107, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(56, 96, 178, 1)
+                    SelectMultiple: =false
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue11.Y + DataCardValue11.Height
+                    ZIndex: =3
+
+                StarVisible10 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey11.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey11.Y
+                    ZIndex: =4
+
+            TimesheetYear_DataCard1 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="sou_timesheetyear"
+                Default: |-
+                    =// ThisItem.'Timesheet Year'
+                    $"TS{var_selectedYear}"
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'AH Timesheets'],DataSourceInfo.DisplayName,"sou_timesheetyear")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@'AH Timesheets'], DataSourceInfo.MaxLength, "sou_timesheetyear")
+                Required: =true
+                Update: =DataCardValue10.Text
+                Visible: =false
+                Width: =351
+                X: =0
+                Y: =7
+                ZIndex: =3
+
+                DataCardKey10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue10 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(0, 18, 107, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(186, 202, 226, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =gStyles.FontSize
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage9 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue10.Y + DataCardValue10.Height
+                    ZIndex: =3
+
+                StarVisible9 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 18, 107, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey10.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey10.Y
+                    ZIndex: =4
+
+        s12_AddToolBar As ToolBar:
+            ConfirmEnabled: |-
+                =With({ 
+                    new_reason: s12_card_Reason.Selected.Value ,
+                    new_project: s12_card_Project.Selected
+                },
+                And( s12_frm_Add.Valid, 
+                     CommonUtils.IsWorkingHoursValid( WorkingHours_DataCard.Update),
+                     Or( Not(billable_hours), new_project.TSProject <> var_nothing_project.TSProject ) )
+                )
+                /*
+                With({
+                    not_billable: Or( 
+                        new_reason = TSReason.Absence, 
+                        new_reason = TSReason.Holiday, 
+                        new_reason = TSReason.'Hours off', 
+                        new_reason = TSReason.ROL, 
+                        new_reason = TSReason.'Sick leave ' )
+                },
+                And( s12_frm_Add.Valid, 
+                     CommonUtils.IsWorkingHoursValid( WorkingHours_DataCard.Update),
+                     Or( not_billable, new_project.TSProject <> var_nothing_project.TSProject ) )
+                ))
+                */
+            OnCancel: |-
+                =UpdateContext( { show_add_form: false } )
+            OnConfirm: |-
+                =SubmitForm(s12_frm_Add);
+                UpdateContext( { show_add_form: false } )
+            Width: =Parent.Width
+            ZIndex: =2
+
+    s12_TimerGroup As groupContainer.manualLayoutContainer:
+        Height: =49
+        Visible: =var_debug_mode
+        Width: =100
+        X: =1141
+        ZIndex: =4
+
+        s12_timer_OnVisible As timer:
+            Color: =Color.White
+            DisplayMode: =DisplayMode.View
+            Duration: =1500
+            Fill: =RGBA(56, 96, 178, 1)
+            Height: =37
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnTimerEnd: |
+                =UpdateContext( {go_to_current_week:false } );
+                Reset( s12_gal_weeks );
+                Select(s12_gal_weeks, current_week)
+            OnTimerStart: =Trace( "timer got to current week started", TraceSeverity.Information )
+            Size: =10.5
+            Start: =Coalesce(go_to_current_week, true)
+            Text: =Text(Time(0, 0, Self.Value/1000), "ss")
+            Width: =50
+            X: =45
+            ZIndex: =1
+
+        s12_btn_GoToWeek As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(56, 96, 178, 1)
+            FontWeight: =FontWeight.Semibold
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: |
+                =Trace( $"go to week: {current_week}", TraceSeverity.Information );
+                If( And(current_week > 0, current_week < 53), 
+                    Reset( s12_gal_weeks );
+                    IfError(Select(s12_gal_weeks, current_week), Trace(FirstError.Message, TraceSeverity.Error)))
+            Size: =gStyles.FontSize
+            Text: |-
+                ="#"
+            Width: =40
+            ZIndex: =2
+
+    s12_RecallOverlay As ConfirmOverlay:
+        ConfirmText: ="Recall"
+        Height: =314
+        OnCancel: |-
+            =UpdateContext( {show_recall_overlay: false} )
+        OnConfirm: |-
+            =ForAll( Sequence(7,0), 
+                With({
+                   records_per_day: 
+                        Filter( selected_time_entry.records, 'Date of Interest' = DateAdd(selected_time_entry.week_start_date, Value) )
+                },
+                ForAll( records_per_day,
+                    Patch( 'AH Timesheets', ThisRecord, {'Approval Status': 'Approval Status'.Draft } )
+                )
+            ));
+            UpdateContext({
+                show_recall_overlay: false, 
+                selected_time_entry: Blank()
+                })
+        PromptText: ="<br><br><center>Are you sure you want <b>Recall</b> this time entries ?</center>"
+        Visible: =show_recall_overlay
+        Width: =497
+        X: =(Parent.Width - Self.Width)/2
+        Y: =(Parent.Height - Self.Height)/2
+        ZIndex: =7
+
+    s12_DeleteOverlay As ConfirmOverlay:
+        ConfirmText: ="Delete"
+        Height: =314
+        OnCancel: |-
+            =UpdateContext( {show_delete_overlay: false} )
+        OnConfirm: |-
+            =ForAll( Sequence(7,0), 
+                With({
+                   day: Filter( selected_time_entry.records, 'Date of Interest' = DateAdd(selected_time_entry.week_start_date, Value) ) 
+                },
+                RemoveIf('AH Timesheets',  'AH Timesheet' in day.'AH Timesheet' )
+                /*
+                // https://powerusers.microsoft.com/t5/Building-Power-Apps/The-right-side-of-the-equal-needs-to-be-a-constant-value/m-p/780162#M248532
+                ForAll( day As D, 
+            
+                        If( IsBlankOrError( LookUp( 'AH Timesheets', 'AH Timesheet' = D.'AH Timesheet').Owner ),  
+                            Trace("record not found!");Blank(), 
+                            RemoveIf('AH Timesheets',  'AH Timesheet' = D.'AH Timesheet' ))
+                    )
+                */
+            ));
+            UpdateContext({
+                show_delete_overlay: false, 
+                selected_time_entry: Blank()
+                })
+        PromptText: ="<br><br><center>Are you sure you want to <b>Delete</b> this time entries ?</center>"
+        Visible: =show_delete_overlay
+        Width: =497
+        X: =(Parent.Width - Self.Width)/2
+        Y: =(Parent.Height - Self.Height)/2
+        ZIndex: =8
+
+    s12_SubmitOverlay As ConfirmOverlay:
+        ConfirmText: ="Submit"
+        Height: =314
+        OnCancel: |-
+            =UpdateContext( {show_submit_overlay: false} )
+        OnConfirm: |-
+            =ForAll( selected_time_entry_update.days, 
+                With({
+                   record_exists: Not(IsBlank(ThisRecord.old)),
+                   is_updated: Not(ThisRecord.new = ThisRecord.old),
+                   date: ThisRecord.date,
+                   hours: Value( ThisRecord.new ) * 60,
+                   status: 'Approval Status'.Pending
+                },
+                //Trace( $"Day: {day} record exists: {record_exists} is updated: {is_updated}" );
+                If( record_exists, 
+                    With({ 
+                        record: LookUp( selected_time_entry_update.records, 'Date of Interest' = date ) 
+                    },
+                    If( hours > 0,
+                        Patch( 'AH Timesheets', record, { 
+                                'Approval Status': status, 
+                                'Working Hours': hours } 
+                            ); true, 
+                        Remove( 'AH Timesheets', record ); true)
+                    ),
+                // ELSE
+                If( And(is_updated, hours > 0 ), 
+                    Patch( 'AH Timesheets',
+                            Defaults('AH Timesheets'),
+                            {
+                                Project: selected_time_entry_update.project,
+                                'Date of Interest': date,
+                                'Approval Status': status,
+                                // 'Week Number Fx': CommonUtils.GetWeekNumber( date ),
+                                'Timesheet Year': $"TS{var_selectedYear}",
+                                Reason: selected_time_entry_update.reason,
+                                'Resource Email': User().Email,
+                                'Working Hours': hours
+                            }
+                        )
+                    )
+                );
+                true
+            ));
+            UpdateContext({
+                show_submit_overlay: false, 
+                selected_time_entry_update: Blank()
+                })
+        PromptText: ="<br><br><center>Are you sure you want <b>Submit</b> this time entries ?</center>"
+        Visible: =show_submit_overlay
+        Width: =497
+        X: =(Parent.Width - Self.Width)/2
+        Y: =(Parent.Height - Self.Height)/2
+        ZIndex: =9
+
+    s12_SaveOverlay As ConfirmOverlay:
+        ConfirmText: ="Save"
+        Height: =314
+        OnCancel: |-
+            =UpdateContext( {show_save_overlay: false} )
+        OnConfirm: |-
+            =ForAll( selected_time_entry_update.days, 
+                With({
+                   record_exists: Not(IsBlank(ThisRecord.old)),
+                   is_updated: Not(ThisRecord.new = ThisRecord.old),
+                   date: ThisRecord.date,
+                   hours: Value( ThisRecord.new ) * 60,
+                   status: 'Approval Status'.Draft
+                },
+                //Trace( $"Day: {day} record exists: {record_exists} is updated: {is_updated}" );
+                If( is_updated,
+                    If( record_exists, 
+                        With({ 
+                            record: LookUp( selected_time_entry_update.records, 'Date of Interest' = date ) 
+                        },
+                        Patch( 'AH Timesheets', record,  { 'Working Hours': hours } ) ),
+                        // ELSE
+                        Patch( 'AH Timesheets',
+                                    Defaults('AH Timesheets'),
+                                    {
+                                        Project: selected_time_entry_update.project,
+                                        'Date of Interest': date,
+                                        'Approval Status': status,
+                                        // 'Week Number Fx': CommonUtils.GetWeekNumber( date ),
+                                        'Timesheet Year': $"TS{var_selectedYear}",
+                                        Reason: selected_time_entry_update.reason,
+                                        'Resource Email': User().Email,
+                                        'Working Hours': hours
+                                    }
+                                )
+            
+                    ));
+                true
+            ));
+            UpdateContext({
+                show_save_overlay: false, 
+                selected_time_entry_update: Blank()
+                })
+        PromptText: ="<br><br><center>Are you sure you want to <b>Save</b> this time entries ?</center>"
+        Visible: =show_save_overlay
+        Width: =497
+        X: =(Parent.Width - Self.Width)/2
+        Y: =(Parent.Height - Self.Height)/2
+        ZIndex: =10
+
+    CommonUtils As CCommonUtils:
+        GetCurrentWeekNumber: |-
+            =With({
+                dateToEvaluate: Today(),
+                adjustment: If( ISOWeekNum( Date(pYear,1,1) ) > 1, 1, 0)
+            },
+            If( Year(dateToEvaluate) = pYear,
+                WeekNum(dateToEvaluate) + adjustment
+            /*
+                With({
+                        date1: Date(
+                            Year(dateToEvaluate - Weekday(dateToEvaluate - 1) + 4),
+                            1,
+                            3
+                        )
+                    },
+                    With({
+                            rup: RoundUp( dateToEvaluate - date1, 0),
+                            wd: Weekday(date1) + 5
+                        },
+                        RoundDown( (rup + wd) / 7, 0 ) + 1
+                    )
+                )*/,
+                1
+            ))
+        GetDateFromWeekNumber: |
+            =//
+            // http://powerappsguide.com/blog/post/get-start-date-from-week-number
+            //
+            With({weekDate: DateAdd(Date(pYear,1,1), 7* pWeekNumber)},
+                DateAdd(weekDate,
+                        -(Weekday(weekDate)),
+                        TimeUnit.Days
+                )
+            )
+        GetWeekDayText: =Switch(Weekday( Date ), 1, "Sun", 2, "Mon", 3, "Tue", 4, "Wed", 5, "Thu", 6, "Fri", 7, "Sat") 
+        GetWeekNumber: |-
+            =With({
+                adjustment: If( ISOWeekNum( Date(Year(Date),1,1) ) > 1, 1, 0)
+            },
+            WeekNum( Date ) + adjustment )
+            // WeekNum( Date , StartOfWeek.Monday )
+            // ISOWeekNum( Date )
+        Height: =33
+        IsWorkingHoursValid: =And( Minutes > 0, Minutes < 24*60 )
+        Visible: =false
+        Width: =42
+        X: =904
+        Y: =8
+        ZIndex: =11
+

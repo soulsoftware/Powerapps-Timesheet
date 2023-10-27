@@ -1,0 +1,138 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "soul_tsexpenses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "soul_tsexpense",
+    "MaxGetRowsCount": 1000,
+    "Name": "TSExpenses",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "exchangerate": "Exchange Rate",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "soul_amount": "Amount",
+      "soul_amount_base": "Amount (Base)",
+      "soul_approvalstatus": "Approval Status",
+      "soul_dateofinterest": "Date of Interest",
+      "soul_note": "Note",
+      "soul_Project": "Project",
+      "soul_reason": "Reason",
+      "soul_receipt": "Receipt",
+      "soul_resourcemail": "Resource Email",
+      "soul_tsexpense_AsyncOperations": "System Jobs",
+      "soul_tsexpense_BulkDeleteFailures": "Bulk Delete Failures",
+      "soul_tsexpense_FileAttachments": "FileAttachments",
+      "soul_tsexpense_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "soul_tsexpense_ProcessSession": "Process Sessions",
+      "soul_tsexpenseid": "TSExpense",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "transactioncurrencyid": "Currency",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "TSExpenses",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "TSExpenses (Views)",
+    "Name": "_soul_tsexpense_views",
+    "RelatedEntityName": "TSExpenses",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "08453dca-6e21-45dd-acc3-c10b0fee0b52": "Active TSExpenses",
+      "0e0c282e-6052-49e2-b7c3-6f5d6f731405": "TSExpense Lookup View",
+      "40f0e735-4361-436d-afc0-3cfdd613466c": "Inactive TSExpenses",
+      "b68b19df-19c0-4e47-aec5-0db48118074a": "TSExpense Advanced Find View",
+      "cd3187d2-37a9-4e9c-bad9-cc36ae66e2f9": "TSExpense Associated View",
+      "cd50ec43-1940-ed11-9db0-6045bd905a26": "My Expenses View"
+    }
+  },
+  {
+    "DisplayName": "Reason (TSExpenses)",
+    "Name": "soul_tsexpense_soul_reason",
+    "OptionSetInfoNameMapping": {
+      "1": "Airfly",
+      "10": "Hotel",
+      "11": "Lunch",
+      "12": "Parking,Taxi,Bus",
+      "13": "Train",
+      "14": "Toll",
+      "15": "Transfer PHPE",
+      "2": "Breakfast",
+      "3": "Car rent",
+      "4": "Certification",
+      "5": "Credit Card Fee",
+      "6": "Covid Test",
+      "7": "Dinner",
+      "8": "Fuel Receipt",
+      "9": "Generic (non-re-billable)"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "soul_reason",
+        "OptionSetReferenceEntityName": "TSExpenses"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "soul_reason",
+    "RelatedEntityName": "TSExpenses",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (TSExpenses)",
+    "Name": "soul_tsexpense_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "TSExpenses"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "TSExpenses",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (TSExpenses)",
+    "Name": "soul_tsexpense_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "TSExpenses"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "TSExpenses",
+    "Type": "OptionSetInfo"
+  }
+]

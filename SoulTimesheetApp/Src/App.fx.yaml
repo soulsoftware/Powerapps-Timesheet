@@ -1,0 +1,72 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |-
+        =var_current_version = "3.0.1";
+        var_debug_mode = false;
+        var_nothing_project = LookUp( TSProjects, Name = "_Nothing_");
+    OnError: |-
+        =//
+        // https://www.matthewdevaney.com/power-apps-onerror-property-capture-log-unexpected-errors/
+        //
+        Notify(
+            $"{FirstError.Message} Observed: {FirstError.Observed} Source: {FirstError.Source}",
+            NotificationType.Error
+        );
+        Trace(
+            "Unhandled Error",
+            TraceSeverity.Error,
+            {
+                Kind: FirstError.Kind,
+                Message: FirstError.Message,
+                Observed: FirstError.Observed,
+                Screen: App.ActiveScreen.Name,
+                Source: FirstError.Source,
+                User: User().Email
+            }
+        )
+    OnStart: |-
+        =With({
+            configYear: IfError(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "Timesheet Year" ).Value, Year(Now())),
+            appId: IfError(LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "Timesheet App Id" ).Value, "")
+        },
+        Set( var_selectedYear, Coalesce( Value(Param("year")), configYear));
+        Set( var_appId, appId );
+        );
+        Set(
+            gStyles,
+            {
+                FontSize: 10.5
+            }
+        );
+        ClearCollect(
+            clt_monthName,
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        )
+    StartScreen: =s12_WeeksToInsert
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    Teams As hostControl.TeamsHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
