@@ -913,8 +913,6 @@ s12_WeeksToInsert As screen:
                             =With({
                                 week_day: Weekday(ThisItem.Date, StartOfWeek.MondayZero)
                             },    
-                            //If( CommonUtils_1.GetWeekNumber(ThisItem.Date) = week, DisplayMode.View, DisplayMode.Disabled )
-                            //If( And(ThisItem.DayNum = week_day, Year(ThisItem.Date) = var_selectedYear) , DisplayMode.View, DisplayMode.Disabled )
                             If( Year(ThisItem.Date) = var_selectedYear, DisplayMode.View, DisplayMode.Disabled )
                             )
                         FontWeight: =FontWeight.Bold
