@@ -613,66 +613,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_ico_OpenReceipt.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_ico_OpenReceipt.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s03_Main",
-                "type": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_ico_OpenReceipt"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_ico_OpenReceipt.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_ico_OpenReceipt.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s03_Main",
-                "type": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_ico_OpenReceipt"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "s03_Main.s03_MainContainer.s03_LeftContainer.s03_gal_Timesheet.s03_Container1.s03_Commands.s03_chk_Select.AccessibleLabel"
                 }
               ],

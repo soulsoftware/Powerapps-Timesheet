@@ -282,38 +282,6 @@
                         X: =
                         ZIndex: =3
 
-                        s03_ico_OpenReceipt As icon.Add:
-                            BorderColor: =RGBA(0, 0, 0, 0)
-                            Color: =RGBA(98, 100, 167, 1)
-                            DisabledBorderColor: =RGBA(243, 242, 241, 1)
-                            DisabledColor: =RGBA(220, 220, 220, 1)
-                            DisabledFill: =RGBA(0, 0, 0, 0)
-                            DisplayMode: =DisplayMode.Disabled
-                            Height: =34
-                            HoverBorderColor: =RGBA(0, 0, 0, 0)
-                            HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
-                            HoverFill: =RGBA(0, 0, 0, 0)
-                            Icon: =Icon.View
-                            OnSelect: |
-                                =/*
-                                With(
-                                    {url: "https://outlook.office365.com/owa/", id: ThisItem.'Reference Mail' },
-                                    Launch(url, { ItemID: EncodeUrl(id), exvsurl:"1", viewmodel:"ReadMessageItem" }, LaunchTarget.New)
-                                )
-                                */
-                                Trace(First(s03_Card_Attachments.Attachments).Value);
-                            PaddingBottom: =3
-                            PaddingLeft: =3
-                            PaddingRight: =3
-                            PaddingTop: =3
-                            PressedBorderColor: =RGBA(0, 0, 0, 0)
-                            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
-                            PressedFill: =RGBA(0, 0, 0, 0)
-                            Width: =34
-                            X: =923
-                            Y: =23
-                            ZIndex: =3
-
                         "s03_chk_Select As 'Check box'":
                             BoxSide: ='Checkbox.BoxSide'.Start
                             Checked: =false
