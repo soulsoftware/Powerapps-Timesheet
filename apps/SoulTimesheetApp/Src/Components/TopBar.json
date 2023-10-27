@@ -19,7 +19,14 @@
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
               },
-              "ImagePosition",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "ImagePosition",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "ImageRotation",
               "X",
               "Y",
@@ -51,7 +58,14 @@
               "BorderThickness",
               "FocusedBorderThickness",
               "PaddingTop",
-              "PaddingRight",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "PaddingRight",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "PaddingBottom",
               {
                 "AFDDataSourceName": "",
@@ -61,26 +75,48 @@
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
               },
-              "ContentLanguage"
+              "ContentLanguage",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "Transparency",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "16",
             "DynamicProperties": [
               {
-                "ControlPropertyState": "FillPortions",
+                "ControlPropertyState": {
+                  "AFDDataSourceName": "",
+                  "AutoRuleBindingEnabled": false,
+                  "AutoRuleBindingString": "",
+                  "InvariantPropertyName": "FillPortions",
+                  "IsLockable": false,
+                  "NameMapSourceSchema": "?"
+                },
                 "PropertyName": "FillPortions",
                 "Rule": {
                   "Category": "Design",
-                  "InvariantScript": "0",
+                  "InvariantScript": "1",
                   "Property": "FillPortions",
                   "RuleProviderType": "Unknown"
                 }
               },
               {
-                "ControlPropertyState": "AlignInContainer",
+                "ControlPropertyState": {
+                  "AFDDataSourceName": "",
+                  "AutoRuleBindingEnabled": false,
+                  "AutoRuleBindingString": "",
+                  "InvariantPropertyName": "AlignInContainer",
+                  "IsLockable": false,
+                  "NameMapSourceSchema": "?"
+                },
                 "PropertyName": "AlignInContainer",
                 "Rule": {
                   "Category": "Design",
-                  "InvariantScript": "AlignInContainer.SetByContainer",
+                  "InvariantScript": "AlignInContainer.End",
                   "Property": "AlignInContainer",
                   "RuleProviderType": "Unknown"
                 }
@@ -128,7 +164,7 @@
               },
               {
                 "Category": "Data",
-                "InvariantScript": "soul",
+                "InvariantScript": "Soul",
                 "Property": "Image",
                 "RuleProviderType": "Unknown"
               },
@@ -170,7 +206,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "0",
+                "InvariantScript": "2",
                 "Property": "PaddingRight",
                 "RuleProviderType": "Unknown"
               },
@@ -194,7 +230,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "5",
+                "InvariantScript": "2",
                 "Property": "PaddingLeft",
                 "RuleProviderType": "Unknown"
               },
@@ -278,7 +314,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "ImagePosition.Fit",
+                "InvariantScript": "ImagePosition.Fill",
                 "Property": "ImagePosition",
                 "RuleProviderType": "Unknown"
               },
@@ -298,6 +334,12 @@
                 "Category": "Design",
                 "InvariantScript": "52",
                 "Property": "Height",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Design",
+                "InvariantScript": "0.1",
+                "Property": "Transparency",
                 "RuleProviderType": "Unknown"
               }
             ],
@@ -897,7 +939,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638340000139874188",
+    "LastModifiedTimestamp": "638340003823375150",
     "Name": "TopBar",
     "Rules": [
       {
@@ -987,7 +1029,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638340000139874188",
+  "LastModifiedTimestamp": "638340003823375150",
   "Name": "4b7fbedc64f74f96bbb2ea5d4c986dca",
   "OverridableProperties": {},
   "TemplateOriginalName": "adca1b59822e4c148b8e6ee362bf4e9c",

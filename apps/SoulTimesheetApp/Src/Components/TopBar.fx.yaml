@@ -19,12 +19,17 @@ TopBar As CanvasComponent:
         ZIndex: =3
 
         c01_img_Logo_1 As image:
+            AlignInContainer: =AlignInContainer.End
             BorderColor: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FillPortions: =1
             Height: =52
-            Image: =soul
-            PaddingLeft: =5
+            Image: =Soul
+            ImagePosition: =ImagePosition.Fill
+            PaddingLeft: =2
+            PaddingRight: =2
+            Transparency: =0.1
             Width: =80
             X: =18
             Y: =24

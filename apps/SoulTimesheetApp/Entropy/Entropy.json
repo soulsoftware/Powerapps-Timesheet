@@ -171,18 +171,16 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/27/2023 10:40:22",
+  "HeaderLastSavedDateTimeUTC": "10/27/2023 10:46:31",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
   "LocalResourceFileNames": {
-    "soul": "09b56dc5-cfa0-4602-8fed-96019a3ca33b.png",
-    "soulH": "35b31a02-8c06-45b3-86ef-c4c7867e5f66.png",
+    "Soul": "a416f2b3-7543-4de5-8e45-eac9ac0f7a1a.png",
     "timesheet": "0002.jpeg"
   },
   "LocalResourceRootPaths": {
-    "soul": "https://docserverpwaprodneu.blob.core.windows.net/1e985933-e593-4f13-a933-e43196a68977-1/resource/960e3988-ff88-4be6-aff2-a5a91ecfe6e4.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-27T10%3A28%3A28Z&ske=2023-10-28T10%3A43%3A28Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-28T10%3A43%3A28Z&sr=b&sp=r&sig=74j9AYRoe2cRM82GBs0fo7KgDaZnUagRdJ6tryUKEWI%3D",
-    "soulH": "https://docserverpwaprodneu.blob.core.windows.net/1e985933-e593-4f13-a933-e43196a68977-1/resource/0ff3d59e-7dde-4e8f-ab50-1689e75007d4.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-27T10%3A39%3A31Z&ske=2023-10-28T10%3A54%3A31Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-28T10%3A54%3A31Z&sr=b&sp=r&sig=whYGiCQXg1Jjf6%2Brmxai%2B6ErH0zbyaX1l4%2Bj%2F0jOfUA%3D",
+    "Soul": "https://docserverpwaprodneu.blob.core.windows.net/1e985933-e593-4f13-a933-e43196a68977-1/resource/6da26939-7600-4a66-b05b-2e94b0773887.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-27T10%3A43%3A45Z&ske=2023-10-28T10%3A58%3A45Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-28T10%3A58%3A45Z&sr=b&sp=r&sig=NPW9DWiDxAjAnNV6c8YlbM7DerXLe3PZMx2im6FdiHQ%3D",
     "timesheet": "https://docserverpwaprodneu.blob.core.windows.net/1e985933-e593-4f13-a933-e43196a68977-1/resource/Assets0Images00002.jpeg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-27T10%3A08%3A52Z&ske=2023-10-28T10%3A23%3A52Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-28T10%3A23%3A52Z&sr=b&sp=r&sig=N2tvQhhD00Aco1WAO7n7kFreeIzhCzPWm5Xi%2BkvLFbQ%3D"
   },
   "OldLogoFileName": "logo.jpg",
@@ -941,9 +939,8 @@
   },
   "ResourcesJsonIndices": {
     "Image-SampleImage": 0,
-    "Image-soul": 1,
-    "Image-soulH": 3,
-    "Image-timesheet": 2
+    "Image-Soul": 2,
+    "Image-timesheet": 1
   },
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
