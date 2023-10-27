@@ -1,0 +1,97 @@
+"Screen1 As screen.'teamsHeroApp_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =UpdateContext({ varStyle: { topBarHeight:52, topBarTitleSize:12, topBarTitleLeftPadding:12, topBarIconRightPadding:12, topBarTitleLeftPaddingWithButton:8, iconSize:16, largeIconSize:50, iconPadding:12, spaceBetweenIcons:8, deletePageSideMargins:200, galleryBarHeight:70, searchBarHeight:32, deleteTextHeight:120, deleteConfirmButtonHeight:40, iconButtonFill:RGBA(0,0,0,0.2), iconButtonSmallWidth:30, iconFill: ColorValue("#6264A7"), dividerFill: ColorValue("#EAE9E8"), formLabelFontSize: 10.5, focusBorderColor: ColorValue("#000000"), focusBorderThickness: 2, borderStyle: BorderStyle.Dashed }});
+
+    Gallery1 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        DelayItemLoading: =true
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        FocusedBorderThickness: =2
+        Height: =712
+        Items: =TSBankHolidays
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =48
+        Width: =297
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+        Rectangle2 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            DisabledFill: =RGBA(0,0,0,0)
+            Fill: =RGBA(0,0,0,0)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =Parent.TemplateHeight
+            HoverFill: =RGBA(0,0,0,0)
+            OnSelect: =Select(Parent)
+            PressedFill: =RGBA(0,0,0,0)
+            TabIndex: =0
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        Image2 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =28
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =ThisItem.WorkspaceUrl
+            OnSelect: =Select(Parent)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Width: =28
+            X: =12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
+
+        Title2 As Label:
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =10.5
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            OnSelect: =Select(Parent)
+            PCFTeamsTheme: ="default"
+            TabIndex: =-1
+            Text: =ThisItem.Title
+            VerticalAlignment: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Self.X - 8
+            X: =Image2.X + Image2.Width + 12
+            Y: =((Parent.TemplateHeight - 36) / 2) - 4
+            ZIndex: =3
+
+        Subtitle2 As Label:
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =9
+            FontWeight: =FontWeight.Normal
+            Height: =24
+            OnSelect: =Select(Parent)
+            PCFTeamsTheme: ="default"
+            TabIndex: =-1
+            Text: =ThisItem.'Start Time'
+            VerticalAlignment: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =Title2.X
+            Y: =Title2.Y + Title2.Height - 6
+            ZIndex: =4
+
+        Label1 As Label:
+            DisplayMode: =DisplayMode.Edit
+            Height: =28
+            OnSelect: =Select(Parent)
+            PCFTeamsTheme: ="default"
+            Text: =ThisItem.Category.Value
+            Width: =104
+            X: =174
+            Y: =16
+            ZIndex: =5
+
