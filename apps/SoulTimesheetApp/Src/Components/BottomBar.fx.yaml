@@ -23,7 +23,7 @@ BottomBar As CanvasComponent:
         Width: =Parent.Width
         ZIndex: =3
 
-        HtmlText1_1 As htmlViewer:
+        c02_HtmlText As htmlViewer:
             DisplayMode: =DisplayMode.View
             FillPortions: =1
             Height: =Parent.Height
@@ -33,14 +33,21 @@ BottomBar As CanvasComponent:
 
         c02_VersionLabel As label:
             Align: =Align.Right
+            AlignInContainer: =AlignInContainer.Stretch
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisplayMode: =DisplayMode.View
             Fill: =Parent.Fill
             FontWeight: =FontWeight.Lighter
-            Height: =Parent.Height
+            Height: =
+            LayoutMinHeight: |
+                =15
             LayoutMinWidth: =Parent.Width * 0.85
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
             Size: =10.5
             Text: |-
                 ="version:"
@@ -49,13 +56,20 @@ BottomBar As CanvasComponent:
 
         c02_VersionText As label:
             Align: =Align.Right
+            AlignInContainer: =AlignInContainer.Stretch
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisplayMode: =DisplayMode.View
             Fill: =Parent.Fill
             Height: =Parent.Height
+            LayoutMinHeight: |
+                =15
             LayoutMinWidth: =Parent.Width * 0.20
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
             Size: =10.5
             Text: =BottomBar.Version
             Width: =Len(Self.Text) * Self.Size - 10
