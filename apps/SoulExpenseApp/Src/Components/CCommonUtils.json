@@ -21,7 +21,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638340160690185801",
+    "LastModifiedTimestamp": "638340167353638123",
     "Name": "CCommonUtils",
     "Rules": [
       {
@@ -91,7 +91,7 @@
       "Name": "GetWeekDayText",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "9",
+        "PropertyScopeRuleNamespaceKey": "34",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "GetWeekDayText_Date",
@@ -122,7 +122,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638340160690185801",
+  "LastModifiedTimestamp": "638340167353638123",
   "Name": "e52a83e19ccd4ffb935855b11de04687",
   "OverridableProperties": {},
   "Version": "637965009763805234"
