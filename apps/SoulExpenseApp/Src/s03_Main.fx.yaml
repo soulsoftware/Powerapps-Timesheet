@@ -551,11 +551,18 @@
                     Width: =32
                     ZIndex: =7
 
-            s03_TopBar As TopBar:
-                Caption: |-
-                    ="<div style='position: absolute; left: 5%; font-size: 1.5em;'>Expenses</div>"
+            s03_Header As Header:
+                DisplayMode: =DisplayMode.Edit
+                Height: =50
+                Logo: =Soul2
+                Title: =$"Expenses - {User().FullName}"
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
                 Width: =Parent.Width
-                ZIndex: =3
+                X: =0
+                Y: =0
+                ZIndex: =4
 
         s03_Divider As rectangle:
             BorderColor: =RGBA(243, 242, 241, 1)
