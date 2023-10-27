@@ -1,0 +1,30 @@
+{
+  "2a079893-13c6-402b-8734-2343eccf33ed": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://soulsoft.sharepoint.com/sites/SoulSoftwareHR": {
+        "dataSources": {
+          "TSBankHolidays": {
+            "tableName": "TSBankHolidays"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TSBankHolidays"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2a079893-13c6-402b-8734-2343eccf33ed"
+  }
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "s07_col_selected_items",
+    "Type": "CollectionDataSourceInfo"
+  }
+]

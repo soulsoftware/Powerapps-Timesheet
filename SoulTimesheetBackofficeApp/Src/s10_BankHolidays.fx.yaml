@@ -1,0 +1,150 @@
+"s10_BankHolidays As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: =
+
+    s10_tbl_BankHolidays As dataTable.datatable:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(37, 36, 35, 1)
+        DisabledColor: =RGBA(200, 198, 196, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =RGBA(255, 255, 255, 1)
+        HeadingFill: =RGBA(98, 100, 167, 1)
+        HeadingFont: =Font.'Segoe UI'
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =10.5
+        Height: =Parent.Height - s02_HeaderContainer_1.Height - s02_FooterContainer_1.Height
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(98, 100, 167, 1)
+        InputFill: =RGBA(243, 242, 241, 1)
+        InvertedColor: =RGBA(255, 255, 255, 1)
+        Items: |
+            =//TSBankHolidays
+            ShowColumns(TSBankHolidays,  "{Name}", "Category", "EventDate", "EventType")
+        LinkColor: =RGBA(0, 134, 208, 1)
+        PrimaryColor1: =RGBA(98, 100, 167, 1)
+        PrimaryColor2: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PrimaryColor3: =ColorFade(RGBA(98, 100, 167, 1), -50%)
+        SelectedColor: =RGBA(37, 36, 35, 1)
+        SelectedFill: =RGBA(98, 100, 167, .2)
+        Size: =10.5
+        Width: =Parent.Width
+        X: =0
+        Y: =s02_HeaderContainer_1.Height
+        ZIndex: =2
+
+        "'Event Type_Column1' As dataTableColumn.numberColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Event Type"
+            FieldName: ="EventType"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.EventType
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        Category_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Category"
+            FieldName: ="Category"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Category.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        "'Start Time_Column1' As dataTableColumn.dateTimeColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Event Date"
+            FieldName: ="EventDate"
+            FieldVariantName: ="dateTimeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =Text(ThisItem.EventDate,DateTimeFormat.LongDateTime)
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        Name_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Name"
+            FieldName: ="{Name}"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.'{Name}'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+    s02_HeaderContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =60
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutGap: =5
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: |
+            =Parent.Width
+        ZIndex: =3
+
+        s02_lbl_Caption_1 As Label:
+            Alignment: =Align.Center
+            AutoHeight: =false
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =16
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =320
+            Overflow: ="Hidden"
+            PaddingBottom: =0
+            PaddingTop: =0
+            PCFTeamsTheme: ="default"
+            Text: |
+                ="Bank Holidays"
+            TextRole: ='Label.TextRole'.Heading1
+            Width: =320
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        s02_ico_Refresh_1 As icon.Add:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(98, 100, 167, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =Self.Width
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Reload
+            OnSelect: =Refresh(TSBankHolidays)
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =36
+            ZIndex: =2
+
+    s02_FooterContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =60
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        Y: =Parent.Height - Self.Height
+        ZIndex: =4
+

@@ -1,0 +1,23 @@
+CCommonUtils As CanvasComponent:
+    GetWeekDayText(Date As DateTime):
+        Date:
+            Default: =Now()
+        ThisProperty:
+            Default: =Switch(Weekday( Date ), 1, "Sun", 2, "Mon", 3, "Tue", 4, "Wed", 5, "Thu", 6, "Fri", 7, "Sat") 
+    MailToName(mail As String):
+        mail:
+            Default: ="Text"
+        ThisProperty:
+            Default: |
+                =With({ 
+                    p1: Find( ".", mail ), 
+                    p2: Find( "@", mail )
+                },
+                Proper(Mid( mail, p1+1, p2-p1-1 ) & " " & Left(mail, p1-1)))
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+

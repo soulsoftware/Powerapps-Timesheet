@@ -1,0 +1,84 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": true,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "CReportByMonthOverlay",
+    "TemplateGuid": "1bba80027e574d74a81a706911c99d67"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 2,
+      "DisplayName": "OnCancel",
+      "Hidden": false,
+      "Name": "OnCancel",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 2,
+      "DisplayName": "OnConfirm",
+      "Hidden": false,
+      "Name": "OnConfirm",
+      "PropertyDataTypeKey": "Boolean",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "39",
+        "PropertyScopeRulesKey": [
+          {
+            "DisplayName": "OnConfirm_pSelectDate",
+            "Name": "OnConfirm_pSelectDate",
+            "PropertyDataTypeKey": "DateTime",
+            "ScopeVariableInfo": {
+              "DependencyType": "New",
+              "Description": "Selected Date",
+              "IsRequired": true,
+              "ResolveExpands": false,
+              "ResolveSelects": false,
+              "ScopeVariableName": "pSelectDate"
+            },
+            "Tooltip": "Selected Date",
+            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]}}"
+          }
+        ]
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "ConfirmText",
+      "Hidden": false,
+      "Name": "ConfirmText",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "confirm caption",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "InitValue",
+      "Hidden": false,
+      "Name": "InitValue",
+      "PropertyDataTypeKey": "DateTime",
+      "Tooltip": "Init value",
+      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"DateTime\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638340242654823088",
+  "Name": "1bba80027e574d74a81a706911c99d67",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "3e3084ffa6874840ac3468161e440e2c",
+  "Version": "637709296978270458"
+}

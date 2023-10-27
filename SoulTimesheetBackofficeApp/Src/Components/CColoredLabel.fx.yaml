@@ -1,0 +1,43 @@
+CColoredLabel As CanvasComponent:
+    Alignment: ="left"
+    BorderColor: =RGBA(0, 0, 0, 1)
+    BorderStyle: =BorderStyle.Solid
+    BorderThickness: =0
+    Fill: =RGBA(0, 0, 0, 0)
+    FontSize: =10.5
+    FontWeight: =FontWeight.Normal
+    Height: =50
+    Text: ="Text"
+    TextColor: =RGBA(0, 0, 0, 1)
+    Width: =100
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    ccl_Border As rectangle:
+        BorderColor: =CColoredLabel.BorderColor
+        BorderStyle: =CColoredLabel.BorderStyle
+        BorderThickness: =CColoredLabel.BorderThickness
+        DisabledFill: =CColoredLabel.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =Parent.Height
+        HoverFill: =RGBA(98, 100, 167, 1)
+        PressedFill: =RGBA(98, 100, 167, 1)
+        Width: =Parent.Width
+        ZIndex: =1
+
+    ccl_Label As Label:
+        Alignment: =CColoredLabel.Alignment
+        Color: =CColoredLabel.TextColor
+        DisplayMode: =DisplayMode.View
+        FontSize: =CColoredLabel.FontSize
+        FontWeight: =CColoredLabel.FontWeight
+        Height: =Parent.Height - (CColoredLabel.BorderThickness*2)
+        Text: =CColoredLabel.Text
+        Width: =Parent.Width - (CColoredLabel.BorderThickness*2)
+        X: =CColoredLabel.BorderThickness
+        Y: =CColoredLabel.BorderThickness
+        ZIndex: =2
+

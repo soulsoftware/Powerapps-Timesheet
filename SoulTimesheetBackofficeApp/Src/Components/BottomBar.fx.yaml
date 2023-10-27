@@ -1,0 +1,62 @@
+BottomBar As CanvasComponent:
+    BorderThickness: =0
+    Fill: =RGBA(241, 244, 249, 1)
+    Height: =25
+    Version: =" N.N.N"
+    Width: =450
+    X: =0
+    Y: =0
+    ZIndex: =4
+
+    c02_Container As groupContainer.horizontalAutoLayoutContainer:
+        BorderThickness: |
+            =BottomBar.BorderThickness
+        DropShadow: =DropShadow.Regular
+        Fill: =Parent.Fill
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutJustifyContent: =LayoutJustifyContent.End
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =Parent.Width
+        ZIndex: =3
+
+        HtmlText1 As htmlViewer:
+            DisplayMode: =DisplayMode.View
+            FillPortions: =1
+            Height: =Parent.Height
+            HtmlText: ="Powered by <b>SoulSoftware</b> <sub>(developed by CTO)</sub>"
+            Size: =10.5
+            ZIndex: =1
+
+        Label1 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =Parent.Fill
+            FontWeight: =FontWeight.Lighter
+            Height: =Parent.Height
+            LayoutMinWidth: =Parent.Width * 0.85
+            Size: =10.5
+            Text: |-
+                ="version:"
+            Width: =60
+            ZIndex: =2
+
+        Label2_1 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =Parent.Fill
+            Height: =Parent.Height
+            LayoutMinWidth: =Parent.Width * 0.20
+            Size: =10.5
+            Text: =BottomBar.Version
+            Width: =Len(Self.Text) * Self.Size - 10
+            ZIndex: =3
+

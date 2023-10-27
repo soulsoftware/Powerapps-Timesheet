@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "s08_col_time_entries",
+    "Type": "CollectionDataSourceInfo"
+  }
+]

@@ -1,0 +1,210 @@
+"s02_TimesheetData As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    s02_tblAHTimesheet As dataTable.datatable:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(37, 36, 35, 1)
+        DisabledColor: =RGBA(200, 198, 196, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =RGBA(255, 255, 255, 1)
+        HeadingFill: =RGBA(98, 100, 167, 1)
+        HeadingFont: =Font.'Segoe UI'
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =10.5
+        Height: =648
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(98, 100, 167, 1)
+        InputFill: =RGBA(243, 242, 241, 1)
+        InvertedColor: =RGBA(255, 255, 255, 1)
+        Items: |-
+            =With({ 
+                DateStart: Date( var_selectedYear, 1, 1),
+                DateEnd: DateAdd(Date( var_selectedYear, Month(Now()), 1), 1, TimeUnit.Months)
+            },
+            SortByColumns( Filter( 'AH Timesheets', And( sou_dateofinterest >= DateStart, sou_dateofinterest < DateEnd )), "sou_resourceemail" , SortOrder.Ascending, "sou_dateofinterest", SortOrder.Descending))
+        LinkColor: =RGBA(0, 134, 208, 1)
+        PrimaryColor1: =RGBA(98, 100, 167, 1)
+        PrimaryColor2: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PrimaryColor3: =ColorFade(RGBA(98, 100, 167, 1), -50%)
+        SelectedColor: =RGBA(37, 36, 35, 1)
+        SelectedFill: =RGBA(98, 100, 167, .2)
+        Size: =10.5
+        Width: =1366
+        X: =0
+        Y: =s02_HeaderContainer.Height
+        ZIndex: =2
+
+        "'Timesheet Year_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Year"
+            FieldName: ="sou_timesheetyear"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.'Timesheet Year'
+            Width: =60
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        "'Date of Interest _Column1' As dataTableColumn.dateTimeColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Date"
+            FieldName: ="sou_dateofinterest"
+            FieldVariantName: ="dateTimeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =Text(ThisItem.'Date of Interest',DateTimeFormat.ShortDate)
+            Width: =90
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        Reason_Column1 As dataTableColumn.complexOptionSetColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Reason"
+            FieldName: ="sou_reason"
+            FieldVariantName: ="complexOptionSetColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.Reason
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        "'Resource Email_Column1' As dataTableColumn.emailColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Resource Email"
+            FieldName: ="sou_resourceemail"
+            FieldVariantName: ="emailColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.'Resource Email'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        "'Working Hours_Column1' As dataTableColumn.numberColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Working Hours"
+            FieldName: ="sou_workinghours"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.'Working Hours'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =14
+
+        "'Created On_Column1' As dataTableColumn.dateTimeColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Created On"
+            FieldName: ="createdon"
+            FieldVariantName: ="dateTimeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =Text(ThisItem.'Created On',DateTimeFormat.ShortDateTime24)
+            Width: =120
+            X: =0
+            Y: =0
+            ZIndex: =15
+
+        "'Approval Status_Column1' As dataTableColumn.complexOptionSetColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Approval Status"
+            FieldName: ="crfc7_approvalstatus"
+            FieldVariantName: ="complexOptionSetColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.'Approval Status'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =16
+
+        owninguser_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="owninguser"
+            FieldName: ="owninguser"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.'Owning User'.'Full Name'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =18
+
+    s02_HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+        Height: =60
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutGap: =5
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: |
+            =Parent.Width
+        ZIndex: =3
+
+        s02_lbl_Caption As Label:
+            Alignment: =Align.Center
+            AutoHeight: =false
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =16
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            LayoutMinHeight: =32
+            LayoutMinWidth: =320
+            Overflow: ="Hidden"
+            PaddingBottom: =0
+            PaddingTop: =0
+            PCFTeamsTheme: ="default"
+            Text: ="AH Timesheet Data"
+            TextRole: ='Label.TextRole'.Heading1
+            Width: =320
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        s02_ico_Refresh As icon.Add:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(98, 100, 167, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =Self.Width
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Reload
+            OnSelect: =Refresh('AH Timesheets')
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =36
+            ZIndex: =2
+
+    s02_FooterContainer As groupContainer.horizontalAutoLayoutContainer:
+        Height: =60
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        Y: =Parent.Height - Self.Height
+        ZIndex: =4
+
