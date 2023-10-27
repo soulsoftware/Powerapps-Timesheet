@@ -674,126 +674,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_lbl_WeekNumber.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_lbl_WeekNumber.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_lbl_WeekNumber"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_lbl_WeekNumber.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_lbl_WeekNumber.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_lbl_WeekNumber"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_Circle.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_Circle.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_Circle"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_Circle.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_Circle.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_Circle"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.AccessibleLabel"
                 }
               ],
@@ -1903,7 +1783,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"s12_WeeksToInsert\" is 855, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"s12_WeeksToInsert\" is 847, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],

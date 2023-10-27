@@ -22,11 +22,14 @@ s12_WeeksToInsert As screen:
 
         s12_Container5 As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.Light
+            Fill: =RGBA(15, 108, 189, 1)
             FillPortions: =0
             Height: =75
+            LayoutGap: =10
             LayoutMinHeight: =100
             LayoutMinWidth: =Parent.Width
             LayoutMode: =LayoutMode.Auto
+            PaddingRight: =10
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
             RadiusTopLeft: =4
@@ -40,8 +43,9 @@ s12_WeeksToInsert As screen:
                 Height: =75
                 IsProfilePictureVisible: =true
                 LayoutMinHeight: =75
-                LayoutMinWidth: =Parent.Width
-                Logo: =Soul
+                LayoutMinWidth: |
+                    =100
+                Logo: =Soul2
                 LogoTooltip: ="Soulsoftware"
                 Title: =User().FullName
                 UserEmail: =User().Email
@@ -51,6 +55,26 @@ s12_WeeksToInsert As screen:
                 X: =0
                 Y: =40
                 ZIndex: =1
+
+            s12_Ico_Divider As icon.VerticalLine:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.View
+                Height: =35
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.VerticalLine
+                PaddingRight: =20
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =25
+                ZIndex: =2
 
             s12_SearchBar As SearchBar:
                 AlignInContainer: =AlignInContainer.Center
@@ -69,9 +93,10 @@ s12_WeeksToInsert As screen:
                 Width: =120
                 X: =671
                 Y: =8
-                ZIndex: =2
+                ZIndex: =3
 
             s12_btn_CurrentWeek As button:
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =ColorFade(Self.Color, -10%)
                 BorderThickness: =1
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -100,7 +125,27 @@ s12_WeeksToInsert As screen:
                 Width: =80
                 X: =794
                 Y: =9
-                ZIndex: =3
+                ZIndex: =4
+
+            s12_Ico_Divider_1 As icon.VerticalLine:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =DisplayMode.View
+                Height: =35
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.VerticalLine
+                PaddingLeft: =20
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =25
+                ZIndex: =5
 
             s12_ico_Refresh As icon.Home:
                 AlignInContainer: =AlignInContainer.Center
@@ -118,7 +163,7 @@ s12_WeeksToInsert As screen:
                 Width: =Self.Height
                 X: =Parent.Width - Self.Width
                 Y: =7
-                ZIndex: =4
+                ZIndex: =6
 
         s12_Divider As rectangle:
             BorderColor: =RGBA(0, 18, 107, 1)
@@ -866,7 +911,7 @@ s12_WeeksToInsert As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisplayMode: |
                             =With({
-                                week: Value(s12_lbl_WeekNumber.Text),
+                                week: Value('s12_grp_Week#'.ContentLanguage),
                                 week_day: Weekday(ThisItem.Date, StartOfWeek.MondayZero)
                             },    
                             //If( CommonUtils_1.GetWeekNumber(ThisItem.Date) = week, DisplayMode.View, DisplayMode.Disabled )
@@ -905,41 +950,14 @@ s12_WeeksToInsert As screen:
                     X: =1322
                     ZIndex: =5
 
-            "'s12_grp_Week#' As group":
-                Height: =5
-                Width: =5
-                X: =20
-                Y: =20
+            "'s12_grp_Week#' As Badge":
+                Content: =ThisItem.weekNumber
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Width: =32
+                X: =5
+                Y: =6
                 ZIndex: =11
-
-                s12_lbl_WeekNumber As label:
-                    Align: =Align.Center
-                    BorderColor: =RGBA(0, 18, 107, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisplayMode: =DisplayMode.View
-                    Height: =35
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =gStyles.FontSize
-                    Text: =ThisItem.weekNumber
-                    Width: =s12_Circle.Width
-                    X: =5
-                    Y: =6
-                    ZIndex: =9
-
-                s12_Circle As circle:
-                    BorderColor: =RGBA(0, 18, 107, 1)
-                    BorderThickness: =1
-                    DisplayMode: =DisplayMode.View
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =35
-                    Width: =35
-                    X: =5
-                    Y: =6
-                    ZIndex: =10
 
         s12_BottomBar As BottomBar:
             AlignInContainer: =AlignInContainer.Stretch
