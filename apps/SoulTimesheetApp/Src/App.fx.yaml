@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     Formulas: |-
-        =var_current_version = "2.9.0";
+        =var_current_version = "3.0.0";
         var_debug_mode = false;
         var_nothing_project = LookUp( TSProjects, Name = "_Nothing_");
     OnError: |-

@@ -2017,3 +2017,16 @@ s12_WeeksToInsert As screen:
         Y: =8
         ZIndex: =11
 
+    Header1 As Header:
+        DisplayMode: =DisplayMode.Edit
+        Height: =75
+        Logo: =soul
+        Title: =User().FullName
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =40
+        ZIndex: =12
+

@@ -118,7 +118,7 @@
             "Name": "c01_img_Logo_1",
             "Parent": "TopBar_Container_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 137,
+            "PublishOrderIndex": 138,
             "Rules": [
               {
                 "Category": "Data",
@@ -453,7 +453,7 @@
             "Name": "c01_html_Caption_1",
             "Parent": "TopBar_Container_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 138,
+            "PublishOrderIndex": 139,
             "Rules": [
               {
                 "Category": "Data",
@@ -682,7 +682,7 @@
         "Name": "TopBar_Container_1",
         "Parent": "TopBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 136,
+        "PublishOrderIndex": 137,
         "Rules": [
           {
             "Category": "Design",

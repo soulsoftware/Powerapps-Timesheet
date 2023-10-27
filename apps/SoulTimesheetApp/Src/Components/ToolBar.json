@@ -137,7 +137,7 @@
             "Name": "ico_cancel_1",
             "Parent": "CommandsContainer_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 134,
+            "PublishOrderIndex": 135,
             "Rules": [
               {
                 "Category": "Design",
@@ -461,7 +461,7 @@
             "Name": "ico_confirm_1",
             "Parent": "CommandsContainer_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 135,
+            "PublishOrderIndex": 136,
             "Rules": [
               {
                 "Category": "Design",
@@ -754,7 +754,7 @@
         "Name": "CommandsContainer_3",
         "Parent": "ToolBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 133,
+        "PublishOrderIndex": 134,
         "Rules": [
           {
             "Category": "Design",
