@@ -31,11 +31,12 @@ BottomBar As CanvasComponent:
             Size: =10.5
             ZIndex: =1
 
-        Label1_1 As label:
+        c02_VersionLabel As label:
             Align: =Align.Right
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =DisplayMode.View
             Fill: =Parent.Fill
             FontWeight: =FontWeight.Lighter
             Height: =Parent.Height
@@ -46,11 +47,12 @@ BottomBar As CanvasComponent:
             Width: =60
             ZIndex: =2
 
-        Label2_1 As label:
+        c02_VersionText As label:
             Align: =Align.Right
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =DisplayMode.View
             Fill: =Parent.Fill
             Height: =Parent.Height
             LayoutMinWidth: =Parent.Width * 0.20

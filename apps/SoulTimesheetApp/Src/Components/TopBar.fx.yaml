@@ -25,11 +25,9 @@ TopBar As CanvasComponent:
             DisabledFill: =RGBA(244, 244, 244, 1)
             FillPortions: =1
             Height: =52
-            Image: =Soul
-            ImagePosition: =ImagePosition.Fill
+            Image: =Soul2
             PaddingLeft: =2
             PaddingRight: =2
-            Transparency: =0.1
             Width: =80
             X: =18
             Y: =24
