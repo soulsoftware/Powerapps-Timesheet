@@ -1364,49 +1364,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_ico_Refresh.AccessibleLabel"
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_Container5.s12_ico_Refresh.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_ico_Refresh.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_ico_Refresh"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_ico_Refresh.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_ico_Refresh.TabIndex",
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_Container5.s12_ico_Refresh.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_ico_Refresh"
+                "type": "s12_WeeksToInsert.s12_Container4.s12_Container5.s12_ico_Refresh"
               }
             }
           ],
@@ -1418,6 +1388,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_Container5.s12_ico_Refresh.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_Container5.s12_ico_Refresh.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s12_WeeksToInsert",
+                "type": "s12_WeeksToInsert.s12_Container4.s12_Container5.s12_ico_Refresh"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1903,7 +1903,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"s12_WeeksToInsert\" is 854, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"s12_WeeksToInsert\" is 855, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],

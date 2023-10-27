@@ -20,22 +20,105 @@ s12_WeeksToInsert As screen:
         Width: =Parent.Width
         ZIndex: =1
 
-        s12_Header As Header:
-            DisplayMode: =DisplayMode.Edit
+        s12_Container5 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
             Height: =75
-            IsProfilePictureVisible: =true
-            LayoutMinHeight: =75
-            LayoutMinWidth: =Parent.Width
-            Logo: =Soul
-            LogoTooltip: ="Soulsoftware"
-            Title: =User().FullName
-            UserEmail: =User().Email
-            UserImage: =User().Image
-            UserName: =User().FullName
-            Width: =Parent.Width
-            X: =0
-            Y: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
             ZIndex: =1
+
+            s12_Header As Header:
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =75
+                IsProfilePictureVisible: =true
+                LayoutMinHeight: =75
+                LayoutMinWidth: =Parent.Width
+                Logo: =Soul
+                LogoTooltip: ="Soulsoftware"
+                Title: =User().FullName
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =40
+                ZIndex: =1
+
+            s12_SearchBar As SearchBar:
+                AlignInContainer: =AlignInContainer.Center
+                CurrentWeekNumber: |
+                    =current_week
+                Height: =45
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                OnSearch: |+
+                    =Reset( s12_gal_weeks );
+                    Select(s12_gal_weeks, Week);
+                    UpdateContext({ 
+                    current_week: Week
+                    })
+                    
+                Width: =120
+                X: =671
+                Y: =8
+                ZIndex: =2
+
+            s12_btn_CurrentWeek As button:
+                BorderColor: =ColorFade(Self.Color, -10%)
+                BorderThickness: =1
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(56, 96, 178, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =42
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                OnSelect: |
+                    =With({ 
+                        Week: CommonUtils.GetCurrentWeekNumber(var_selectedYear)
+                    },
+                    Reset( s12_gal_weeks );
+                    Select(s12_gal_weeks, Week);
+                    UpdateContext({ 
+                    current_week: Week
+                    }))
+                PaddingBottom: =0
+                PaddingLeft: =1
+                PaddingRight: =1
+                PaddingTop: =0
+                Size: =gStyles.FontSize
+                Text: ="Current Week"
+                Width: =80
+                X: =794
+                Y: =9
+                ZIndex: =3
+
+            s12_ico_Refresh As icon.Home:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =40
+                Icon: =Icon.Reload
+                OnSelect: =Refresh('AH Timesheets')
+                PaddingBottom: =1
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =1
+                Width: =Self.Height
+                X: =Parent.Width - Self.Width
+                Y: =7
+                ZIndex: =4
 
         s12_Divider As rectangle:
             BorderColor: =RGBA(0, 18, 107, 1)
@@ -1701,23 +1784,6 @@ s12_WeeksToInsert As screen:
             Width: =Parent.Width
             ZIndex: =2
 
-    s12_ico_Refresh As icon.Home:
-        BorderColor: =RGBA(0, 18, 107, 1)
-        Color: =RGBA(255, 255, 255, 1)
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(244, 244, 244, 1)
-        Height: =40
-        Icon: =Icon.Reload
-        OnSelect: =Refresh('AH Timesheets')
-        PaddingBottom: =1
-        PaddingLeft: =5
-        PaddingRight: =5
-        PaddingTop: =1
-        Width: =Self.Height
-        X: =Parent.Width - Self.Width
-        Y: =7
-        ZIndex: =3
-
     s12_TimerGroup As groupContainer.manualLayoutContainer:
         Height: =49
         Visible: =var_debug_mode
@@ -1763,53 +1829,6 @@ s12_WeeksToInsert As screen:
                 ="#"
             Width: =40
             ZIndex: =2
-
-    s12_SearchBar As SearchBar:
-        CurrentWeekNumber: |
-            =current_week
-        Height: =45
-        OnSearch: |+
-            =Reset( s12_gal_weeks );
-            Select(s12_gal_weeks, Week);
-            UpdateContext({ 
-            current_week: Week
-            })
-            
-        Width: =120
-        X: =105
-        Y: =3
-        ZIndex: =5
-
-    s12_btn_CurrentWeek As button:
-        BorderColor: =ColorFade(Self.Color, -10%)
-        BorderThickness: =1
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(56, 96, 178, 1)
-        FontWeight: =FontWeight.Semibold
-        Height: =42
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-        OnSelect: |
-            =With({ 
-                Week: CommonUtils.GetCurrentWeekNumber(var_selectedYear)
-            },
-            Reset( s12_gal_weeks );
-            Select(s12_gal_weeks, Week);
-            UpdateContext({ 
-            current_week: Week
-            }))
-        PaddingBottom: =0
-        PaddingLeft: =1
-        PaddingRight: =1
-        PaddingTop: =0
-        Size: =gStyles.FontSize
-        Text: ="Current Week"
-        Width: =80
-        X: =228
-        Y: =4
-        ZIndex: =6
 
     s12_RecallOverlay As ConfirmOverlay:
         ConfirmText: ="Recall"
