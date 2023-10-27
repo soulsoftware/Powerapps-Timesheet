@@ -911,7 +911,6 @@ s12_WeeksToInsert As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisplayMode: |
                             =With({
-                                week: Value('s12_grp_Week#'.ContentLanguage),
                                 week_day: Weekday(ThisItem.Date, StartOfWeek.MondayZero)
                             },    
                             //If( CommonUtils_1.GetWeekNumber(ThisItem.Date) = week, DisplayMode.View, DisplayMode.Disabled )
