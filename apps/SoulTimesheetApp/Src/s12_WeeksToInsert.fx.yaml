@@ -2020,7 +2020,7 @@ s12_WeeksToInsert As screen:
     Header1 As Header:
         DisplayMode: =DisplayMode.Edit
         Height: =75
-        Logo: =soul
+        Logo: =soulH
         Title: =User().FullName
         UserEmail: =User().Email
         UserImage: =User().Image
