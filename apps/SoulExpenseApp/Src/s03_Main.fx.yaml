@@ -523,7 +523,7 @@
                 DisplayMode: =DisplayMode.Edit
                 Height: =50
                 Logo: =Soul2
-                Title: =$"Expenses - {User().FullName}"
+                Title: =$"Expenses - {var_user_name}"
                 UserEmail: =User().Email
                 UserImage: =User().Image
                 UserName: =User().FullName
