@@ -25,7 +25,7 @@ s12_WeeksToInsert As screen:
             FillPortions: =0
             Height: =75
             LayoutMinHeight: =100
-            LayoutMinWidth: =250
+            LayoutMinWidth: =Parent.Width
             LayoutMode: =LayoutMode.Auto
             RadiusBottomLeft: =4
             RadiusBottomRight: =4
