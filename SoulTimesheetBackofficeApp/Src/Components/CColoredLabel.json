@@ -93,7 +93,7 @@
         "Name": "ccl_Border",
         "Parent": "CColoredLabel",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 19,
+        "PublishOrderIndex": 431,
         "Rules": [
           {
             "Category": "Design",
@@ -301,7 +301,7 @@
         "Name": "ccl_Label",
         "Parent": "CColoredLabel",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 20,
+        "PublishOrderIndex": 432,
         "Rules": [
           {
             "Category": "Data",

@@ -105,7 +105,7 @@
             "Name": "HtmlText1",
             "Parent": "c02_Container",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 7,
+            "PublishOrderIndex": 421,
             "Rules": [
               {
                 "Category": "Data",
@@ -388,7 +388,7 @@
             "Name": "Label1",
             "Parent": "c02_Container",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 8,
+            "PublishOrderIndex": 422,
             "Rules": [
               {
                 "Category": "Data",
@@ -803,7 +803,7 @@
             "Name": "Label2_1",
             "Parent": "c02_Container",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 9,
+            "PublishOrderIndex": 423,
             "Rules": [
               {
                 "Category": "Data",
@@ -1192,7 +1192,7 @@
         "Name": "c02_Container",
         "Parent": "BottomBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 6,
+        "PublishOrderIndex": 420,
         "Rules": [
           {
             "Category": "Design",

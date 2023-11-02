@@ -512,45 +512,21 @@ s06_Expenses As screen:
                     Width: =Self.Height
                     ZIndex: =1
 
-                s06_img_Logo As image:
-                    AlignInContainer: =AlignInContainer.Center
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledFill: =RGBA(0, 0, 0, 0)
-                    DisplayMode: =DisplayMode.View
-                    Height: =Parent.Height
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    HoverFill: =RGBA(0, 0, 0, 0)
-                    Image: =soul
-                    PaddingTop: =10
-                    PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    PressedFill: =RGBA(0, 0, 0, 0)
-                    RadiusBottomLeft: =3
-                    RadiusBottomRight: =3
-                    RadiusTopLeft: =3
-                    RadiusTopRight: =3
+                s06_Header As Header:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =75
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =Parent.Width
+                    PCFTeamsTheme: ="default"
+                    Title: =App.ActiveScreen.Name
+                    UserEmail: =User().Email
+                    UserImage: =User().Image
+                    UserName: =User().FullName
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
                     ZIndex: =2
-
-                s06_lbl_Title As label:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    Color: =RGBA(37, 36, 35, 1)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(200, 198, 196, 1)
-                    FillPortions: =1
-                    FocusedBorderThickness: =2
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height
-                    Role: =TextRole.Heading1
-                    Size: =20
-                    Text: ="Expense Management"
-                    Width: =Parent.Width - varStyle.topBarTitleLeftPadding 
-                    X: =varStyle.topBarTitleLeftPadding
-                    ZIndex: =3
 
                 s06_ico_Reload As icon.Add:
                     AlignInContainer: =AlignInContainer.Center
@@ -578,7 +554,7 @@ s06_Expenses As screen:
                     PressedFill: =RGBA(0, 0, 0, 0)
                     Tooltip: ="Reload Data"
                     Width: =Self.Height
-                    ZIndex: =4
+                    ZIndex: =3
 
         s06_Divider_1 As rectangle:
             BorderColor: =RGBA(243, 242, 241, 1)

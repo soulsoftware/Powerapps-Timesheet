@@ -171,7 +171,7 @@
             "Name": "Button1",
             "Parent": "Container3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 66,
+            "PublishOrderIndex": 471,
             "Rules": [
               {
                 "Category": "Data",
@@ -456,7 +456,7 @@
             "Name": "Icon1",
             "Parent": "Container3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 67,
+            "PublishOrderIndex": 472,
             "Rules": [
               {
                 "Category": "Design",
@@ -756,7 +756,7 @@
         "Name": "Container3",
         "Parent": "OpenChartButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 65,
+        "PublishOrderIndex": 470,
         "Rules": [
           {
             "Category": "Design",
