@@ -30,7 +30,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638340242654749872",
+    "LastModifiedTimestamp": "638345317896262122",
     "Name": "CCommonUtils",
     "Rules": [
       {
@@ -89,7 +89,7 @@
       },
       {
         "Category": "Behavior",
-        "InvariantScript": "With({ \r\n    p1: Find( \".\", mail ), \r\n    p2: Find( \"@\", mail )\r\n},\r\nProper(Mid( mail, p1+1, p2-p1-1 ) & \" \" & Left(mail, p1-1)))\r\n",
+        "InvariantScript": "With({ \n    p1: Find( \".\", mail ), \n    p2: Find( \"@\", mail )\n},\nProper(Mid( mail, p1+1, p2-p1-1 ) & \" \" & Left(mail, p1-1)))\n",
         "Property": "MailToName",
         "RuleProviderType": "System"
       }
@@ -112,7 +112,7 @@
       "Name": "GetWeekDayText",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "26",
+        "PropertyScopeRuleNamespaceKey": "7",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "GetWeekDayText_Date",
@@ -141,7 +141,7 @@
       "Name": "MailToName",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "26",
+        "PropertyScopeRuleNamespaceKey": "7",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "MailToName_mail",
@@ -172,7 +172,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638340242654749872",
+  "LastModifiedTimestamp": "638345317896262122",
   "Name": "e52a83e19ccd4ffb935855b11de04687",
   "OverridableProperties": {},
   "Version": "637965009763805234"
