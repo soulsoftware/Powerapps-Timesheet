@@ -30,7 +30,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638345317896262122",
+    "LastModifiedTimestamp": "638345326779937033",
     "Name": "CCommonUtils",
     "Rules": [
       {
@@ -112,7 +112,7 @@
       "Name": "GetWeekDayText",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "7",
+        "PropertyScopeRuleNamespaceKey": "24",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "GetWeekDayText_Date",
@@ -141,7 +141,7 @@
       "Name": "MailToName",
       "PropertyDataTypeKey": "String",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "7",
+        "PropertyScopeRuleNamespaceKey": "24",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "MailToName_mail",
@@ -172,7 +172,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638345317896262122",
+  "LastModifiedTimestamp": "638345326779937033",
   "Name": "e52a83e19ccd4ffb935855b11de04687",
   "OverridableProperties": {},
   "Version": "637965009763805234"

@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     Formulas: |-
-        =var_current_version = "4.2.2";
+        =var_current_version = "4.3.0";
         gFont = { 
             Size: 10.5, 
             ColorH2: RGBA(0, 94, 146, 1)
