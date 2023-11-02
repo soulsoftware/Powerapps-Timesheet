@@ -58,7 +58,7 @@
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =1
                 Height: =Parent.Height
-                LayoutMinHeight: =75
+                LayoutMinHeight: =Parent.Height
                 LayoutMinWidth: =
                 PCFTeamsTheme: ="default"
                 Title: ="Timesheets Management" // App.ActiveScreen.Name
