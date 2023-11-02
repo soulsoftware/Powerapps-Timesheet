@@ -592,52 +592,32 @@
                     Width: =Self.Height
                     ZIndex: =1
 
-                s09_img_Logo As image:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledFill: =RGBA(0, 0, 0, 0)
+                s09_Header As Header:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
                     Height: =Parent.Height
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    HoverFill: =RGBA(0, 0, 0, 0)
-                    Image: =soul
-                    PaddingTop: =10
-                    PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    PressedFill: =RGBA(0, 0, 0, 0)
-                    RadiusBottomLeft: =3
-                    RadiusBottomRight: =3
-                    RadiusTopLeft: =3
-                    RadiusTopRight: =3
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =
+                    PCFTeamsTheme: ="default"
+                    Title: ="Timesheets Management" // App.ActiveScreen.Name
+                    UserEmail: =User().Email
+                    UserImage: =User().Image
+                    UserName: =User().FullName
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
                     ZIndex: =2
 
-                s09_lbl_AppName As label:
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    BorderThickness: =2
-                    Color: =RGBA(37, 36, 35, 1)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    DisabledColor: =RGBA(200, 198, 196, 1)
-                    FillPortions: =1
-                    FocusedBorderThickness: =2
-                    Font: =Font.'Segoe UI'
-                    FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height
-                    Role: =TextRole.Heading1
-                    Size: =20
-                    Text: ="Timesheets Management"
-                    Width: =Parent.Width - varStyle.topBarTitleLeftPadding 
-                    X: =varStyle.topBarTitleLeftPadding
-                    ZIndex: =3
-
                 s09_btn_AbsenceChart As OpenChartButton:
+                    Height: =Parent.Height
                     LayoutMinHeight: =640
                     LayoutMinWidth: =640
                     OnSelect: =Navigate( s05_Chart_Absence,ScreenTransition.Cover)
                     Padding: =5
                     Text: ="Absence"
                     Visible: =false
-                    ZIndex: =4
+                    ZIndex: =3
 
                 s09_ico_OpenApp As icon.Add:
                     BorderColor: =RGBA(98, 100, 167, 1)
@@ -672,7 +652,7 @@
                     Visible: =false
                     Width: =44
                     X: =960
-                    ZIndex: =5
+                    ZIndex: =4
 
                 s09_ico_Reload As icon.Add:
                     AlignInContainer: =AlignInContainer.Center
@@ -697,22 +677,7 @@
                     PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
                     PressedFill: =RGBA(0, 0, 0, 0)
                     Width: =Self.Height
-                    ZIndex: =7
-
-                Header3 As Header:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =75
-                    LayoutMinHeight: =75
-                    LayoutMinWidth: =Parent.Width
-                    PCFTeamsTheme: ="default"
-                    Title: ="Timesheets Management" // App.ActiveScreen.Name
-                    UserEmail: =User().Email
-                    UserImage: =User().Image
-                    UserName: =User().FullName
-                    Width: =Parent.Width
-                    X: =0
-                    Y: =0
-                    ZIndex: =8
+                    ZIndex: =5
 
         s09_Divider As rectangle:
             BorderColor: =RGBA(243, 242, 241, 1)

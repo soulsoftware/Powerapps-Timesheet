@@ -146,7 +146,7 @@
             "Name": "lbl_DeleteText",
             "Parent": "MainContainer",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 435,
+            "PublishOrderIndex": 432,
             "Rules": [
               {
                 "Category": "Data",
@@ -441,7 +441,7 @@
             "Name": "Separator",
             "Parent": "MainContainer",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 436,
+            "PublishOrderIndex": 433,
             "Rules": [
               {
                 "Category": "Design",
@@ -682,7 +682,7 @@
                 "Name": "btn_Cancel",
                 "Parent": "CommandsContainer",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 438,
+                "PublishOrderIndex": 435,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1041,7 +1041,7 @@
                 "Name": "btn_Confirm",
                 "Parent": "CommandsContainer",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 439,
+                "PublishOrderIndex": 436,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1381,7 +1381,7 @@
             "Name": "CommandsContainer",
             "Parent": "MainContainer",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 437,
+            "PublishOrderIndex": 434,
             "Rules": [
               {
                 "Category": "Design",
@@ -1640,7 +1640,7 @@
         "Name": "MainContainer",
         "Parent": "CConfirmOverlay",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 434,
+        "PublishOrderIndex": 431,
         "Rules": [
           {
             "Category": "Design",
