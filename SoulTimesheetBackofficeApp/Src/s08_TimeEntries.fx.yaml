@@ -19,6 +19,7 @@
         s08_cnt_LeftTopBar As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Regular
+            Fill: =RGBA(15, 108, 189, 1)
             FillPortions: =0
             Height: =51
             LayoutGap: =5
@@ -33,7 +34,7 @@
             s08_ico_Home As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(0, 0, 0, 0)
-                Color: =RGBA(98, 100, 167, 1)
+                Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(243, 242, 241, 1)
                 DisabledColor: =RGBA(220, 220, 220, 1)
                 DisabledFill: =RGBA(0, 0, 0, 0)
@@ -60,6 +61,7 @@
                 Height: =Parent.Height
                 LayoutMinHeight: =Parent.Height
                 LayoutMinWidth: =
+                Logo: =Soul2
                 PCFTeamsTheme: ="default"
                 Title: ="Timesheets Management" // App.ActiveScreen.Name
                 UserEmail: =User().Email
@@ -73,7 +75,7 @@
             s08_ico_Reload As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(0, 0, 0, 0)
-                Color: =RGBA(98, 100, 167, 1)
+                Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(243, 242, 241, 1)
                 DisabledColor: =RGBA(220, 220, 220, 1)
                 DisabledFill: =RGBA(0, 0, 0, 0)
@@ -136,7 +138,7 @@
             s08_ico_Print As icon.Add:
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(0, 0, 0, 0)
-                Color: =RGBA(98, 100, 167, 1)
+                Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(243, 242, 241, 1)
                 DisabledColor: =RGBA(220, 220, 220, 1)
                 DisabledFill: =RGBA(0, 0, 0, 0)
