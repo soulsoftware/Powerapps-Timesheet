@@ -213,6 +213,7 @@ s06_Expenses As screen:
                             PressedBorderColor: =RGBA(0, 0, 0, 0)
                             PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
                             PressedFill: =RGBA(0, 0, 0, 0)
+                            Visible: =false
                             Width: =34
                             X: =923
                             Y: =23

@@ -4956,7 +4956,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s06_BottomBar",
-      "ParentIndex": 2,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6266,7 +6266,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_Commands",
-      "ParentIndex": 4,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6930,7 +6930,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s06_DeleteConfirmOverlay",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7903,7 +7903,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateIconButton_Accept.ID%",
       "Name": "s06_ico_Accept",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8164,7 +8164,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_ico_Add",
-      "ParentIndex": 5,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8411,7 +8411,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateIconButton_Cancel.ID%",
       "Name": "s06_ico_Cancel",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8665,7 +8665,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateIconButton_Delete.ID%",
       "Name": "s06_ico_Delete",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8919,7 +8919,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateIconButton_Edit.ID%",
       "Name": "s06_ico_Edit",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9214,7 +9214,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_ico_Home",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9431,6 +9431,14 @@
           "InvariantPropertyName": "OnSelect",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -9620,6 +9628,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Design",
+          "PropertyName": "Visible",
+          "RuleProviderType": "Unknown"
+        },
+        {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
           "RuleProviderType": "Unknown"
@@ -9724,7 +9737,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_ico_Recall",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10310,7 +10323,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_img_Logo",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11040,7 +11053,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_lbl_DateOfInterest",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11250,7 +11263,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_lbl_Project",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11454,7 +11467,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_lbl_Reason",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11821,7 +11834,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_lbl_Status",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12018,7 +12031,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s06_lbl_Title",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12734,7 +12747,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s06_MultiApproveOverlay",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12890,7 +12903,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s06_MultiAssignOverlay",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13043,7 +13056,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s06_MultiRejectOverlay",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13344,7 +13357,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s06_RecallConfirmOverlay",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
