@@ -699,6 +699,21 @@
                     Width: =Self.Height
                     ZIndex: =7
 
+                Header3 As Header:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =75
+                    LayoutMinHeight: =75
+                    LayoutMinWidth: =Parent.Width
+                    PCFTeamsTheme: ="default"
+                    Title: ="Timesheets Management" // App.ActiveScreen.Name
+                    UserEmail: =User().Email
+                    UserImage: =User().Image
+                    UserName: =User().FullName
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =8
+
         s09_Divider As rectangle:
             BorderColor: =RGBA(243, 242, 241, 1)
             BorderStyle: =BorderStyle.None
