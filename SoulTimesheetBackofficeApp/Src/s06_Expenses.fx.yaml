@@ -480,6 +480,7 @@ s06_Expenses As screen:
                     ZIndex: =7
 
             s06_cnt_LeftTopBar As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =RGBA(15, 108, 189, 1)
                 Height: =51
                 LayoutGap: =5
                 LayoutMode: =LayoutMode.Auto
@@ -491,7 +492,7 @@ s06_Expenses As screen:
                 s06_ico_Home As icon.Add:
                     AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
-                    Color: =RGBA(98, 100, 167, 1)
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledBorderColor: =RGBA(243, 242, 241, 1)
                     DisabledColor: =RGBA(220, 220, 220, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
@@ -519,8 +520,9 @@ s06_Expenses As screen:
                     Height: =75
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =
+                    Logo: =Soul2
                     PCFTeamsTheme: ="default"
-                    Title: =App.ActiveScreen.Name
+                    Title: ="Expenses Management"// App.ActiveScreen.Name
                     UserEmail: =User().Email
                     UserImage: =User().Image
                     UserName: =User().FullName
@@ -532,7 +534,7 @@ s06_Expenses As screen:
                 s06_ico_Reload As icon.Add:
                     AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
-                    Color: =RGBA(98, 100, 167, 1)
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledBorderColor: =RGBA(243, 242, 241, 1)
                     DisabledColor: =RGBA(220, 220, 220, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
