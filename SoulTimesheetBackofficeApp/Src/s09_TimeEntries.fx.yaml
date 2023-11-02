@@ -561,6 +561,7 @@
                     ZIndex: =8
 
             s09_cnt_LeftTopBar As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =RGBA(15, 108, 189, 1)
                 Height: =51
                 LayoutGap: =5
                 LayoutMode: =LayoutMode.Auto
@@ -572,7 +573,7 @@
                 s09_ico_Home As icon.Add:
                     AlignInContainer: =AlignInContainer.Center
                     BorderColor: =RGBA(0, 0, 0, 0)
-                    Color: =RGBA(98, 100, 167, 1)
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledBorderColor: =RGBA(243, 242, 241, 1)
                     DisabledColor: =RGBA(220, 220, 220, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
@@ -599,6 +600,8 @@
                     Height: =Parent.Height
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =
+                    Logo: =Soul2
+                    LogoTooltip: ="www.soulsoftware.it"
                     PCFTeamsTheme: ="default"
                     Title: ="Timesheets Management" // App.ActiveScreen.Name
                     UserEmail: =User().Email
@@ -609,6 +612,31 @@
                     Y: =0
                     ZIndex: =2
 
+                s09_ico_Reload As icon.Add:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Reload
+                    OnSelect: |
+                        =Clear( s09_col_selected_items ); // Clear Multiple Selection
+                        Refresh('AH Timesheets');
+                    PaddingBottom: =3
+                    PaddingLeft: =3
+                    PaddingRight: =3
+                    PaddingTop: =3
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =Self.Height
+                    ZIndex: =3
+
                 s09_btn_AbsenceChart As OpenChartButton:
                     Height: =Parent.Height
                     LayoutMinHeight: =640
@@ -617,20 +645,22 @@
                     Padding: =5
                     Text: ="Absence"
                     Visible: =false
-                    ZIndex: =3
+                    ZIndex: =4
 
                 s09_ico_OpenApp As icon.Add:
+                    AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =RGBA(98, 100, 167, 1)
                     BorderThickness: =1
                     Color: =RGBA(98, 100, 167, 1)
                     DisabledBorderColor: =RGBA(243, 242, 241, 1)
                     DisabledColor: =RGBA(220, 220, 220, 1)
                     DisabledFill: =RGBA(0, 0, 0, 0)
-                    Height: =44
+                    Height: =Parent.Height
                     HoverBorderColor: =RGBA(0, 0, 0, 0)
                     HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
                     HoverFill: =RGBA(0, 0, 0, 0)
                     Icon: =Icon.Link
+                    LayoutMinHeight: =Parent.Height
                     OnSelect: |-
                         =With({
                             tenantid: "8dd55ed8-33f2-49a6-a36a-cc7d5a2de003",
@@ -652,31 +682,6 @@
                     Visible: =false
                     Width: =44
                     X: =960
-                    ZIndex: =4
-
-                s09_ico_Reload As icon.Add:
-                    AlignInContainer: =AlignInContainer.Center
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    Color: =RGBA(98, 100, 167, 1)
-                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
-                    DisabledColor: =RGBA(220, 220, 220, 1)
-                    DisabledFill: =RGBA(0, 0, 0, 0)
-                    Height: =32
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
-                    HoverFill: =RGBA(0, 0, 0, 0)
-                    Icon: =Icon.Reload
-                    OnSelect: |
-                        =Clear( s09_col_selected_items ); // Clear Multiple Selection
-                        Refresh('AH Timesheets');
-                    PaddingBottom: =3
-                    PaddingLeft: =3
-                    PaddingRight: =3
-                    PaddingTop: =3
-                    PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
-                    PressedFill: =RGBA(0, 0, 0, 0)
-                    Width: =Self.Height
                     ZIndex: =5
 
         s09_Divider As rectangle:

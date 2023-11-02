@@ -521,6 +521,7 @@ s06_Expenses As screen:
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =
                     Logo: =Soul2
+                    LogoTooltip: ="www.soulsoftware.it"
                     PCFTeamsTheme: ="default"
                     Title: ="Expenses Management"// App.ActiveScreen.Name
                     UserEmail: =User().Email

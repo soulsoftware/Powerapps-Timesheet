@@ -2427,6 +2427,14 @@
           "InvariantPropertyName": "Logo",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "LogoTooltip",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -2531,6 +2539,11 @@
         {
           "Category": "Data",
           "PropertyName": "Logo",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "LogoTooltip",
           "RuleProviderType": "Unknown"
         },
         {
