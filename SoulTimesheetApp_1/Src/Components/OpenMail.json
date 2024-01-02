@@ -1,0 +1,37 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": false,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "OpenMail",
+    "TemplateGuid": "492fc0ac14a94fae9f964dac46b0f412"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "mailId",
+      "Hidden": false,
+      "Name": "mailId",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "mail identifier",
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638398147154816190",
+  "Name": "492fc0ac14a94fae9f964dac46b0f412",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "db08ae5c18544d25894325de74b76986",
+  "Version": "637709296978269331"
+}

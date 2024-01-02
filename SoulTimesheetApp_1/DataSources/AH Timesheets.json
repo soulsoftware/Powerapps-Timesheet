@@ -1,0 +1,161 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "sou_ahtimesheets",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "sou_ahtimesheet",
+    "MaxGetRowsCount": 1000,
+    "Name": "AH Timesheets",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr2b3_Project": "Project",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "crfc7_approvalstatus": "Approval Status",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "sou_ahtimesheet_AsyncOperations": "System Jobs",
+      "sou_ahtimesheet_BulkDeleteFailures": "Bulk Delete Failures",
+      "sou_ahtimesheet_FileAttachments": "FileAttachments",
+      "sou_ahtimesheet_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "sou_ahtimesheet_ProcessSession": "Process Sessions",
+      "sou_ahtimesheetid": "AH Timesheet",
+      "sou_dateofinterest": "Date of Interest",
+      "sou_reason": "Reason",
+      "sou_referencemail": "Reference Mail",
+      "sou_resourceemail": "Resource Email",
+      "sou_resourcename": "Resource Name",
+      "sou_timesheetyear": "Timesheet Year",
+      "sou_workinghours": "Working Hours",
+      "soul_emailcontent": "EmailContent",
+      "soul_note": "Note",
+      "soul_weeknumberfx": "Week Number Fx",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "AH Timesheets",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "AH Timesheets (Views)",
+    "Name": "_sou_ahtimesheet_views",
+    "RelatedEntityName": "AH Timesheets",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "140973e7-492a-4b8f-b393-6856f4b55930": "AH Timesheet Associated View",
+      "271509b1-184f-41d1-8fb1-38a0e1649aee": "AH Timesheet Advanced Find View",
+      "826c9fdf-c420-4ea9-9cbd-60a6118b5c08": "Timesheets View",
+      "986ba16e-926a-4230-9362-5c53d8a7943b": "AH Timesheet Lookup View",
+      "d4706d12-e917-ed11-b83e-000d3a25c7ec": "My TimeEntries View",
+      "fb80eaa8-9ad6-478b-83e1-b45d0ab7bf07": "Inactive AH Timesheets"
+    }
+  },
+  {
+    "DisplayName": "Approval Status",
+    "Name": "crfc7_approvalstatus",
+    "OptionSetInfoNameMapping": {
+      "213260000": "Pending",
+      "213260001": "Approved",
+      "213260002": "Rejected",
+      "213260003": "Draft"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "crfc7_approvalstatus",
+        "OptionSetReferenceEntityName": "AH Timesheets"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "soul_approvalstatus",
+        "OptionSetReferenceEntityName": "TSExpenses"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "crfc7_approvalstatus",
+    "RelatedEntityName": "AH Timesheets",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (AH Timesheets)",
+    "Name": "sou_ahtimesheet_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "AH Timesheets"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "AH Timesheets",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (AH Timesheets)",
+    "Name": "sou_ahtimesheet_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "AH Timesheets"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "AH Timesheets",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "TSReason",
+    "Name": "sou_ahtimesheetreason",
+    "OptionSetInfoNameMapping": {
+      "10": "Overtime",
+      "11": "Holiday",
+      "12": "Availability",
+      "13": "Hours off",
+      "14": "Absence",
+      "15": "Work",
+      "16": "Sick leave ",
+      "17": "Travel hours",
+      "18": "Travel allowance. (Italy)",
+      "19": "Travel allowance (abroad)",
+      "20": "ROL"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "sou_reason",
+        "OptionSetReferenceEntityName": "AH Timesheets"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "sou_reason",
+    "RelatedEntityName": "AH Timesheets",
+    "Type": "OptionSetInfo"
+  }
+]

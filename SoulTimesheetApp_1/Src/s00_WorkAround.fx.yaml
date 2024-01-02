@@ -1,0 +1,17 @@
+s00_WorkAround As screen:
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    s00_lbl_Reason As Label:
+        Alignment: =Align.Center
+        Color: =
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =20
+        FontWeight: =FontWeight.Bold
+        Height: =146
+        OnChange: =false
+        Text: ="Screen need for trigger onVisible in s12_WeeksToInsert"
+        Width: =795
+        X: =252
+        Y: =255
+        ZIndex: =1
+
