@@ -1,0 +1,59 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_sou_ahtimesheet_forms",
+      "Namespace": "AH Timesheets (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_transactioncurrency_forms",
+      "Namespace": "Currencies (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_environmentvariabledefinition_forms",
+      "Namespace": "Environment Variable Definitions (Forms)",
+      "Values": {
+        "Information": "3853733b-a351-455d-b686-d2d05027ba4d"
+      }
+    },
+    {
+      "Kind": "default.cds_environmentvariablevalue_forms",
+      "Namespace": "Environment Variable Values (Forms)",
+      "Values": {
+        "Information": "f574a3ab-1060-43ee-a95f-9aa922b497db"
+      }
+    },
+    {
+      "Kind": "default.cds_soul_tsexpense_forms",
+      "Namespace": "TSExpenses (Forms)",
+      "Values": {
+        "Information": "168b011d-a6f8-4e7d-b584-d0281a865dcd"
+      }
+    },
+    {
+      "Kind": "default.cds_soul_tsproject_forms",
+      "Namespace": "TSProjects (Forms)",
+      "Values": {
+        "Information": "0a77b89d-fcc5-4e16-969f-b6d3c9987ce1"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_aaduser_forms",
+      "Namespace": "AAD Users (Forms)",
+      "Values": {
+        "Information": "dd5ded01-9aad-4e25-8d0e-e9acdaecbe4e"
+      }
+    }
+  ]
+}

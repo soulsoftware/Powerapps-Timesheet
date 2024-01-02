@@ -1,0 +1,53 @@
+ToolBar As CanvasComponent:
+    ConfirmEnabled: =false
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =40
+    OnCancel: =true
+    OnConfirm: =true
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    CommandsContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+        BorderThickness: =1
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =Parent.Height
+        LayoutGap: =10
+        LayoutJustifyContent: =LayoutJustifyContent.End
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =Self.LayoutGap
+        Width: =Parent.Width
+        ZIndex: =3
+
+        ico_cancel As icon.Cancel:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: |
+                =Parent.Height * 0.6
+            Icon: =Icon.Cancel
+            OnSelect: =ToolBar.OnCancel()
+            Width: =Self.Height
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+        ico_confirm As icon.Check:
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(167, 182, 203, 1)
+            DisplayMode: =If( ToolBar.ConfirmEnabled, DisplayMode.Edit, DisplayMode.Disabled ) 
+            Height: |
+                =Parent.Height * 0.6
+            Icon: =Icon.Check
+            OnSelect: =ToolBar.OnConfirm()
+            Width: =Self.Height
+            X: =40
+            Y: =40
+            ZIndex: =2
+

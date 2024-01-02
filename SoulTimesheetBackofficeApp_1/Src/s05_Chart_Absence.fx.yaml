@@ -1,0 +1,355 @@
+"s05_Chart_Absence As screen.'tabletAutoLayout_Sidebar_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =With({ unorderedAbsenceCollection:
+        With({
+                groupbyemail: DropColumns(AddColumns(GroupBy(
+                    Filter(
+                        'AH Timesheets',
+                        Or( Reason = TSReason.'Hours off',
+                            Reason = TSReason.Absence, 
+                            Reason = TSReason.Holiday )
+                    ),
+                    "sou_resourceemail",
+                    "resourcedata"
+                ), 
+                "name", 
+                Proper((Substitute(Left(sou_resourceemail, Find( "@", sou_resourceemail )-1 ) , ".", " ")))), "sou_resourceemail")
+            },
+            DropColumns(AddColumns(
+                            groupbyemail,
+                            "hours",
+                            Sum(resourcedata,'Working Hours' / 60 ),
+                            "reason", First(resourcedata.Reason).Reason // from table through record and finally got field
+                        ),
+                        "resourcedata")
+        )},
+        UpdateContext({absenceCollection: Sort( unorderedAbsenceCollection, hours, SortOrder.Descending)}))
+
+    s05_Container As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "s05_gal_Absence As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(243, 242, 241, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            FocusedBorderThickness: =2
+            Height: =502
+            Items: |+
+                =Filter( absenceCollection,
+                    Or( 
+                        And( s05_tgl_Absence.Checked, reason = TSReason.Absence ),
+                        And( s05_tgl_HoursOff.Checked, reason = TSReason.'Hours off' ),
+                        And( s05_tgl_Holiday.Checked, reason = TSReason.Holiday )
+                    )
+                )
+                
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =330
+            TemplatePadding: =0
+            TemplateSize: |-
+                =70
+                // Min(160, Self.Height - 60)
+            Width: |
+                =Parent.Width
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+            s05_gal_Separator As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Fill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+            Container2 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.TemplateHeight -1
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.TemplateWidth
+                ZIndex: =6
+
+                s05_gal_Name As label:
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinWidth: =250
+                    OnSelect: =
+                    PaddingBottom: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =16
+                    Text: =ThisItem.name
+                    Width: |
+                        =Parent.Width
+                    X: =
+                    Y: |
+                        =0
+                    ZIndex: =1
+
+                Container1 As groupContainer.verticalAutoLayoutContainer:
+                    LayoutAlignItems: =LayoutAlignItems.End
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =50
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    s05_gal_Days As label:
+                        Align: =Align.Right
+                        AlignInContainer: =AlignInContainer.Center
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height
+                        LayoutMinHeight: =30
+                        LayoutMinWidth: =100
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingTop: =0
+                        Size: =16
+                        Text: |-
+                            =With({ days: RoundDown( ThisItem.hours/8, 0) },
+                            $"~{Text( days, "#00")} d" )
+                        Width: =Parent.Width
+                        Y: |
+                            =0
+                        ZIndex: =1
+
+                    s05_gal_hours As label:
+                        Align: =Align.Right
+                        Color: =RGBA(184, 0, 0, 1)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        Fill: =RGBA(253, 222, 207, 1)
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height
+                        LayoutMinHeight: =30
+                        LayoutMinWidth: =100
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingTop: =0
+                        Size: =16
+                        Text: |-
+                            =$"{Text( ThisItem.hours, "#00")} h" 
+                        Width: =Parent.Width
+                        Y: |
+                            =0
+                        ZIndex: =2
+
+        s05_Separator As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            Fill: =RGBA(98, 100, 167, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            Width: =1
+            ZIndex: =2
+
+        s05_RightSideContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =7
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            s05_cnt_Filters As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =51
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =5
+                Width: =384
+                X: =s05_Separator.X + 1
+                ZIndex: =1
+
+                s05_tgl_HoursOff As Toggle:
+                    AlignInContainer: =AlignInContainer.Center
+                    Checked: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontWeight: =FontWeight.Semibold
+                    HandleOffFillColor: =
+                    HandleOnFillColor: =
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =100
+                    OffFillColor: =
+                    OffHoverFillColor: =
+                    OffText: ="Hours Off"
+                    OnCheck: =false
+                    OnFillColor: =
+                    OnHoverFillColor: =
+                    OnText: ="Hours Off"
+                    OnUncheck: =false
+                    TextColor: =
+                    Width: =130
+                    X: =341
+                    Y: =11
+                    ZIndex: =1
+
+                s05_tgl_Absence As Toggle:
+                    AlignInContainer: =AlignInContainer.Center
+                    Checked: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontWeight: =FontWeight.Semibold
+                    HandleOffFillColor: =
+                    HandleOnFillColor: =
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =100
+                    OffFillColor: =
+                    OffHoverFillColor: =
+                    OffText: ="Absence"
+                    OnCheck: =false
+                    OnFillColor: =
+                    OnHoverFillColor: =
+                    OnText: ="Absence"
+                    OnUncheck: =false
+                    TextColor: =
+                    Width: =118
+                    X: =341
+                    Y: =11
+                    ZIndex: =2
+
+                s05_tgl_Holiday As Toggle:
+                    AlignInContainer: =AlignInContainer.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    HandleOffFillColor: =
+                    HandleOnFillColor: =
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =100
+                    OffFillColor: =
+                    OffHoverFillColor: =
+                    OffText: ="Holiday"
+                    OnCheck: =false
+                    OnFillColor: =
+                    OnHoverFillColor: =
+                    OnText: ="Holiday"
+                    OnUncheck: =false
+                    TextColor: =
+                    Width: =118
+                    X: =341
+                    Y: =11
+                    ZIndex: =3
+
+                s05_Ico_Back As icon.Add:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =54
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.BackArrow
+                    OnSelect: =Back(ScreenTransition.Fade)
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =54
+                    X: =Parent.Width - Self.Width 
+                    ZIndex: =4
+
+            CompositeColumnChart2 As group:
+                Height: =5
+                LayoutMinHeight: =5
+                LayoutMinWidth: =5
+                Width: =5
+                X: =-40
+                Y: =-10
+                ZIndex: =1
+
+                Title3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =30
+                    Size: =16
+                    Text: ="Absences by Resource"
+                    Width: =400
+                    X: =40
+                    Y: =10
+                    ZIndex: =2
+
+                ColumnChart2 As barChart:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    GridStyle: =GridStyle.All
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48, 166, 103, 1), RGBA(94, 193, 108, 1), RGBA(246, 199, 144, 1), RGBA(247, 199, 114, 1), RGBA(247, 180, 91, 1), RGBA(246, 143, 100, 1), RGBA(212, 96, 104, 1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    Items: |-
+                        =With( { filteredAbsenceCollection: Filter( absenceCollection,
+                            Or( 
+                                And( s05_tgl_Absence.Checked, reason = TSReason.Absence ),
+                                And( s05_tgl_HoursOff.Checked, reason = TSReason.'Hours off' ),
+                                And( s05_tgl_Holiday.Checked, reason = TSReason.Holiday )
+                            )
+                        )},
+                        ForAll(filteredAbsenceCollection, { Days: RoundDown(hours/8,0), Name: name } ))
+                    OnSelect: =Collect(absenceCollection, ColumnChart2.Selected)
+                    PaddingLeft: =10
+                    PaddingRight: =0
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Size: =16
+                    X: =40
+                    Y: =20
+                    ZIndex: =3
+
+                Legend3 As legend:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(220, 220, 220, 1)
+                    DisplayMode: =DisplayMode.View
+                    Font: =Font.'Segoe UI'
+                    Height: =80
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    ItemColorSet: =ColumnChart2.ItemColorSet
+                    Items: =ColumnChart2.SeriesLabels
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Visible: =false
+                    Width: =320
+                    X: =40
+                    Y: =400
+                    ZIndex: =4
+

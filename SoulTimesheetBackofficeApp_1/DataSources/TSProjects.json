@@ -1,0 +1,141 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "soul_tsprojects",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "soul_tsproject",
+    "MaxGetRowsCount": 2000,
+    "Name": "TSProjects",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr2b3_sou_ahtimesheet_Project_soul_tsproject": "AH Timesheets",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "soul_description": "Description",
+      "soul_modifiable": "Modifiable",
+      "soul_name": "Name",
+      "soul_soul_tsexpense_Project_soul_tsproject": "TSExpenses",
+      "soul_status": "Status (soul_status)",
+      "soul_tsproject_AsyncOperations": "System Jobs",
+      "soul_tsproject_BulkDeleteFailures": "Bulk Delete Failures",
+      "soul_tsproject_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "soul_tsproject_ProcessSession": "Process Sessions",
+      "soul_TSProject_SystemUser_SystemUser": "Users",
+      "soul_tsprojectid": "TSProject",
+      "statecode": "Status (statecode)",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "TSProjects",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "TSProjects (Views)",
+    "Name": "_soul_tsproject_views",
+    "RelatedEntityName": "TSProjects",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "346b6006-4afe-4e0d-b4ba-17f5a0a4a240": "TSProject Advanced Find View",
+      "69579702-bd1b-ed11-b83d-000d3aad7a33": "Modifiable TSProjects",
+      "8081c3d9-bc91-447f-97db-fdb06b24ec08": "TSProject Lookup View",
+      "937a3180-105e-4faf-86d5-7ac7cef97c3b": "TSProject Associated View",
+      "ba8bc776-f78b-4e61-889a-0e4b3dcd8dda": "Inactive TSProjects",
+      "e38d9bd8-7675-ed11-81ab-6045bd905a26": "Opened Project",
+      "eb259d52-7e27-447c-8a42-4ca18939b1e7": "Active TSProjects"
+    }
+  },
+  {
+    "DisplayName": "Modifiable (TSProjects)",
+    "Name": "soul_tsproject_soul_modifiable",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "soul_modifiable",
+        "OptionSetReferenceEntityName": "TSProjects"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "soul_modifiable",
+    "RelatedEntityName": "TSProjects",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (TSProjects)_1",
+    "Name": "soul_tsproject_soul_status",
+    "OptionSetInfoNameMapping": {
+      "0": "Closed",
+      "1": "Open"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "soul_status",
+        "OptionSetReferenceEntityName": "TSProjects"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "soul_status",
+    "RelatedEntityName": "TSProjects",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (TSProjects)",
+    "Name": "soul_tsproject_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "TSProjects"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "TSProjects",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (TSProjects)",
+    "Name": "soul_tsproject_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "TSProjects"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "TSProjects",
+    "Type": "OptionSetInfo"
+  }
+]

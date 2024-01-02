@@ -1,0 +1,1731 @@
+s06_Expenses As screen:
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: =
+
+    s06_MainContainer As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        s06_LeftContainer As groupContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =Parent.Height
+            LayoutMinHeight: =Parent.Height
+            LayoutMinWidth: =500
+            Visible: =Self.Width <> 0
+            Width: |-
+                =Parent.Width * 0.75
+                // Switch(Parent.Size, ScreenSize.Small, If(Or(add_mode, edit_mode), 0, Parent.Width), 1000)
+            ZIndex: =1
+
+            s06_gal_Expenses As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                DelayItemLoading: =true
+                DisplayMode: =If(Or(edit_mode,delete_mode), DisplayMode.Disabled, DisplayMode.Edit)
+                FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                FocusedBorderThickness: =2
+                Height: =Parent.Height - 2 * varStyle.topBarHeight - varStyle.bottomBarHeight
+                Items: |-
+                    =With({
+                        // filterStatus: If( s06_ActiveToggle.Checked, 'Status (TSExpenses)'.Active, 'Status (TSExpenses)'.Inactive)
+                    },
+                    Filter(
+                        If( sortByDate, 
+                            SortByColumns(
+                                TSExpenses,
+                                "soul_dateofinterest",
+                                SortOrder.Descending
+                            ),
+                            SortByColumns(
+                                TSExpenses,
+                                "createdon",
+                                SortOrder.Descending
+                            )
+                        ),
+                        If( Len(searchByMail) > 0,
+                            StartsWith( 'Resource Email', searchByMail ),
+                            true
+                        ) 
+                        And Not('Approval Status' = [@'Approval Status'].Draft)
+                    ))
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |
+                    =With({
+                        recordID: ThisItem.TSExpense
+                    },
+                    //Set( selected_item,Blank());
+                    Trace( "select gallery: " & recordID, TraceSeverity.Information );
+                    UpdateContext({ 
+                        selected_item: ThisItem  
+                    })
+                    )
+                TabIndex: =0
+                TemplateFill: |+
+                    =Switch( ThisItem.'Approval Status', 
+                        'Approval Status'.Pending, RGBA(255,255,102,.7),
+                        'Approval Status'.Rejected, ColorFade(Color.Orange, .5),    
+                        If( 
+                            And( Not( IsBlank(selected_item) ), ThisItem.IsSelected),
+                            Color.WhiteSmoke,
+                            Color.White
+                        )
+                    )
+                    
+                TemplatePadding: =0
+                TemplateSize: =57
+                Width: =Parent.Width
+                Y: =s06_ToolBar.Y + s06_ToolBar.Height
+                ZIndex: =1
+
+                s06_Container4 As groupContainer.horizontalAutoLayoutContainer:
+                    Height: =Parent.TemplateHeight
+                    LayoutGap: =5
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =20
+                    Width: =Parent.TemplateWidth - 45
+                    X: =40
+                    ZIndex: =5
+
+                    s06_lbl_Project As Label:
+                        AlignInContainer: =AlignInContainer.End
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontSize: =11
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =200
+                        OnChange: =false
+                        OnSelect: =
+                        Text: =ThisItem.Project.Name
+                        Width: =200
+                        X: =40
+                        Y: =25
+                        ZIndex: =1
+
+                    s06_lbl_DateOfInterest As Label:
+                        AlignInContainer: =AlignInContainer.End
+                        AutoHeight: =false
+                        Color: |+
+                            =With({ 
+                                weekday: Upper(s06_CommonUtils.GetWeekDayText(ThisItem.'Date of Interest')) 
+                            }, 
+                            Switch( weekday, "SUN", Color.OrangeRed, "SAT", Color.Orange, Color.Black)
+                            )
+                            
+                        DisplayMode: =DisplayMode.View
+                        FontSize: =11
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height / 2
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =140
+                        OnChange: =false
+                        OnSelect: =
+                        Overflow: ="Hidden"
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        TabIndex: =-1
+                        Text: =$"{Text(ThisItem.'Date of Interest',DateTimeFormat.ShortDate)} - {s06_CommonUtils.GetWeekDayText(ThisItem.'Date of Interest')}"
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =140
+                        X: =s06_lbl_ResourceEmail.X
+                        Y: |
+                            =0
+                        ZIndex: =2
+
+                    s06_lbl_Reason As Label:
+                        AlignInContainer: =AlignInContainer.End
+                        AutoHeight: =false
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =11
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height / 2
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =120
+                        OnChange: =false
+                        OnSelect: =
+                        Overflow: ="Hidden"
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        PCFTeamsTheme: ="default"
+                        Text: =$"{Text( ThisItem.Amount )} {ThisItem.Currency.'Currency Symbol'} - {ThisItem.Reason}"
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =200
+                        X: =197
+                        Y: =0
+                        ZIndex: =3
+
+                    s06_lbl_Status As Label:
+                        AlignInContainer: =AlignInContainer.End
+                        Alignment: =Align.Left
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =11
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =200
+                        OnChange: =false
+                        OnSelect: =
+                        Text: =ThisItem.'Approval Status'
+                        Width: =100
+                        X: =40
+                        Y: =25
+                        ZIndex: =4
+
+                    s06_Commands As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =57
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =20
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =Parent.Height
+                        LayoutMinWidth: =50
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =20
+                        Width: =120
+                        X: =
+                        ZIndex: =6
+
+                        s06_ico_OpenReceipt As icon.Add:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(98, 100, 167, 1)
+                            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: |-
+                                =// If( IsBlankOrError(ThisItem.'Reference Mail'), DisplayMode.Disabled, DisplayMode.Edit )
+                                DisplayMode.Disabled
+                            Height: =34
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.View
+                            OnSelect: |-
+                                =/*
+                                With(
+                                    {url: "https://outlook.office365.com/owa/", id: ThisItem.'Reference Mail' },
+                                    Launch(url, { ItemID: EncodeUrl(id), exvsurl:"1", viewmodel:"ReadMessageItem" }, LaunchTarget.New)
+                                )
+                                */
+                            PaddingBottom: =3
+                            PaddingLeft: =3
+                            PaddingRight: =3
+                            PaddingTop: =3
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Visible: =false
+                            Width: =34
+                            X: =923
+                            Y: =23
+                            ZIndex: =3
+
+                        "s06_chk_Select As 'Check box'":
+                            BoxSide: ='Checkbox.BoxSide'.Start
+                            Checked: =Not(IsBlankOrError(LookUp(s06_col_selected_items, TSExpense = ThisItem.TSExpense)))
+                            CheckedCheckboxBackgroundFill: =
+                            CheckedCheckboxBorderColor: =
+                            CheckmarkFill: =
+                            Color: =
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            HoverCheckboxBackgroundFill: =
+                            HoverCheckboxBorderColor: =
+                            Label: =""
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =160
+                            OnCheck: =Collect(s06_col_selected_items, ThisItem)
+                            OnUncheck: |
+                                =Remove(s06_col_selected_items, ThisItem)
+                            UncheckedCheckboxBackgroundFill: =
+                            UncheckedCheckboxBorderColor: =
+                            Width: =25
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
+                s06_lbl_ResourceEmail As Label:
+                    AutoHeight: =false
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =12
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    OnChange: =false
+                    OnSelect: =Select(Parent)
+                    Overflow: ="Hidden"
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    TabIndex: =-1
+                    Text: |-
+                        =$"{ThisItem.'Owning User'.'Full Name'}"
+                        // $"{ThisItem.'Owning User'.'Full Name'} ({ThisItem.'Resource Email'})"
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =397
+                    X: =60
+                    Y: =0
+                    ZIndex: =6
+
+                s06_img_Receipt As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =48
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =receipt
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Width: =48
+                    ZIndex: =7
+
+                s06_lbl_CreatedOn As Label:
+                    AutoHeight: =false
+                    Color: =
+                    DisplayMode: =DisplayMode.View
+                    Height: =30
+                    OnChange: =false
+                    OnSelect: =
+                    Overflow: ="Hidden"
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    PCFTeamsTheme: ="default"
+                    Text: =$"Created On {Text(ThisItem.'Created On',DateTimeFormat.ShortDateTime24)}"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =202
+                    X: =681
+                    Y: =0
+                    ZIndex: =8
+
+            s06_ToolBar As groupContainer.horizontalAutoLayoutContainer:
+                Height: =50
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =10
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                Width: =Parent.Width
+                Y: =50
+                ZIndex: =2
+
+                "s06_txt_searchByMail As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =
+                    DelayOutput: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FontWeight: ="normal"
+                    Height: =32
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    MaxLength: =-1
+                    OnChange: |-
+                        =UpdateContext( { searchByMail: s06_txt_searchByMail.Value } );
+                        Clear( s06_col_selected_items )
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    PCFTeamsTheme: ="default"
+                    Placeholder: ="search by mail"
+                    Strikethrough: =false
+                    Underline: =false
+                    Value: =""
+                    Width: =340
+                    X: =44
+                    Y: =10
+                    ZIndex: =1
+
+                s06_SortToggle As Toggle:
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =8
+                    FontWeight: ="normal"
+                    HandleOffFillColor: =
+                    HandleOnFillColor: =
+                    Height: =32
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =160
+                    OffFillColor: =RGBA(255, 255, 255, 1)
+                    OffHoverFillColor: =
+                    OffText: ="Sort By Created"
+                    OnChange: =Clear( s06_col_selected_items )
+                    OnCheck: |-
+                        =UpdateContext( { sortByDate: true} )
+                    OnFillColor: =RGBA(59, 121, 183, 1)
+                    OnHoverFillColor: =
+                    OnText: ="Sort By Date"
+                    OnUncheck: |-
+                        =UpdateContext( { sortByDate: false} )
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    PCFTeamsTheme: ="default"
+                    Strikethrough: =false
+                    TextColor: =
+                    Underline: =false
+                    Width: =100
+                    X: =426
+                    Y: =10
+                    ZIndex: =2
+
+                s06_btn_Approve As Button:
+                    Alignment: ="center"
+                    BorderColor: =
+                    BorderRadius: =0
+                    BorderStyle: =""
+                    BorderThickness: =0
+                    ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: |-
+                        =With({ 
+                            valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
+                        },
+                        If( valid_selected_items > 0 , DisplayMode.Edit, DisplayMode.Disabled))
+                    FillColor: =RGBA(232, 244, 217, 1)
+                    Height: =32
+                    HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnChange: =false
+                    OnSelect: |-
+                        =UpdateContext({ multi_approve_mode: true})
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Strikethrough: =false
+                    Text: |
+                        =With({ 
+                            valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
+                        },
+                        "Approve" & If( valid_selected_items > 0 , $" ({valid_selected_items})"))
+                    TextColor: =
+                    Underline: =false
+                    VerticalAlignment: ="middle"
+                    Visible: |
+                        =true
+                    Width: =96
+                    X: =646
+                    Y: =16
+                    ZIndex: =4
+
+                s06_btn_Reject As Button:
+                    Alignment: ="center"
+                    BorderColor: =
+                    BorderRadius: =0
+                    BorderStyle: =""
+                    BorderThickness: =0
+                    ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: |-
+                        =With({ 
+                            valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
+                        },
+                        If( valid_selected_items > 0 , DisplayMode.Edit, DisplayMode.Disabled))
+                    FillColor: =RGBA(232, 244, 217, 1)
+                    Height: =32
+                    HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnChange: =false
+                    OnSelect: |-
+                        =UpdateContext({ multi_reject_mode: true})
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Strikethrough: =false
+                    Text: |-
+                        =With({ 
+                            valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
+                        },
+                        "Reject" & If( valid_selected_items > 0 , $" ({valid_selected_items})"))
+                    TextColor: =
+                    Underline: =false
+                    VerticalAlignment: ="middle"
+                    Visible: |
+                        =true
+                    Width: =96
+                    X: =646
+                    Y: =16
+                    ZIndex: =5
+
+                s06_btn_Assign As Button:
+                    Alignment: ="center"
+                    BorderColor: =
+                    BorderRadius: =0
+                    BorderStyle: =""
+                    BorderThickness: =0
+                    ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: |-
+                        =With({ 
+                            valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
+                        },
+                        If( valid_selected_items > 0 , DisplayMode.Edit, DisplayMode.Disabled))
+                    FillColor: =RGBA(232, 244, 217, 1)
+                    Height: =32
+                    HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    Italic: =false
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnChange: =false
+                    OnSelect: |-
+                        =UpdateContext({ multi_assign_mode: true})
+                    PaddingBottom: =0
+                    PaddingTop: =0
+                    PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Strikethrough: =false
+                    Text: |-
+                        =With({ 
+                            valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
+                        },
+                        "Assign" & If( valid_selected_items > 0 , $" ({valid_selected_items})"))
+                    TextColor: =
+                    Underline: =false
+                    VerticalAlignment: ="middle"
+                    Visible: |
+                        =true
+                    Width: =96
+                    X: =646
+                    Y: =16
+                    ZIndex: =6
+
+                "s06_TotalSelected As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =
+                    DisplayMode: =DisplayMode.View
+                    FillPortions: =1
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =100
+                    Value: =Sum(s06_col_selected_items, Amount)
+                    Width: =50
+                    X: =0
+                    Y: =0
+                    ZIndex: =7
+
+            s06_cnt_LeftTopBar As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =RGBA(15, 108, 189, 1)
+                Height: =51
+                LayoutGap: =5
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
+                Width: =Parent.Width
+                ZIndex: =4
+
+                s06_ico_Home As icon.Add:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =42
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.BackArrow
+                    OnSelect: =Back(ScreenTransition.UnCoverRight)
+                    PaddingBottom: =3
+                    PaddingLeft: =3
+                    PaddingRight: =3
+                    PaddingTop: =3
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Tooltip: ="back to Home"
+                    Width: =Self.Height
+                    ZIndex: =1
+
+                s06_Header As Header:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BasePaletteColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Font: =""
+                    FontColor: =
+                    Height: =75
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =
+                    Logo: =Soul2
+                    LogoTooltip: ="www.soulsoftware.it"
+                    OnSelectLogo: =false
+                    PCFTeamsTheme: ="default"
+                    Title: ="Expenses Management"// App.ActiveScreen.Name
+                    UserEmail: =User().Email
+                    UserImage: =User().Image
+                    UserName: =User().FullName
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                s06_ico_Reload As icon.Add:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Reload
+                    OnSelect: |+
+                        =Clear(s06_col_selected_items); // Reset Multiple Selection
+                        Refresh(TSExpenses);
+                        
+                        
+                    PaddingBottom: =3
+                    PaddingLeft: =3
+                    PaddingRight: =3
+                    PaddingTop: =3
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Tooltip: ="Reload Data"
+                    Width: =Self.Height
+                    ZIndex: =3
+
+        s06_Divider_1 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            Fill: =varStyle.dividerFill
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =Parent.Height
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            Width: =1
+            X: =s06_LeftContainer.Width
+            ZIndex: =2
+
+        s06_RightContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height - varStyle.bottomBarHeight
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =340
+            X: =1025
+            ZIndex: =3
+
+            s06_RightTopbar As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =varStyle.topBarHeight
+                LayoutMinHeight: =150
+                LayoutMinWidth: =250
+                Width: =Parent.Width
+                ZIndex: =1
+
+                s06_ico_Delete As icon.Trash:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: |-
+                        =Switch( selected_item.'Approval Status', 
+                                                'Approval Status'.Pending, DisplayMode.Edit, 
+                                                DisplayMode.Disabled )
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Trash
+                    OnSelect: |-
+                        =UpdateContext({delete_mode:true })
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Delete Record"
+                    Visible: =Not(Or(edit_mode,add_mode)) 
+                    Width: =varStyle.largeIconSize
+                    X: =s06_ico_Edit.X - varStyle.spaceBetweenIcons - Self.Width
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =21
+
+                s06_ico_Edit As icon.Edit:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If( IsBlankOrError(selected_item), DisplayMode.Disabled, DisplayMode.Edit )
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Edit
+                    OnSelect: |-
+                        =UpdateContext({edit_mode:true})
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Edit Record"
+                    Visible: =Not(Or(edit_mode,add_mode)) 
+                    Width: =varStyle.largeIconSize
+                    X: =Parent.Width - Self.Width - varStyle.topBarTitleLeftPadding
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =22
+
+                s06_ico_Cancel As icon.Cancel:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Cancel
+                    OnSelect: |-
+                        =ResetForm(s06_frm_Expense); UpdateContext({edit_mode: false});
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Cancel"
+                    Visible: =Or(edit_mode,delete_mode)
+                    Width: =varStyle.largeIconSize
+                    X: =s06_ico_Accept.X - varStyle.spaceBetweenIcons - Self.Width
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =23
+
+                s06_ico_Accept As icon.Check:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =SubmitForm(s06_frm_Expense);
+                        UpdateContext({
+                            edit_mode: false,
+                            selected_item: Blank() 
+                        });
+                        Reset(s06_gal_Expenses)
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Save record"
+                    Visible: =Or(edit_mode,delete_mode)
+                    Width: =varStyle.largeIconSize
+                    X: =Parent.Width - Self.Width - varStyle.topBarTitleLeftPadding
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =24
+
+                s06_ico_Recall As icon.Trash:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: |-
+                        =Switch( selected_item.'Approval Status', 
+                                                'Approval Status'.Approved, DisplayMode.Edit, 
+                                                'Approval Status'.Rejected, DisplayMode.Edit, 
+                                                DisplayMode.Disabled )
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Reset
+                    OnSelect: |-
+                        =UpdateContext({recall_mode:true })
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Recall Record"
+                    Visible: =Not(Or(edit_mode,add_mode)) 
+                    Width: =varStyle.largeIconSize
+                    X: =s06_ico_Delete.X - varStyle.spaceBetweenIcons - Self.Width
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =25
+
+                s06_ico_Add As icon.Trash:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =DisplayMode.Disabled
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Add
+                    OnSelect: |-
+                        =UpdateContext({add_mode:true })
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Delete"
+                    Visible: =Not(Or(edit_mode,add_mode)) 
+                    Width: =varStyle.largeIconSize
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =27
+
+            s06_Divider_2 As rectangle:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(200, 198, 196, 1)
+                Fill: =varStyle.dividerFill
+                FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                Height: =1
+                HoverFill: =RGBA(98, 100, 167, 1)
+                PressedFill: =RGBA(98, 100, 167, 1)
+                Width: =Parent.Width
+                Y: =s06_RightTopbar.Height
+                ZIndex: =2
+
+            s06_frm_Expense As form:
+                AcceptsFocus: =false
+                BorderColor: =RGBA(243, 242, 241, 1)
+                DataSource: =TSExpenses
+                DefaultMode: |
+                    =If( edit_mode, FormMode.Edit, FormMode.View)
+                Item: =selected_item
+                LayoutMinHeight: =250
+                LayoutMinWidth: =Parent.Width
+                NumberOfColumns: =1
+                OnSuccess: |+
+                    =Notify( "Expense Updated!", NotificationType.Success )
+                    
+                ZIndex: =3
+
+                Project_DataCard1 As typedDataCard.pcfCoreComboBoxEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_Project"
+                    Default: =ThisItem.Project
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_Project")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =false
+                    Update: =DataCardValue10.Selected
+                    Width: =341
+                    WidthFit: =true
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey11 As Label:
+                        AutoHeight: =true
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =22
+                        OnChange: =false
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.DisplayName
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue10 As combobox:
+                        AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        ChevronBackground: =RGBA(243, 242, 241, 1)
+                        ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                        ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                        ChevronFill: =RGBA(96, 94, 92, 1)
+                        ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                        ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                        Color: =RGBA(37, 36, 35, 1)
+                        DefaultSelectedItems: =Parent.Default
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        DisabledFill: =RGBA(243, 242, 241, 1)
+                        DisplayFields: =["soul_name"]
+                        DisplayMode: =Parent.DisplayMode
+                        Fill: =RGBA(243, 242, 241, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =32
+                        HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverColor: =RGBA(37, 36, 35, 1)
+                        HoverFill: =RGBA(243, 242, 241, 1)
+                        Items: =Choices([@TSExpenses].soul_Project)
+                        PaddingLeft: =12
+                        PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(243, 242, 241, 1)
+                        SearchFields: =["soul_name"]
+                        SearchItems: =Search(Choices([@TSExpenses].soul_Project),DataCardValue10.SearchText,"soul_name")
+                        SelectionColor: =RGBA(37, 36, 35, 1)
+                        SelectionFill: =RGBA(237, 235, 233, 1)
+                        SelectMultiple: =false
+                        Size: =10.5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey11.Y + DataCardKey11.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage9 As Label:
+                        AutoHeight: =true
+                        Color: =Color.Red
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =30
+                        OnChange: =false
+                        Text: =Parent.Error
+                        Tooltip: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue10.Y + DataCardValue10.Height
+                        ZIndex: =3
+
+                    StarVisible9 As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =20
+                        OnChange: =false
+                        Text: ="*"
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey11.Y
+                        ZIndex: =4
+
+                Note_DataCard1 As typedDataCard.pcfCoreTextualMultiLineEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_note"
+                    Default: =ThisItem.Note
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_note")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =180
+                    Required: =false
+                    Update: =DataCardValue11.Value
+                    Width: =341
+                    WidthFit: =true
+                    X: =0
+                    Y: =5
+                    ZIndex: =1
+
+                    DataCardKey13 As Label:
+                        AutoHeight: =true
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =22
+                        OnChange: =false
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.DisplayName
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue11 As 'Text box'":
+                        AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
+                        DisplayMode: =Parent.DisplayMode
+                        FontSize: =10.5
+                        Height: =Parent.Height * 0.60
+                        Mode: ="Multiline"
+                        Required: =Parent.Required
+                        Tooltip: =Parent.DisplayName
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage10 As Label:
+                        AutoHeight: =true
+                        Color: =Color.Red
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =30
+                        OnChange: =false
+                        Text: =Parent.Error
+                        Tooltip: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue11.Y + DataCardValue11.Height
+                        ZIndex: =3
+
+                    StarVisible10 As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        OnChange: =false
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey13.Y
+                        ZIndex: =4
+
+                s06_DateOfInterest_DataCard As typedDataCard.pcfCoreDateEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_dateofinterest"
+                    Default: =ThisItem.'Date of Interest'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_dateofinterest")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =DataCardValue8.Value
+                    Width: =341
+                    WidthFit: =true
+                    X: =0
+                    Y: =1
+                    ZIndex: =4
+
+                    DataCardKey9 As Label:
+                        AutoHeight: =true
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =22
+                        OnChange: =false
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.DisplayName
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue8 As 'Date picker'":
+                        AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                        DisplayMode: =Parent.DisplayMode
+                        FillColor: =
+                        Height: =32
+                        IconFill: =
+                        MaxDate: =Date(Year(Today())+100,1,1)
+                        MinDate: =Date(1900,1,1)
+                        TextColor: =
+                        Tooltip: =Parent.DisplayName
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey9.Y + DataCardKey9.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage7 As Label:
+                        AutoHeight: =true
+                        Color: =Color.Red
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =30
+                        OnChange: =false
+                        Text: =Parent.Error
+                        Tooltip: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue8.Y + DataCardValue8.Height
+                        ZIndex: =3
+
+                    StarVisible7 As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        OnChange: =false
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey9.Y
+                        ZIndex: =4
+
+                s06_Reason_DataCard As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_reason"
+                    Default: =ThisItem.Reason
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_reason")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =DataCardValue4.Selected.Value
+                    Width: =341
+                    WidthFit: =true
+                    X: =0
+                    Y: =2
+                    ZIndex: =4
+
+                    DataCardKey5 As Label:
+                        AutoHeight: =true
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =22
+                        OnChange: =false
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.DisplayName
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue4 As combobox:
+                        AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        ChevronBackground: =RGBA(243, 242, 241, 1)
+                        ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                        ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                        ChevronFill: =RGBA(96, 94, 92, 1)
+                        ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                        ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                        Color: =RGBA(37, 36, 35, 1)
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        DisabledFill: =RGBA(243, 242, 241, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Fill: =RGBA(243, 242, 241, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =32
+                        HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverColor: =RGBA(37, 36, 35, 1)
+                        HoverFill: =RGBA(243, 242, 241, 1)
+                        IsSearchable: =false
+                        Items: =Choices('Reason (TSExpenses)')
+                        PaddingLeft: =12
+                        PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(243, 242, 241, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionColor: =RGBA(37, 36, 35, 1)
+                        SelectionFill: =RGBA(237, 235, 233, 1)
+                        SelectMultiple: =false
+                        Size: =10.5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey5.Y + DataCardKey5.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage3 As Label:
+                        AutoHeight: =true
+                        Color: =Color.Red
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =30
+                        OnChange: =false
+                        Text: =Parent.Error
+                        Tooltip: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        ZIndex: =3
+
+                    StarVisible3 As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =20
+                        OnChange: =false
+                        Text: ="*"
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey5.Y
+                        ZIndex: =4
+
+                s06_Amount_DataCard As typedDataCard.pcfCoreCurrencyEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_amount"
+                    Default: =ThisItem.Amount
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_amount")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =Value(DataCardValue5.Text)
+                    Width: =341
+                    WidthFit: =true
+                    X: =0
+                    Y: =3
+                    ZIndex: =4
+
+                    DataCardKey6 As Label:
+                        AutoHeight: =true
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =22
+                        OnChange: =false
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.DisplayName
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue5 As text:
+                        AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderThickness: =0
+                        Color: =RGBA(37, 36, 35, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        DisabledFill: =RGBA(243, 242, 241, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Fill: =RGBA(243, 242, 241, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Format: =TextFormat.Number
+                        Height: =32
+                        HoverBorderColor: =RGBA(243, 242, 241, 1)
+                        HoverColor: =RGBA(37, 36, 35, 1)
+                        HoverFill: =RGBA(243, 242, 241, 1)
+                        PaddingBottom: =4
+                        PaddingRight: =12
+                        PaddingTop: =0
+                        PressedBorderColor: =RGBA(98, 100, 167, 1)
+                        PressedColor: =RGBA(37, 36, 35, 1)
+                        PressedFill: =RGBA(243, 242, 241, 1)
+                        RadiusBottomLeft: =3
+                        RadiusBottomRight: =3
+                        RadiusTopLeft: =3
+                        RadiusTopRight: =3
+                        Size: =10.5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey6.Y + DataCardKey6.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage4 As Label:
+                        AutoHeight: =true
+                        Color: =Color.Red
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =30
+                        OnChange: =false
+                        Text: =Parent.Error
+                        Tooltip: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue5.Y + DataCardValue5.Height
+                        ZIndex: =3
+
+                    StarVisible4 As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        OnChange: =false
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey6.Y
+                        ZIndex: =4
+
+                s06_Receipt_DataCard As typedDataCard.fileEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_receipt"
+                    Default: |-
+                        =If(!IsBlank(ThisItem.Receipt.FileName), Table({DisplayName: ThisItem.Receipt.FileName, Value: ThisItem.Receipt.Value}), Blank())
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_receipt")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =180
+                    Required: =false
+                    Update: =DataCardValue6.Attachments
+                    Width: =341
+                    X: =0
+                    Y: =4
+                    ZIndex: =4
+
+                    DataCardKey7 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =9
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue6 As attachments:
+                        AddAttachmentText: ="Upload file"
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        DisabledFill: =RGBA(243, 242, 241, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        Fill: =RGBA(243, 242, 241, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height * 0.60
+                        HoverColor: =RGBA(37, 36, 35, 1)
+                        HoverFill: =RGBA(243, 242, 241, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(0, 0, 0, 1)
+                        ItemFill: =RGBA(237, 235, 233, 1)
+                        ItemHoverColor: =RGBA(37, 36, 35, 1)
+                        ItemHoverFill: =RGBA(243, 242, 241, 1)
+                        Items: =Parent.Default
+                        ItemSpacing: =12
+                        MaxAttachments: =2
+                        MaxAttachmentSize: =32
+                        MaxAttachmentsText: =""
+                        NoAttachmentsColor: =RGBA(200, 198, 196, 1)
+                        NoAttachmentsText: ="There is no file."
+                        PaddingBottom: =5
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(237, 235, 233, 1)
+                        Size: =10.5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =24
+                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage5 As label:
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(168, 0, 0, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10.5
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue6.Y + DataCardValue6.Height
+                        ZIndex: =3
+
+                    StarVisible5 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =DataCardKey7.Height
+                        PaddingLeft: =0
+                        Size: =10.5
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey7.Y
+                        ZIndex: =4
+
+                s06_ApprovalStatus_DataCard As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="soul_approvalstatus"
+                    Default: =ThisItem.'Approval Status'
+                    DisplayMode: |-
+                        =// Parent.DisplayMode
+                        DisplayMode.View
+                    DisplayName: =DataSourceInfo([@TSExpenses],DataSourceInfo.DisplayName,"soul_approvalstatus")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =DataCardValue7.Selected.Value
+                    Width: =341
+                    WidthFit: =true
+                    X: =0
+                    Y: =6
+                    ZIndex: =4
+
+                    DataCardKey8 As Label:
+                        AutoHeight: =true
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =22
+                        OnChange: =false
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.DisplayName
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue7 As combobox:
+                        AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        ChevronBackground: =RGBA(243, 242, 241, 1)
+                        ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                        ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                        ChevronFill: =RGBA(96, 94, 92, 1)
+                        ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                        ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                        Color: =RGBA(37, 36, 35, 1)
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        DisabledFill: =RGBA(243, 242, 241, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: |-
+                            =//Parent.DisplayMode
+                            DisplayMode.View
+                        Fill: =RGBA(243, 242, 241, 1)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        FocusedBorderThickness: =2
+                        Font: =Font.'Segoe UI'
+                        Height: =32
+                        HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverColor: =RGBA(37, 36, 35, 1)
+                        HoverFill: =RGBA(243, 242, 241, 1)
+                        IsSearchable: =false
+                        Items: =Choices('Approval Status')
+                        PaddingLeft: =12
+                        PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(243, 242, 241, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionColor: =RGBA(37, 36, 35, 1)
+                        SelectionFill: =RGBA(237, 235, 233, 1)
+                        SelectMultiple: =false
+                        Size: =10.5
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey8.Y + DataCardKey8.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage6 As Label:
+                        AutoHeight: =true
+                        Color: =Color.Red
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        Height: =30
+                        OnChange: =false
+                        Text: =Parent.Error
+                        Tooltip: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue7.Y + DataCardValue7.Height
+                        ZIndex: =3
+
+                    StarVisible6 As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =20
+                        OnChange: =false
+                        Text: ="*"
+                        VerticalAlignment: =VerticalAlign.Bottom
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey8.Y
+                        ZIndex: =4
+
+    s06_CommonUtils As CCommonUtils:
+        GetWeekDayText: =Switch(Weekday( Date ), 1, "Sun", 2, "Mon", 3, "Tue", 4, "Wed", 5, "Thu", 6, "Fri", 7, "Sat") 
+        Height: =1
+        MailToName: |
+            =With({ 
+                p1: Find( ".", mail ), 
+                p2: Find( "@", mail )
+            },
+            Proper(Mid( mail, p1+1, p2-p1-1 ) & " " & Left(mail, p1-1)))
+        Width: =1
+        ZIndex: =7
+
+    s06_BottomBar As BottomBar:
+        Height: =varStyle.bottomBarHeight
+        Version: =var_current_version
+        Width: =Parent.Width
+        Y: =Parent.Height - Self.Height
+        ZIndex: =8
+
+    s06_MultiApproveOverlay As CConfirmOverlay:
+        ConfirmText: ="Approve"
+        Height: =Parent.Height
+        OnCancel: |-
+            =UpdateContext({ multi_approve_mode:false })
+        OnConfirm: |-
+            =With({ 
+                valid_selected_items: Filter(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending )
+            },
+            ForAll( valid_selected_items, 
+                IfError( 
+                    Patch(TSExpenses, ThisRecord, { 'Approval Status': [@'Approval Status'].Approved }),
+                    false,
+                    RemoveIf( s06_col_selected_items, TSExpense = ThisRecord.TSExpense )
+                );
+            ));
+            UpdateContext({ 
+                selected_item: Blank(),
+                multi_approve_mode:false 
+            })
+        PromptText: ="Are you sure you want to Approve these records ?"
+        Visible: =multi_approve_mode
+        Width: =s06_frm_Expense.Width
+        X: =Parent.Width - Self.Width
+        ZIndex: =9
+
+    s06_MultiRejectOverlay As CConfirmOverlay:
+        ConfirmText: ="Reject"
+        Height: =Parent.Height
+        OnCancel: |-
+            =UpdateContext({ multi_reject_mode:false })
+        OnConfirm: |-
+            =With({ 
+                valid_selected_items: Filter(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending )
+            },
+            ForAll( valid_selected_items, 
+                IfError( 
+                    Patch(TSExpenses, ThisRecord, { 'Approval Status': [@'Approval Status'].Rejected}),
+                    false, 
+                    RemoveIf( s06_col_selected_items, TSExpense = ThisRecord.TSExpense ))
+            ));
+            UpdateContext({ 
+                selected_item: Blank(),
+                multi_reject_mode:false 
+            })
+        PromptText: ="Are you sure you want to Reject these records ?"
+        Visible: =multi_reject_mode
+        Width: =s06_frm_Expense.Width
+        X: =Parent.Width - Self.Width
+        ZIndex: =10
+
+    s06_MultiAssignOverlay As CAssignOverlay:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height
+        OnCancel: |-
+            =UpdateContext({multi_assign_mode:false})
+        OnConfirm: |
+            =With({ 
+                selected_expenses: s06_col_selected_items,
+                selected_user: LookUp(Users, 'Primary Email' = pSelectedUser )
+            },
+            Trace( $"Selected User {pSelectedUser}", TraceSeverity.Information );
+            ForAll( selected_expenses, 
+                IfError( 
+                    Patch(TSExpenses, ThisRecord, { Owner: selected_user, 'Resource Email': pSelectedUser }),
+                    false,
+                    RemoveIf( s06_col_selected_items, TSExpense = ThisRecord.TSExpense ))
+            ));
+            UpdateContext({
+                selected_item: Blank(),
+                multi_assign_mode:false
+            })
+        Visible: =multi_assign_mode
+        Width: =s06_frm_Expense.Width
+        X: =Parent.Width - Self.Width
+        ZIndex: =11
+
+    s06_DeleteConfirmOverlay As CConfirmOverlay:
+        Height: =Parent.Height
+        OnCancel: |-
+            =UpdateContext({delete_mode:false})
+        OnConfirm: |
+            =Remove( TSExpenses, selected_item);
+            If(
+                IsEmpty( Errors(TSExpenses, selected_item) ),
+                UpdateContext({
+                        delete_mode: false,
+                        selected_item: Blank()
+                })
+            )
+        PromptText: ="Are you sure you want to Delete this record ?"
+        Visible: =delete_mode
+        Width: =s06_frm_Expense.Width
+        X: =Parent.Width - Self.Width
+        ZIndex: =12
+
+    s06_RecallConfirmOverlay As CConfirmOverlay:
+        ConfirmText: ="Recall"
+        Height: =Parent.Height
+        OnCancel: |-
+            =UpdateContext({recall_mode:false})
+        OnConfirm: |
+            =IfError( Patch(TSExpenses, selected_item, { 'Approval Status': [@'Approval Status'].Pending }), 
+                Notify("Error updating record", NotificationType.Error),
+                UpdateContext({
+                    recall_mode: false,
+                    selected_item: Blank()
+                })
+            )
+        PromptText: ="Are you sure you want to Recall this record ?"
+        Visible: =recall_mode
+        Width: =s06_frm_Expense.Width
+        X: =Parent.Width - Self.Width
+        ZIndex: =13
+

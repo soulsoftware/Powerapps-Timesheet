@@ -1,0 +1,169 @@
+s01_Menu As screen:
+    BackgroundImage: =timesheet
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    s01_BottomBar As BottomBar:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =28
+        Version: =var_current_version
+        Width: =Parent.Width
+        Y: =Parent.Height - Self.Height
+
+    s01_Rectangle1 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =40
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(255,255,255, 0.6)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =Parent.Height
+        Width: =Parent.Width
+        ZIndex: =1
+
+    s01_Container2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =50
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        PaddingLeft: =50
+        PaddingRight: =50
+        Width: =Parent.Width * 0.45
+        ZIndex: =2
+
+        s01_cmb_Year As Combobox.pcfdataset:
+            AlignInContainer: =AlignInContainer.Start
+            BasePaletteColor: =
+            DefaultSelectedItems: |-
+                ={Value: Year(Now())}
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =App.Theme.Colors.Primary
+            FontSize: =25
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            InputTextPlaceholder: ="select year"
+            IsSearchable: =true
+            Items: |-
+                =With({ year: Year(Now())}, [$"{year}", $"{year -1}"] )
+            LayoutMinHeight: =32
+            LayoutMinWidth: =100
+            OnChange: =Set( var_selectedYear, Value(Self.Selected.Value) )
+            Width: =200
+            X: =52
+            Y: =44
+            ZIndex: =1
+
+        s01_btn_TimeEntries As Button:
+            BorderColor: =
+            BorderRadius: =10
+            DisabledBorderColor: =
+            DisabledFillColor: =
+            DisabledTextColor: =
+            DisplayMode: =DisplayMode.Edit
+            FillColor: =
+            FontSize: =20
+            Height: =100
+            HoverBorderColor: =
+            HoverFillColor: =
+            HoverTextColor: =
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            OnChange: =false
+            OnSelect: |-
+                =// Navigate(s03_TimeEntries,ScreenTransition.Cover)
+                Navigate(s08_TimeEntries,ScreenTransition.Cover)
+            PressedBorderColor: =
+            PressedFillColor: =
+            PressedTextColor: =
+            Text: ="Timesheet Management"
+            TextColor: =
+            Width: =Parent.Width * 0.90
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+        s01_btn_Expenses As Button:
+            BorderColor: =
+            BorderRadius: =10
+            DisabledBorderColor: =
+            DisabledFillColor: =
+            DisabledTextColor: =
+            DisplayMode: =DisplayMode.Edit
+            FillColor: =
+            FontSize: =20
+            Height: =100
+            HoverBorderColor: =
+            HoverFillColor: =
+            HoverTextColor: =
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            OnChange: =false
+            OnSelect: =Navigate(s06_Expenses,ScreenTransition.Cover)
+            PressedBorderColor: =
+            PressedFillColor: =
+            PressedTextColor: =
+            Text: ="Expenses Management"
+            TextColor: =
+            Width: =Parent.Width * 0.90
+            X: =40
+            Y: =40
+            ZIndex: =3
+
+        s01_btn_Projects As Button:
+            BorderColor: =
+            BorderRadius: =10
+            DisabledBorderColor: =
+            DisabledFillColor: =
+            DisabledTextColor: =
+            DisplayMode: =DisplayMode.Edit
+            FillColor: =
+            FontSize: =20
+            Height: =100
+            HoverBorderColor: =
+            HoverFillColor: =
+            HoverTextColor: =
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            OnChange: =false
+            OnSelect: =Navigate(s07_Projects,ScreenTransition.Cover)
+            PressedBorderColor: =
+            PressedFillColor: =
+            PressedTextColor: =
+            Text: ="Project Management"
+            TextColor: =
+            Width: =Parent.Width * 0.90
+            X: =40
+            Y: =135
+            ZIndex: =4
+
+    s01_Container1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =120
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutJustifyContent: =LayoutJustifyContent.End
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Width: =Parent.Width
+        ZIndex: =3
+
+        s01_img_Logo As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =soul
+            ImagePosition: =ImagePosition.Fill
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Width: =200
+            ZIndex: =1
+

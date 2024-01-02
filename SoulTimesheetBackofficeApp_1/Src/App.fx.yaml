@@ -1,0 +1,99 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |-
+        =var_current_version = "4.4.0";
+        gFont = { 
+            Size: 10.5, 
+            ColorH2: RGBA(0, 94, 146, 1)
+        };
+        gColor = {
+            DraftFill: ColorFade(Color.Aquamarine, .7),
+            PendingFill: RGBA(255,255,102,.7),
+            RejectedFill: ColorFade(Color.Orange, .7),
+            ApprovedFill: ColorFade(Color.GreenYellow, 0.5),
+            DiffWarningFill: ColorFade(Color.Red, 0.3),
+            SelectedFill: Color.WhiteSmoke   
+        };
+    OnError: |-
+        =//
+        // https://www.matthewdevaney.com/power-apps-onerror-property-capture-log-unexpected-errors/
+        //
+        Notify(
+            $"{FirstError.Message} Observed: {FirstError.Observed} Source: {FirstError.Source}",
+            NotificationType.Error
+        );
+        Trace(
+            "Unhandled Error",
+            TraceSeverity.Error,
+            {
+                Kind: FirstError.Kind,
+                Message: FirstError.Message,
+                Observed: FirstError.Observed,
+                Screen: App.ActiveScreen.Name,
+                Source: FirstError.Source,
+                User: User().Email
+            }
+        )
+    OnStart: |
+        =/*
+        With({
+            configYear: IfError( LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "Timesheet Year" ).Value, 2023 )
+        },
+        Set( var_selectedYear,
+            Coalesce( Value(Param("year")), configYear ));
+        Trace( $"configYear: {configYear} - var_selectedYear: {var_selectedYear}" ));
+        */
+        Set( var_selectedYear, Year(Now()));
+        Set( var_expectedDays, 22);
+        ClearCollect( col_bank_holidays, ShowColumns( TSBankHolidays, "{Name}", "Category", "EventDate", "EventType") );
+        Set( varStyle,
+            {
+                bottomBarHeight:30,
+                topBarHeight: 52,
+                topBarTitleSize: 12,
+                topBarTitleLeftPadding: 12,
+                topBarIconRightPadding: 12,
+                topBarTitleLeftPaddingWithButton: 8,
+                iconSize: 16,
+                largeIconSize: 50,
+                iconPadding: 12,
+                spaceBetweenIcons: 8,
+                deletePageSideMargins: 200,
+                galleryBarHeight: 70,
+                searchBarHeight: 32,
+                deleteTextHeight: 120,
+                deleteConfirmButtonHeight: 40,
+                iconButtonFill: RGBA( 0, 0, 0, 0.2 ),
+                iconButtonSmallWidth: 30,
+                iconFill: ColorValue("#6264A7"),
+                dividerFill: ColorValue("#EAE9E8"),
+                formLabelFontSize: 10.5,
+                focusBorderColor: ColorValue("#000000"),
+                focusBorderThickness: 2,
+                borderStyle: BorderStyle.Dashed
+            }
+        );
+    StartScreen: |-
+        =Switch(
+            Param("screen"),
+            "times", 's03_TimeEntries (Deprecated)',
+            "expenses", s06_Expenses,
+            "projects", s07_Projects,
+            s01_Menu
+        )
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    Teams As hostControl.TeamsHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

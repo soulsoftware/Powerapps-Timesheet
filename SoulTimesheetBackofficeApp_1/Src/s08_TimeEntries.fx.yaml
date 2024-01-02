@@ -1,0 +1,727 @@
+"s08_TimeEntries As screen.'teamsHeroApp_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: =Select(s08_ico_Reload)
+
+    s08_BottomBar As BottomBar:
+        Height: =varStyle.bottomBarHeight
+        Version: =var_current_version
+        Width: =Parent.Width
+        Y: =Parent.Height - Self.Height
+
+    s08_MainContainer As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Height: =Parent.Height - s08_BottomBar.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =2
+
+        s08_cnt_LeftTopBar As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(15, 108, 189, 1)
+            FillPortions: =0
+            Height: =51
+            LayoutGap: =5
+            LayoutMinHeight: =100
+            LayoutMinWidth: =Parent.Height
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            PaddingRight: =10
+            Width: =Parent.Width
+            ZIndex: =1
+
+            s08_ico_Home As icon.Add:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =42
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.BackArrow
+                OnSelect: =Back(ScreenTransition.UnCoverRight)
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =Self.Height
+                ZIndex: =1
+
+            s08_Header As Header:
+                AlignInContainer: =AlignInContainer.Stretch
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Font: =""
+                FontColor: =
+                Height: =Parent.Height
+                LayoutMinHeight: =Parent.Height
+                LayoutMinWidth: =
+                Logo: =Soul2
+                LogoTooltip: ="www.soulsoftware.it"
+                OnSelectLogo: =false
+                PCFTeamsTheme: ="default"
+                Title: ="Timesheets Management" // App.ActiveScreen.Name
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+            s08_ico_Reload As icon.Add:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Reload
+                OnSelect: |
+                    =Clear(s08_col_time_entries);
+                    With({
+                        selected_month: s08_cmb_Months.Selected.Number
+                    },
+                    With({
+                       status_pending: [@'Approval Status'].Pending,
+                        status_approved: [@'Approval Status'].Approved,
+                        status_rejected: [@'Approval Status'].Rejected,
+                        status_draft: [@'Approval Status'].Draft,
+                        date_start: Date( var_selectedYear, selected_month, 1),
+                        date_end: DateAdd(Date( var_selectedYear,  selected_month, 1), 1, TimeUnit.Months)
+                    },
+                    ForAll( Filter(Users, 'Users (Views)'.'TS Users'),
+                        With({
+                            ds_filtered: ShowColumns(Filter('AH Timesheets', And( 'Resource Email' = 'Primary Email', 'Date of Interest' >= date_start, 'Date of Interest' < date_end)),
+                            "owninguser",
+                            "sou_resourceemail", 
+                            "sou_dateofinterest", 
+                            "sou_workinghours", 
+                            "crfc7_approvalstatus", 
+                            "sou_reason", 
+                            "cr2b3_Project" )
+                        },
+                        With({
+                            ds_grouped: AddColumns( GroupBy( ds_filtered, "sou_resourceemail", "data"),     
+                        //"sou_name", With({ p1: Find(".",sou_resourceemail), p2: Find("@",sou_resourceemail)}, Proper( Left(sou_resourceemail, p1-1) & " " & Mid( sou_resourceemail, p1+1, p2-p1-1 ) )),
+                        "sou_days", CountRows( Filter(data, Not(crfc7_approvalstatus = status_rejected) )),
+                        "sou_total_hours", Sum( Filter(data, Not(crfc7_approvalstatus = status_rejected)) , sou_workinghours )/60,
+                        "sou_pending_hours", Sum( Filter(data, crfc7_approvalstatus = status_pending) , sou_workinghours)/60, 
+                        "sou_approved_hours", Sum( Filter(data, crfc7_approvalstatus = status_approved) , sou_workinghours)/60, 
+                        "sou_rejected_hours", Sum( Filter(data, crfc7_approvalstatus = status_rejected) , sou_workinghours)/60
+                        )},
+                        Collect(s08_col_time_entries, { 
+                            resource_email: 'Primary Email', 
+                            // full_name: With({ p1: Find(".",'Primary Email'), p2: Find("@",'Primary Email')}, Proper( Left('Primary Email', p1-1) & " " & Mid( 'Primary Email', p1+1, p2-p1-1 ) )),  
+                            full_name: $"{'Last Name'} {'First Name'}",
+                            ds: First(DropColumns(ds_grouped, "data")) 
+                            } )))
+                        // Collect(s08_col_time_entries, { resource_email: 'Primary Email',  ds: First(ds_grouped) } )))
+                    )))
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =Self.Height
+                ZIndex: =3
+
+            s08_ico_Print As icon.Add:
+                AlignInContainer: =AlignInContainer.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =If( App.ActiveScreen.Printing, DisplayMode.Disabled, DisplayMode.Edit)
+                Height: =32
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Print
+                OnSelect: =Print()
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =32
+                ZIndex: =4
+
+        s08_ToolBar As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Semilight
+            FillPortions: =0
+            Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =5
+            LayoutMinHeight: =100
+            LayoutMinWidth: =Parent.Width
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =10
+            Width: =Parent.Width
+            Y: =50
+            ZIndex: =2
+
+            "s08_txt_searchByMail As 'Text box'":
+                ColorBackground: =
+                ColorText: =
+                DelayOutput: =false
+                DisplayMode: =DisplayMode.Disabled
+                FontSize: =gFont.Size
+                FontWeight: ="normal"
+                Height: =32
+                Italic: =false
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                MaxLength: =-1
+                OnChange: |
+                    =UpdateContext( { search_by_mail: s08_txt_searchByMail.Value } );
+                PaddingBottom: =0
+                PaddingTop: =0
+                PCFTeamsTheme: ="default"
+                Placeholder: ="search by mail"
+                Strikethrough: =false
+                Underline: =false
+                Value: =""
+                Width: =366
+                X: =44
+                Y: =10
+                ZIndex: =1
+
+            "s08_cmb_Months As 'Combo box'.pcfdataset":
+                DefaultSelectedItems: |-
+                    =With({ Value: Month(Now()) },
+                    { 
+                        Number: Value,
+                        Name: Text( Date( var_selectedYear, Value, 1 ), "mmm")
+                    })
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =gFont.Size
+                Height: =32
+                Items: |-
+                    =ForAll( Sequence(12), {
+                        Number: Value,
+                        Name: Text( Date( var_selectedYear, Value, 1 ), "mmm")
+                    })
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =Select(s08_ico_Reload)
+                OnSelect: =false
+                Text: ="Select Month"
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                Name1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Name"
+                    FieldName: ="Name"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =9
+
+            s08_lbl_Year As Label:
+                Alignment: =Align.Center
+                Color: =
+                DisplayMode: =DisplayMode.View
+                FontSize: =gFont.Size * 1.2
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =false
+                Text: =var_selectedYear
+                Width: =70
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+            Icon3 As icon.VerticalLine:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.VerticalLine
+                PaddingBottom: =3
+                PaddingLeft: =3
+                PaddingRight: =3
+                PaddingTop: =3
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =32
+                ZIndex: =4
+
+            s08_lbl_ExpectedDays As Label:
+                Color: =
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =gFont.Size * 1.2
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =false
+                Text: ="expected days"
+                Width: =120
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+            "s08_txt_ExpectedDays As 'Text box'":
+                ColorBackground: =
+                ColorText: =
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =gFont.Size * 1.2
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =Set( var_expectedDays, Value(Self.Value) )
+                Value: =var_expectedDays
+                Width: =40
+                X: =0
+                Y: =0
+                ZIndex: =6
+
+        s08_HeaderBar As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderThickness: =1
+            FillPortions: =0
+            Height: =30
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =538
+            Width: =Parent.Width
+            Y: =40
+            ZIndex: =3
+
+            Label2 As Label:
+                Alignment: =Align.Center
+                Color: =
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =gFont.Size
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =false
+                Text: ="Days"
+                Width: =80
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            Label2_2 As Label:
+                Alignment: =Align.Center
+                Color: =
+                DisplayMode: =DisplayMode.View
+                FontSize: =gFont.Size
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                OnChange: =false
+                Text: ="Total"
+                Width: =80
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+            s08_HeaderApproved As CColoredLabel:
+                Alignment: ="center"
+                BorderThickness: =2
+                Fill: =gColor.ApprovedFill
+                FontSize: =gFont.Size
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Text: ="Approved"
+                Width: =80
+                ZIndex: =3
+
+            s08_HeaderPending As CColoredLabel:
+                Alignment: ="center"
+                BorderThickness: =2
+                Fill: =gColor.PendingFill
+                FontSize: =gFont.Size
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Text: ="Pending"
+                Width: =80
+                ZIndex: =5
+
+            s08_HeaderRejected As CColoredLabel:
+                AlignInContainer: =AlignInContainer.Center
+                Alignment: ="center"
+                BorderThickness: =2
+                Fill: =gColor.RejectedFill
+                FontSize: =gFont.Size
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Text: ="Rejected"
+                Width: =80
+                ZIndex: =6
+
+            s08_HeaderRejected_1 As CColoredLabel:
+                AlignInContainer: =AlignInContainer.Center
+                Alignment: ="center"
+                BorderThickness: =2
+                Fill: =gColor.DiffWarningFill
+                FontSize: =gFont.Size
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Text: ="Difference"
+                TextColor: =RGBA(255, 255, 255, 1)
+                Width: =80
+                ZIndex: =7
+
+        s08_gal_TimeEntries As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderThickness: =
+            DelayItemLoading: =true
+            DisplayMode: |-
+                =DisplayMode.Edit
+                // If(Or(edit_mode,delete_mode), DisplayMode.Disabled, DisplayMode.Edit)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            FocusedBorderThickness: =2
+            Height: =Parent.Height - 2 * varStyle.topBarHeight - varStyle.bottomBarHeight
+            Items: |-
+                =SortByColumns(s08_col_time_entries, "full_name")
+                /*
+                With({
+                    selected_month: s08_cmb_Months.Selected.Number
+                },
+                With({
+                    status_pending: [@'Approval Status'].Pending,
+                    status_approved: [@'Approval Status'].Approved,
+                    status_rejected: [@'Approval Status'].Rejected,
+                    status_draft: [@'Approval Status'].Draft,
+                    DateStart: Date( var_selectedYear, selected_month, 1),
+                    DateEnd: DateAdd(Date( var_selectedYear,  selected_month, 1), 1, Months),
+                    DateStartYear: Date( var_selectedYear, 1, 1)
+                },
+                
+                SortByColumns(
+                Filter(  
+                AddColumns( GroupBy( Filter('AH Timesheets', sou_dateofinterest >= DateStartYear ) , "sou_resourceemail", "data"),
+                        "sou_name", With({ p1: Find(".",sou_resourceemail), p2: Find("@",sou_resourceemail)}, Proper( Mid( sou_resourceemail, p1+1, p2-p1-1 )& " " &  Left(sou_resourceemail, p1-1) )),
+                        "sou_days", CountRows(Distinct( Filter(data, And( sou_dateofinterest >= DateStart, sou_dateofinterest < DateEnd, Not(crfc7_approvalstatus = status_draft), Not(crfc7_approvalstatus = status_rejected) )), sou_dateofinterest)),
+                        "sou_total_hours", Sum( Filter(data, And( sou_dateofinterest >= DateStart, sou_dateofinterest < DateEnd, Not(crfc7_approvalstatus = status_draft), Not(crfc7_approvalstatus = status_rejected))) , sou_workinghours)/60, 
+                        "sou_pending_hours", Sum( Filter(data, And( sou_dateofinterest >= DateStart, sou_dateofinterest < DateEnd, Not(crfc7_approvalstatus = status_draft), crfc7_approvalstatus = status_pending)) , sou_workinghours)/60, 
+                        "sou_approved_hours", Sum( Filter(data, And( sou_dateofinterest >= DateStart, sou_dateofinterest < DateEnd, Not(crfc7_approvalstatus = status_draft), crfc7_approvalstatus = status_approved)) , sou_workinghours)/60, 
+                        "sou_rejected_hours", Sum( Filter(data, And( sou_dateofinterest >= DateStart, sou_dateofinterest < DateEnd, Not(crfc7_approvalstatus = status_draft), crfc7_approvalstatus = status_rejected)) , sou_workinghours)/60 
+                    ),
+                    If( Len(search_by_mail) > 0, StartsWith( sou_resourceemail, search_by_mail ), true)
+                ), "sou_name")
+                
+                ))
+                */
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =/*
+                With( {
+                    //record: LookUp( 'AH Timesheets', 'AH Timesheet' = ThisItem.'AH Timesheet')
+                    recordID: ThisItem.'AH Timesheet'
+                    },
+                Trace( "select gallery: " & recordID, TraceSeverity.Information );
+                UpdateContext({ 
+                    edit_mode:false, 
+                    delete_mode:false,
+                    selected_item: ThisItem
+                })
+                )
+                */
+            TabIndex: =0
+            TemplateFill: |
+                =Color.White
+                /*
+                Switch( ThisItem.'Approval Status', 
+                    'Approval Status'.Pending, RGBA(255,255,102,.7),
+                    'Approval Status'.Rejected, ColorFade(Color.Orange, .7),    
+                    If( 
+                        And( Not( IsBlank(selected_item) ), ThisItem.IsSelected),
+                        Color.WhiteSmoke,
+                        Color.White
+                    )
+                )
+                */
+            TemplatePadding: =0
+            TemplateSize: =60
+            Width: =Parent.Width
+            Y: =s08_ToolBar.Y + s08_ToolBar.Height
+            ZIndex: =4
+
+            s08_Divider2 As rectangle:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledFill: =RGBA(200, 198, 196, 1)
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                Height: =1
+                HoverFill: =RGBA(98, 100, 167, 1)
+                OnSelect: =Select(Parent)
+                PressedFill: =RGBA(98, 100, 167, 1)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =1
+
+            s08_Container5 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.TemplateHeight
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                X: =1
+                ZIndex: =2
+
+                s08_Ico_Person As icon.Add:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(0, 94, 146, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =38
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Person
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =38
+                    Y: =Parent.Height
+                    ZIndex: =1
+
+                s08_Container6 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =Parent.Height
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    s08_lbl_ResourceEmail As Label:
+                        AutoHeight: =false
+                        Color: =RGBA(0, 94, 146, 1)
+                        DisplayMode: =DisplayMode.View
+                        FillPortions: =1
+                        FontSize: =gFont.Size * 1.2
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        LayoutMinHeight: =30
+                        LayoutMinWidth: =320
+                        OnChange: =false
+                        OnSelect: =false
+                        Overflow: ="Hidden"
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        TabIndex: =-1
+                        Text: |
+                            =ThisItem.full_name
+                            // ThisItem.sou_resourceemail
+                            // ThisItem.'Owning User'.'Full Name'
+                            //$"{ThisItem.'Owning User'.'Full Name'} ({ThisItem.'Resource Email'})"
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Width: =500
+                        Wrap: =true
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    Label3 As Label:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =RGBA(0, 94, 146, 1)
+                        DisplayMode: =DisplayMode.View
+                        FillPortions: =1
+                        FontSize: =gFont.Size
+                        FontWeight: =FontWeight.Normal
+                        Height: =32
+                        LayoutMinHeight: =30
+                        LayoutMinWidth: =Parent.Width
+                        OnChange: =false
+                        Text: =ThisItem.resource_email
+                        Width: =320
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                "s08_txt_Days As 'Text box'":
+                    ColorBackground: =Color.White
+                    ColorText: =
+                    DisplayMode: =DisplayMode.View
+                    FontSize: =gFont.Size
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =50
+                    Value: =Text(ThisItem.ds.sou_days,"  00")
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
+
+                "s08_txt_TotalHours As 'Text box'":
+                    ColorBackground: =Color.White
+                    ColorText: =
+                    DisplayMode: =DisplayMode.View
+                    FontSize: =gFont.Size
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =50
+                    Value: =Text(ThisItem.ds.sou_total_hours, "    000")
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =5
+
+                "s08_txt_ApprovedHours As 'Text box'":
+                    ColorBackground: =gColor.ApprovedFill
+                    ColorText: =
+                    DisplayMode: =DisplayMode.View
+                    FontSize: =gFont.Size
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =80
+                    Value: =Text( ThisItem.ds.sou_approved_hours, "   000")
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =6
+
+                "s08_txt_PendingHours As 'Text box'":
+                    ColorBackground: =gColor.PendingFill
+                    ColorText: =
+                    DisplayMode: =DisplayMode.View
+                    FontSize: =gFont.Size
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Value: =Text(ThisItem.ds.sou_pending_hours, "   000")
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =7
+
+                "s08_txt_RejectedHours As 'Text box'":
+                    ColorBackground: =gColor.RejectedFill
+                    ColorText: =
+                    DisplayMode: =DisplayMode.View
+                    FontSize: =gFont.Size
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Value: =Text(ThisItem.ds.sou_rejected_hours, "   000")
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =8
+
+                "s08_txt_DiifExpectedHours As 'Text box'":
+                    ColorBackground: |-
+                        =/*
+                        With({ value: IfError( Value(Self.Value), - 1) 
+                        },
+                        If( value <>0, gColor.DiffWarningFill, Color.White ))
+                        */
+                    ColorText: |-
+                        =With({ value: IfError( Value(Self.Value), - 1) 
+                        },
+                        If( value < 0, gColor.DiffWarningFill, value = 0, Color.White ))
+                    DisplayMode: =DisplayMode.View
+                    FontSize: =gFont.Size
+                    FontWeight: =FontWeight.Bold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Underline: =false
+                    Value: |-
+                        =With({ 
+                            // expectedHours: (ThisItem.sou_days  - Value(s08_txt_ExpectedDays.Value) ) * 8,
+                            expectedHours:  ThisItem.ds.sou_approved_hours + ThisItem.ds.sou_pending_hours - Value(s08_txt_ExpectedDays.Value)*8
+                        },
+                        IfError( Text(expectedHours, "   000"), "Error"))
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =9
+
+                s08_Ico_Details As icon.Add:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.ChevronRight
+                    OnSelect: |-
+                        =With({
+                            selected_month: s08_cmb_Months.Selected.Number
+                        },
+                        Navigate(s09_TimeEntries,ScreenTransition.Cover, { param_resourceemail: ThisItem.resource_email, param_month: selected_month  } ))
+                    PaddingBottom: =3
+                    PaddingLeft: =3
+                    PaddingRight: =3
+                    PaddingTop: =3
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    ZIndex: =10
+
+    s08_CommonUtils As CCommonUtils:
+        GetWeekDayText: =Switch(Weekday( Date ), 1, "Sun", 2, "Mon", 3, "Tue", 4, "Wed", 5, "Thu", 6, "Fri", 7, "Sat") 
+        Height: =5
+        MailToName: |
+            =With({ 
+                p1: Find( ".", mail ), 
+                p2: Find( "@", mail )
+            },
+            Proper(Mid( mail, p1+1, p2-p1-1 ) & " " & Left(mail, p1-1)))
+        Width: =5
+        ZIndex: =3
+

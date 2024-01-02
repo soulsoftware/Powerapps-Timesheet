@@ -1,0 +1,214 @@
+"s03_Chart_Availability As screen.'tabletAutoLayout_Sidebar_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =UpdateContext( {availabiltyCollection: With(
+            {
+                groupbyemail: DropColumns(AddColumns(GroupBy(
+                    Filter(
+                        'AH Timesheets',
+                        Reason = TSReason.Availability
+                    ),
+                    "sou_resourceemail",
+                    "resourcedata"
+                ), "name", Proper((Substitute(Left(sou_resourceemail, Find( "@", sou_resourceemail )-1 ) , ".", " ")))), "sou_resourceemail")
+            },
+            DropColumns(AddColumns(
+                            groupbyemail,
+                            "hours",
+                            Sum(resourcedata,'Working Hours')
+                        ),
+                        "resourcedata")
+        )})
+
+    s03_Container As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "s03_gal_Availability As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(243, 242, 241, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            FocusedBorderThickness: =2
+            Height: =502
+            Items: =Sort(availabiltyCollection, hours, SortOrder.Descending)
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            TemplatePadding: =0
+            TemplateSize: |-
+                =50
+                // Min(160, Self.Height - 60)
+            Width: |
+                =Parent.Width
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+            s03_gal_Name As label:
+                Color: =RGBA(37, 36, 35, 1)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.TemplateHeight
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =16
+                Text: =ThisItem.name
+                Width: =Parent.TemplateWidth - 104
+                X: =
+                Y: |
+                    =0
+                ZIndex: =2
+
+            s03_gal_hours As label:
+                Color: =RGBA(37, 36, 35, 1)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                Font: =Font.'Segoe UI'
+                Height: =Parent.TemplateHeight
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =16
+                Text: |-
+                    =Text( (ThisItem.hours/60)/8, "#00") & " g" 
+                Width: =93
+                X: =227
+                Y: |
+                    =0
+                ZIndex: =3
+
+            s03_gal_Separator As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Fill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+        s03_Rectangle As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            Fill: =RGBA(98, 100, 167, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            Width: =1
+            ZIndex: =2
+
+        s03_RightSideContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =7
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            s03_MainSectionContainer As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =5
+
+                s03_grp_Availability As group:
+                    Height: =5
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =1
+
+                    s03_PieChart_Title As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =25
+                        Size: =16
+                        Text: ="Availability By Resource"
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                        ZIndex: =2
+
+                    s03_PieChart_Availability As pieChart:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        Height: =600
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48, 166, 103, 1), RGBA(94, 193, 108, 1), RGBA(246, 199, 144, 1), RGBA(247, 199, 114, 1), RGBA(247, 180, 91, 1), RGBA(246, 143, 100, 1), RGBA(212, 96, 104, 1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                        Items: =availabiltyCollection
+                        LayoutMinWidth: =600
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =70
+                        ZIndex: =3
+
+                    s03_PieChart_Legend As legend:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(37, 36, 35, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(200, 198, 196, 1)
+                        DisabledFill: =RGBA(220, 220, 220, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =100
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        ItemColorSet: =s03_PieChart_Availability.ItemColorSet
+                        Items: =s03_PieChart_Availability.SeriesLabels
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        Size: =14
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =470
+                        ZIndex: =4
+
+    Icon2 As icon.Add:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(98, 100, 167, 1)
+        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =54
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Back(ScreenTransition.Fade)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =54
+        X: =Parent.Width - Self.Width 
+        ZIndex: =2
+
