@@ -156,32 +156,17 @@ CFilterCriteriaOverlay As CanvasComponent:
                 ZIndex: =5
 
             "'c03_btn_ResetApproval Status' As Button":
-                BorderColor: =RGBA(0, 94, 146, 1)
-                BorderStyle: =BorderStyle.Solid
-                BorderThickness: =1
-                ButtonType: ='Button.ButtonType'.Standard
-                DisabledBorderColor: =
-                DisabledFillColor: =
-                DisabledTextColor: =
+                BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
-                FillColor: =
+                FontColor: =
                 FontSize: =10.5
                 Height: =24
-                HoverBorderColor: =
-                HoverFillColor: =
-                HoverTextColor: =
                 LayoutMinHeight: =32
                 LayoutMinWidth: =96
-                OnChange: =false
                 OnSelect: |-
                     =Reset( c03_rbt_ApprovalStatus );
                     Reset( c03_IncludeDraft )
-                PaddingTop: =0
-                PressedBorderColor: =
-                PressedFillColor: =
-                PressedTextColor: =
                 Text: ="Reset"
-                TextColor: =
                 Width: =96
                 X: =0
                 Y: =0

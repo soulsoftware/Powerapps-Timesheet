@@ -21,32 +21,14 @@ ExcelButton As CanvasComponent:
         ZIndex: =3
 
         Button1_1 As Button:
-            Alignment: =Align.Left
-            BorderColor: =RGBA(98, 100, 167, 1)
-            BorderRadius: =5
-            BorderThickness: =1
-            DisabledBorderColor: =
-            DisabledFillColor: =
-            DisabledTextColor: =
+            BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
-            FillColor: =Parent.Fill
+            FontColor: =
             FontSize: =12
             FontWeight: =FontWeight.Bold
             Height: =Parent.Height - (Parent.PaddingBottom + Parent.PaddingTop)
-            HoverBorderColor: =
-            HoverFillColor: =
-            HoverTextColor: =
-            OnChange: =false
             OnSelect: =ExcelButton.OnSelect()
-            PaddingBottom: =
-            PaddingEnd: =
-            PaddingStart: =
-            PaddingTop: =
-            PressedBorderColor: =
-            PressedFillColor: =
-            PressedTextColor: =
             Text: =ExcelButton.Text
-            TextColor: =RGBA(0, 94, 146, 1)
             Width: =Parent.Width - (Parent.PaddingRight + Parent.PaddingLeft)
             X: =Parent.X + Parent.PaddingLeft
             Y: =Parent.Y + Parent.PaddingTop
