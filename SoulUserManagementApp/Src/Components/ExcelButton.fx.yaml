@@ -1,0 +1,69 @@
+ExcelButton As CanvasComponent:
+    Fill: =RGBA(255, 255, 255, 1)
+    Height: =50
+    OnSelect: =true
+    Padding: =3
+    Text: ="Text"
+    Width: =120
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container3_1 As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(98, 100, 167, 1)
+        Fill: =Parent.Fill
+        Height: =Parent.Height
+        PaddingBottom: =ExcelButton.Padding
+        PaddingLeft: =ExcelButton.Padding
+        PaddingRight: =ExcelButton.Padding
+        PaddingTop: =ExcelButton.Padding
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Button1_1 As Button:
+            Alignment: =Align.Left
+            BorderColor: =RGBA(98, 100, 167, 1)
+            BorderRadius: =5
+            BorderThickness: =1
+            DisabledBorderColor: =
+            DisabledFillColor: =
+            DisabledTextColor: =
+            DisplayMode: =DisplayMode.Edit
+            FillColor: =Parent.Fill
+            FontSize: =12
+            FontWeight: =FontWeight.Bold
+            Height: =Parent.Height - (Parent.PaddingBottom + Parent.PaddingTop)
+            HoverBorderColor: =
+            HoverFillColor: =
+            HoverTextColor: =
+            OnChange: =false
+            OnSelect: =ExcelButton.OnSelect()
+            PaddingBottom: =
+            PaddingEnd: =
+            PaddingStart: =
+            PaddingTop: =
+            PressedBorderColor: =
+            PressedFillColor: =
+            PressedTextColor: =
+            Text: =ExcelButton.Text
+            TextColor: =RGBA(0, 94, 146, 1)
+            Width: =Parent.Width - (Parent.PaddingRight + Parent.PaddingLeft)
+            X: =Parent.X + Parent.PaddingLeft
+            Y: =Parent.Y + Parent.PaddingTop
+            ZIndex: =1
+
+        Image1 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.Height
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =saveToExcel
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =Parent.Width * 0.35
+            X: =Parent.Width - Self.Width - 5
+            ZIndex: =3
+

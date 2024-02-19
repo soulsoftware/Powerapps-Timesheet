@@ -1,0 +1,60 @@
+TopBar As CanvasComponent:
+    Caption: ="Caption"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =50
+    Version: =
+    Width: =500
+    X: =0
+    Y: =0
+    ZIndex: =11
+
+    TopBar_Container As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(56, 96, 178, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =80
+        Width: =Parent.Width
+        ZIndex: =3
+
+        c01_img_Logo As image:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Height: =Parent.Height
+            Image: =soul
+            ImagePosition: =ImagePosition.Stretch
+            PaddingBottom: =1
+            PaddingLeft: =1
+            PaddingTop: =1
+            Width: =150
+            ZIndex: =4
+
+        c01_rct_Filler As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            Fill: =RGBA(98, 100, 167, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            ZIndex: =5
+
+    c01_html_Caption As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.View
+        Height: =TopBar.Height
+        HtmlText: |
+            =// With( { ver:PowerAppsforMakers.GetApp("8c46d614-e6ac-45ec-b056-ed2ccdc73cfb").properties.minClientVersion },
+            $"<center><b>{TopBar.Caption}</b><center><font size='2'>{If(Not(IsBlank(TopBar.Version)), $"Version: {TopBar.Version}", "")}</font>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =15
+        Width: =TopBar.Width
+        ZIndex: =4
+

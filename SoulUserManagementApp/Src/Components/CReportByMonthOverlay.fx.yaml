@@ -1,0 +1,120 @@
+CReportByMonthOverlay As CanvasComponent:
+    OnConfirm(pSelectDate As DateTime):
+        pSelectDate:
+            Default: =Now()
+        ThisProperty:
+            Default: =true
+    ConfirmText: ="Generate"
+    Fill: =RGBA(230, 230, 230, 1)
+    Height: =220
+    InitValue: =Now()
+    OnCancel: =true
+    Width: =320
+    X: =0
+    Y: =0
+    ZIndex: =6
+
+    MainContainer_4 As groupContainer.verticalAutoLayoutContainer:
+        BorderThickness: =1
+        Fill: =Parent.Fill
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =15
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =2
+
+        c02_lbl_Text As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            Color: =RGBA(98, 100, 167, 1)
+            DisplayMode: =DisplayMode.View
+            FillPortions: =1
+            Height: =50
+            Live: =Live.Assertive
+            Text: ="Select Month"
+            Width: =Min(350, Parent.Width * 0.8) 
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =
+            ZIndex: =1
+
+        "c02_DatePicker As 'Date picker'":
+            DisplayMode: =DisplayMode.Edit
+            FillColor: =
+            FillPortions: =1
+            Height: =32
+            IconFill: =
+            LayoutMinHeight: =30
+            LayoutMinWidth: =210
+            ShowGoToToday: =true
+            TextColor: =
+            Tooltip: ="select date"
+            Value: =CReportByMonthOverlay.InitValue
+            Width: =210
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        Separator_4 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(98, 100, 167, 1)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =1
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            Width: =Parent.Width - 10
+            ZIndex: =3
+
+        CommandsContainer_4 As groupContainer.horizontalAutoLayoutContainer:
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =50
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            c01_btn_Cancel_1 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                Height: =32
+                OnSelect: =CReportByMonthOverlay.OnCancel()
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Text: ="Cancel"
+                Width: =96
+                X: =185
+                Y: =324
+                ZIndex: =1
+
+            c01_btn_Confirm_1 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =
+                DisplayMode: =If( IsBlankOrError(c02_DatePicker.Value), DisplayMode.Disabled, DisplayMode.Edit )
+                Fill: =RGBA(255, 0, 0, 1)
+                FocusedBorderColor: =
+                FocusedBorderThickness: =
+                Height: =32
+                OnSelect: =CReportByMonthOverlay.OnConfirm( c02_DatePicker.Value )
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Text: =CReportByMonthOverlay.ConfirmText
+                Width: =96
+                X: =349
+                Y: =324
+                ZIndex: =2
+
