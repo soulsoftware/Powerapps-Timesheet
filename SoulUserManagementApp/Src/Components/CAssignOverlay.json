@@ -36,7 +36,7 @@
       "Name": "OnConfirm",
       "PropertyDataTypeKey": "Boolean",
       "PropertyScopeKey": {
-        "PropertyScopeRuleNamespaceKey": "74",
+        "PropertyScopeRuleNamespaceKey": "70",
         "PropertyScopeRulesKey": [
           {
             "DisplayName": "OnConfirm_pSelectedUser",
@@ -76,7 +76,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638439325692263802",
+  "LastModifiedTimestamp": "638439632025207068",
   "Name": "50fd44eff89347dd89dad6ed207c06f6",
   "OverridableProperties": {},
   "TemplateOriginalName": "3e3084ffa6874840ac3468161e440e2c",
