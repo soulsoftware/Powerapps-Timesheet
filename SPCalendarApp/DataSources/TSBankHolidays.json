@@ -45,8 +45,8 @@
       "Modified": "Modified",
       "OData__ColorTag": "Color Tag",
       "ParticipantsPicker": "Attendees",
-      "ParticipantsPicker#Claims": "Attendees Claims",
       "ParticipantsPicker@odata.type": "ParticipantsPicker (ParticipantsPicker@odata.type)",
+      "ParticipantsPicker#Claims": "Attendees Claims",
       "Title": "Title",
       "Workspace": "WorkspaceUrl"
     },
