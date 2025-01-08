@@ -734,6 +734,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.'s12_grp_Week#'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.'s12_grp_Week#'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s12_WeeksToInsert",
+                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.'s12_grp_Week#'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.AccessibleLabel"
                 }
               ],
@@ -1064,66 +1094,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Delete.AccessibleLabel"
                 }
               ],
@@ -1184,66 +1154,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s12_WeeksToInsert",
-                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Recall.AccessibleLabel"
                 }
               ],
@@ -1287,6 +1197,126 @@
                 "member": "TabIndex",
                 "module": "s12_WeeksToInsert",
                 "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Recall"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s12_WeeksToInsert",
+                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "s12_WeeksToInsert",
+                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Save"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s12_WeeksToInsert",
+                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "s12_WeeksToInsert",
+                "type": "s12_WeeksToInsert.s12_Container4.s12_gal_weeks.s12_gal_TimeEntry.s12_Container1.s12_Container2.s12_ico_Submit"
               }
             }
           ],
@@ -1817,7 +1847,7 @@
               }
             }
           ],
-          "version": "1.335"
+          "version": "1.336"
         }
       }
     }

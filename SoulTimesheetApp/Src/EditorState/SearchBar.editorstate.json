@@ -120,6 +120,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "container_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -413,6 +414,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "sb1_ico_Search_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -784,6 +786,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "sb1_txt_WeekToSearch_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1040,6 +1043,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

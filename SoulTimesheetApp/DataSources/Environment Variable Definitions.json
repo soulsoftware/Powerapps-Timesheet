@@ -23,6 +23,8 @@
       "envdefinition_envdefinition": "Environment Variable Definitions",
       "environmentvariabledefinition_AsyncOperations": "System Jobs",
       "environmentvariabledefinition_BulkDeleteFailures": "Bulk Delete Failures",
+      "environmentvariabledefinition_credential_password": "Credentials (environmentvariabledefinition_credential_password)",
+      "environmentvariabledefinition_credential_username": "Credentials (environmentvariabledefinition_credential_username)",
       "environmentvariabledefinition_environmentvariablevalue": "Environment Variable Values",
       "environmentvariabledefinition_PrincipalObjectAttributeAccesses": "Field Sharing",
       "environmentvariabledefinition_ProcessSession": "Process Sessions",

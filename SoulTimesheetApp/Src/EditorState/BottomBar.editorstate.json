@@ -56,6 +56,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "BottomBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -230,6 +231,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c02_Container_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -486,6 +488,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c02_HtmlText",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -774,6 +777,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c02_VersionLabel",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1165,6 +1169,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c02_VersionText",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [

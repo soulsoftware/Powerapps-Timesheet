@@ -117,6 +117,7 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "c02_HtmlText",
+            "OptimizeForDevices": "Off",
             "Parent": "c02_Container_1",
             "PersistMetaDataIDKey": false,
             "PublishOrderIndex": 121,
@@ -442,6 +443,7 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "c02_VersionLabel",
+            "OptimizeForDevices": "Off",
             "Parent": "c02_Container_1",
             "PersistMetaDataIDKey": false,
             "PublishOrderIndex": 122,
@@ -892,6 +894,7 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "c02_VersionText",
+            "OptimizeForDevices": "Off",
             "Parent": "c02_Container_1",
             "PersistMetaDataIDKey": false,
             "PublishOrderIndex": 123,
@@ -1274,6 +1277,7 @@
         "LayoutName": "",
         "MetaDataIDKey": "",
         "Name": "c02_Container_1",
+        "OptimizeForDevices": "Off",
         "Parent": "BottomBar",
         "PersistMetaDataIDKey": false,
         "PublishOrderIndex": 120,
@@ -1515,7 +1519,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638340215630913970",
+    "LastModifiedTimestamp": "638397926720420193",
     "Name": "BottomBar",
     "Rules": [
       {
@@ -1585,7 +1589,7 @@
       "Name": "Version",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -1594,7 +1598,7 @@
       "Name": "BorderThickness",
       "PropertyDataTypeKey": "Number",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -1605,7 +1609,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638340215630913970",
+  "LastModifiedTimestamp": "638397926720420193",
   "Name": "a7f908ed66bb44f2a9f3eeeacc6b4f4e",
   "OverridableProperties": {},
   "TemplateOriginalName": "fc4621407ccb49409f79a1bd438822f2",

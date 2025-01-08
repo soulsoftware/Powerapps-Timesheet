@@ -38,8 +38,11 @@ s12_WeeksToInsert As screen:
 
             s12_Header As Header:
                 AlignInContainer: =AlignInContainer.Stretch
+                BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =1
+                Font: =""
+                FontColor: =
                 Height: =75
                 IsProfilePictureVisible: =true
                 LayoutMinHeight: =75
@@ -47,6 +50,7 @@ s12_WeeksToInsert As screen:
                     =100
                 Logo: =Soul2
                 LogoTooltip: ="Soulsoftware"
+                OnSelectLogo: =false
                 Title: =$"Timesheet - {User().FullName}"
                 UserEmail: =User().Email
                 UserImage: =User().Image
@@ -948,8 +952,16 @@ s12_WeeksToInsert As screen:
                     ZIndex: =5
 
             "'s12_grp_Week#' As Badge":
+                AccessibleLabel: =""
+                BasePaletteColor: =
                 Content: =ThisItem.weekNumber
                 DisplayMode: =DisplayMode.Edit
+                Font: =""
+                FontColor: =
+                FontItalic: =false
+                FontStrikethrough: =false
+                FontUnderline: =false
+                FontWeight: =""
                 Height: =32
                 Width: =32
                 X: =5

@@ -3,10 +3,12 @@ s00_WorkAround As screen:
 
     s00_lbl_Reason As Label:
         Alignment: =Align.Center
+        Color: =
         DisplayMode: =DisplayMode.Edit
         FontSize: =20
         FontWeight: =FontWeight.Bold
         Height: =146
+        OnChange: =false
         Text: ="Screen need for trigger onVisible in s12_WeeksToInsert"
         Width: =795
         X: =252

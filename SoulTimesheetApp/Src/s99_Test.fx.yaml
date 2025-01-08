@@ -202,11 +202,13 @@ s99_Test As screen:
         ZIndex: =3
 
         s99_lbl_GetWeekNumber_1 As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: =$"GetWeekNumber({Year(s99_dtp_StartDate.SelectedDate)}) = {s99_CCommonUtils.GetWeekNumber(Year(s99_dtp_StartDate.SelectedDate))}"
             Width: =250
             X: =20
@@ -214,11 +216,13 @@ s99_Test As screen:
             ZIndex: =1
 
         s99_lbl_GetWeekNumber_3 As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: |-
                 =With({
                     day: Date(Year(s99_dtp_StartDate.SelectedDate),1,1)
@@ -230,11 +234,13 @@ s99_Test As screen:
             ZIndex: =2
 
         s99_lbl_WeekNum As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: |-
                 =With({
                     day: Date(Year(s99_dtp_StartDate.SelectedDate),1,1)
@@ -245,11 +251,13 @@ s99_Test As screen:
             ZIndex: =3
 
         s99_lbl_WeekNum_2 As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: |-
                 =With({
                     day: Date(Year(s99_dtp_StartDate.SelectedDate),1,1)
@@ -260,11 +268,13 @@ s99_Test As screen:
             ZIndex: =4
 
         s99_lbl_WeekNum_1 As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: =$"WeekNum({s99_dtp_StartDate.SelectedDate}) = {WeekNum(s99_dtp_StartDate.SelectedDate)}"
             Width: =250
             X: =20
@@ -272,11 +282,13 @@ s99_Test As screen:
             ZIndex: =5
 
         s99_lbl_WeekNum_3 As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: =$"ISOWeekNum({s99_dtp_StartDate.SelectedDate}) = {ISOWeekNum(s99_dtp_StartDate.SelectedDate)}"
             Width: =250
             X: =20
@@ -284,11 +296,13 @@ s99_Test As screen:
             ZIndex: =6
 
         s99_lbl_GetWeekNumber As Label:
+            Color: =
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Semibold
             Height: =38
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Text: =$"GetWeekNumber({s99_dtp_StartDate.SelectedDate}) = {s99_CCommonUtils.GetWeekNumber(s99_dtp_StartDate.SelectedDate)}"
             Width: =250
             X: =20

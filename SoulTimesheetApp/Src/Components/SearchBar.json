@@ -232,6 +232,7 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "sb1_txt_WeekToSearch_1",
+            "OptimizeForDevices": "Off",
             "Parent": "container_1",
             "PersistMetaDataIDKey": false,
             "PublishOrderIndex": 132,
@@ -619,6 +620,7 @@
         "LayoutName": "",
         "MetaDataIDKey": "",
         "Name": "container_1",
+        "OptimizeForDevices": "Off",
         "Parent": "SearchBar",
         "PersistMetaDataIDKey": false,
         "PublishOrderIndex": 131,
@@ -957,6 +959,7 @@
         "LayoutName": "",
         "MetaDataIDKey": "",
         "Name": "sb1_ico_Search_1",
+        "OptimizeForDevices": "Off",
         "Parent": "SearchBar",
         "PersistMetaDataIDKey": false,
         "PublishOrderIndex": 133,
@@ -1186,7 +1189,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638340215630861449",
+    "LastModifiedTimestamp": "638397926720356795",
     "Name": "SearchBar",
     "Rules": [
       {
@@ -1283,12 +1286,12 @@
               "ScopeVariableName": "Week"
             },
             "Tooltip": "A parameter",
-            "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+            "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
           }
         ]
       },
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -1297,7 +1300,7 @@
       "Name": "CurrentWeekNumber",
       "PropertyDataTypeKey": "Number",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -1308,7 +1311,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638340215630861449",
+  "LastModifiedTimestamp": "638397926720356795",
   "Name": "ad631035631c458c9ac03edc239008d8",
   "OverridableProperties": {},
   "TemplateOriginalName": "79f46ca6964347dda84ae148acf1ea56",

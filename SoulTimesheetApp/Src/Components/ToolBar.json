@@ -135,6 +135,7 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "ico_cancel_1",
+            "OptimizeForDevices": "Off",
             "Parent": "CommandsContainer_3",
             "PersistMetaDataIDKey": false,
             "PublishOrderIndex": 135,
@@ -459,6 +460,7 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "ico_confirm_1",
+            "OptimizeForDevices": "Off",
             "Parent": "CommandsContainer_3",
             "PersistMetaDataIDKey": false,
             "PublishOrderIndex": 136,
@@ -752,6 +754,7 @@
         "LayoutName": "",
         "MetaDataIDKey": "",
         "Name": "CommandsContainer_3",
+        "OptimizeForDevices": "Off",
         "Parent": "ToolBar",
         "PersistMetaDataIDKey": false,
         "PublishOrderIndex": 134,
@@ -954,7 +957,7 @@
       "OnConfirm",
       "ConfirmEnabled"
     ],
-    "LastModifiedTimestamp": "638340215630910643",
+    "LastModifiedTimestamp": "638397926720415369",
     "Name": "ToolBar",
     "Rules": [
       {
@@ -1030,7 +1033,7 @@
       "Name": "OnCancel",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 2,
@@ -1039,7 +1042,7 @@
       "Name": "OnConfirm",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "Confirm Event",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -1048,7 +1051,7 @@
       "Name": "ConfirmEnabled",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -1059,7 +1062,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638340215630910643",
+  "LastModifiedTimestamp": "638397926720415369",
   "Name": "e264de44a5e6410b8eae49ae14e91eb8",
   "OverridableProperties": {},
   "TemplateOriginalName": "31d29cafcc724a94ae7c8da28f4ac4ba",

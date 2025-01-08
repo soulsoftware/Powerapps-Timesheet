@@ -121,6 +121,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_Cancel_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -426,6 +427,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_Confirm_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -714,6 +716,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CommandsContainer_2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -885,6 +888,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ConfirmOverlay",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1036,6 +1040,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "MainContainer_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1281,6 +1286,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Message_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1461,6 +1467,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Separator_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
