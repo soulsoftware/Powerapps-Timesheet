@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     Formulas: |-
-        =var_current_version = "4.3.0";
+        =var_current_version = "4.4.0";
         gFont = { 
             Size: 10.5, 
             ColorH2: RGBA(0, 94, 146, 1)
@@ -35,11 +35,15 @@ App As appinfo:
             }
         )
     OnStart: |
-        =With({
-            configYear: IfError( LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "Timesheet Year" ).Value, Year(Now()) )
+        =/*
+        With({
+            configYear: IfError( LookUp('Environment Variable Values', 'Environment Variable Definition'.'Display Name' = "Timesheet Year" ).Value, 2023 )
         },
         Set( var_selectedYear,
-            Coalesce( Value(Param("year")), configYear, Year(Now()) )));
+            Coalesce( Value(Param("year")), configYear ));
+        Trace( $"configYear: {configYear} - var_selectedYear: {var_selectedYear}" ));
+        */
+        Set( var_selectedYear, Year(Now()));
         Set( var_expectedDays, 22);
         ClearCollect( col_bank_holidays, ShowColumns( TSBankHolidays, "{Name}", "Category", "EventDate", "EventType") );
         Set( varStyle,

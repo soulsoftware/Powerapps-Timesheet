@@ -136,6 +136,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ColumnChart2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -306,6 +307,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CompositeColumnChart2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -448,6 +450,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -628,6 +631,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -765,6 +769,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -879,6 +884,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Legend3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1026,6 +1032,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_Chart_Absence",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1182,6 +1189,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_cnt_Filters",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1347,6 +1355,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%ScreenContainer.ID%",
       "Name": "s05_Container",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1523,7 +1532,8 @@
         "Height",
         "ZIndex",
         "FocusedBorderThickness",
-        "ContentLanguage"
+        "ContentLanguage",
+        "MaxTemplateSize"
       ],
       "DynamicProperties": [
         {
@@ -1588,6 +1598,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_gal_Absence",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1719,6 +1730,11 @@
         {
           "Category": "Design",
           "PropertyName": "LoadingSpinner",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -1917,6 +1933,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_gal_Days",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2298,6 +2315,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_gal_hours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2644,6 +2662,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_gal_Name",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2856,6 +2875,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "s05_gal_Separator",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3101,6 +3121,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_Ico_Back",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3329,6 +3350,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%RightSideContainer.ID%",
       "Name": "s05_RightSideContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3531,6 +3553,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_Separator",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3665,7 +3688,16 @@
           "InvariantPropertyName": "Checked",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "TextColor",
+        "OffFillColor",
+        "OnFillColor",
+        "HandleOnFillColor",
+        "HandleOffFillColor",
+        "OffHoverFillColor",
+        "OnHoverFillColor",
+        "OnCheck",
+        "OnUncheck"
       ],
       "DynamicProperties": [
         {
@@ -3736,6 +3768,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_tgl_Absence",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3757,6 +3790,41 @@
         {
           "Category": "Data",
           "PropertyName": "Checked",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "TextColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OffFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OnFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "HandleOnFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "HandleOffFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OffHoverFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OnHoverFillColor",
           "RuleProviderType": "Unknown"
         },
         {
@@ -3787,6 +3855,16 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnCheck",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnUncheck",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -3832,7 +3910,16 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "TextColor",
+        "OffFillColor",
+        "OnFillColor",
+        "HandleOnFillColor",
+        "HandleOffFillColor",
+        "OffHoverFillColor",
+        "OnHoverFillColor",
+        "OnCheck",
+        "OnUncheck"
       ],
       "DynamicProperties": [
         {
@@ -3903,6 +3990,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_tgl_Holiday",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3919,6 +4007,41 @@
         {
           "Category": "Data",
           "PropertyName": "OnText",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "TextColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OffFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OnFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "HandleOnFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "HandleOffFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OffHoverFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OnHoverFillColor",
           "RuleProviderType": "Unknown"
         },
         {
@@ -3949,6 +4072,16 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnCheck",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnUncheck",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -4009,7 +4142,16 @@
           "InvariantPropertyName": "Checked",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "TextColor",
+        "OffFillColor",
+        "OnFillColor",
+        "HandleOnFillColor",
+        "HandleOffFillColor",
+        "OffHoverFillColor",
+        "OnHoverFillColor",
+        "OnCheck",
+        "OnUncheck"
       ],
       "DynamicProperties": [
         {
@@ -4080,6 +4222,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s05_tgl_HoursOff",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4101,6 +4244,41 @@
         {
           "Category": "Data",
           "PropertyName": "Checked",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "TextColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OffFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OnFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "HandleOnFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "HandleOffFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OffHoverFillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "OnHoverFillColor",
           "RuleProviderType": "Unknown"
         },
         {
@@ -4131,6 +4309,16 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnCheck",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnUncheck",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -4253,6 +4441,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [

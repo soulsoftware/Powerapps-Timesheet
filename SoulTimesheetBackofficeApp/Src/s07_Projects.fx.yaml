@@ -100,12 +100,14 @@ s07_Projects As screen:
                     s07_lbl_ProjectName As Label:
                         AlignInContainer: =AlignInContainer.Stretch
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =12
                         FontWeight: =FontWeight.Semibold
                         Height: =28
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         OnSelect: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -121,11 +123,13 @@ s07_Projects As screen:
                     s07_lbl_ProjectDescription As Label:
                         AlignInContainer: =AlignInContainer.Stretch
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.View
                         FillPortions: =1
                         Height: =
                         LayoutMinHeight: =32
                         LayoutMinWidth: =400
+                        OnChange: =false
                         OnSelect: =true
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -142,11 +146,20 @@ s07_Projects As screen:
                         AlignInContainer: =AlignInContainer.Stretch
                         Checked: =ThisItem.'Status (soul_status)' = 'Status (TSProjects)_1'.Open
                         DisplayMode: =DisplayMode.View
+                        HandleOffFillColor: =
+                        HandleOnFillColor: =
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =160
+                        OffFillColor: =
+                        OffHoverFillColor: =
                         OffText: ="Closed"
+                        OnCheck: =false
+                        OnFillColor: =
+                        OnHoverFillColor: =
                         OnText: ="Open"
+                        OnUncheck: =false
+                        TextColor: =
                         Width: =100
                         X: =0
                         Y: =0
@@ -167,15 +180,23 @@ s07_Projects As screen:
                         "s07_chk_Select As 'Check box'":
                             BoxSide: ='Checkbox.BoxSide'.Start
                             Checked: =false
+                            CheckedCheckboxBackgroundFill: =
+                            CheckedCheckboxBorderColor: =
+                            CheckmarkFill: =
+                            Color: =
                             DisplayMode: =DisplayMode.Edit
                             FontWeight: =FontWeight.Lighter
                             Height: =32
+                            HoverCheckboxBackgroundFill: =
+                            HoverCheckboxBorderColor: =
                             Label: =""
                             LayoutMinHeight: =32
                             LayoutMinWidth: =160
                             OnCheck: =Collect(s07_col_selected_items, ThisItem)
                             OnUncheck: |
                                 =Remove(s07_col_selected_items, ThisItem)
+                            UncheckedCheckboxBackgroundFill: =
+                            UncheckedCheckboxBorderColor: =
                             Visible: =allow_multi_selection
                             Width: =25
                             X: =0
@@ -207,6 +228,8 @@ s07_Projects As screen:
                 ZIndex: =2
 
                 "s07_txt_searchByName As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =
                     DelayOutput: =false
                     DisplayMode: =DisplayMode.Edit
                     FontWeight: ="normal"
@@ -231,10 +254,14 @@ s07_Projects As screen:
 
                 s07_btn_Close As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             selected_Pending_items: IfError(CountIf(s07_col_selected_items, 'Status (soul_status)'),0)
@@ -243,14 +270,21 @@ s07_Projects As screen:
                     FillColor: =RGBA(232, 244, 217, 1)
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ assign_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |-
                         =With({ 
@@ -258,6 +292,7 @@ s07_Projects As screen:
                             //selected_opened_items: IfError(CountRows(s07_col_selected_items),0 )
                         },
                         "Close" & If( selected_opened_items > 0 , $" ({selected_opened_items})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -617,9 +652,11 @@ s07_Projects As screen:
 
                     DataCardKey19 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -677,6 +714,7 @@ s07_Projects As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -688,8 +726,10 @@ s07_Projects As screen:
 
                     StarVisible13 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Text: ="*"
                         VerticalAlignment: =VerticalAlign.Bottom
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -718,9 +758,11 @@ s07_Projects As screen:
 
                     DataCardKey3 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -732,6 +774,8 @@ s07_Projects As screen:
 
                     "DataCardValue2 As 'Text box'":
                         AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
                         DisplayMode: =Parent.DisplayMode
                         FontSize: =10.5
                         Height: =32
@@ -750,6 +794,7 @@ s07_Projects As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -761,8 +806,10 @@ s07_Projects As screen:
 
                     StarVisible1 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -790,9 +837,11 @@ s07_Projects As screen:
 
                     DataCardKey10 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -804,6 +853,8 @@ s07_Projects As screen:
 
                     "DataCardValue9 As 'Text box'":
                         AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
                         DisplayMode: =Parent.DisplayMode
                         FontSize: =10.5
                         Height: =150
@@ -822,6 +873,7 @@ s07_Projects As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -833,8 +885,10 @@ s07_Projects As screen:
 
                     StarVisible8 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -861,9 +915,11 @@ s07_Projects As screen:
 
                     DataCardKey4 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -921,6 +977,7 @@ s07_Projects As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -932,8 +989,10 @@ s07_Projects As screen:
 
                     StarVisible2 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Text: ="*"
                         VerticalAlignment: =VerticalAlign.Bottom
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)

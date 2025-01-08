@@ -37,6 +37,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CCommonUtils",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

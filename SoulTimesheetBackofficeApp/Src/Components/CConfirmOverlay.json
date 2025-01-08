@@ -144,9 +144,10 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "lbl_DeleteText",
+            "OptimizeForDevices": "Off",
             "Parent": "MainContainer",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 432,
+            "PublishOrderIndex": 433,
             "Rules": [
               {
                 "Category": "Data",
@@ -439,9 +440,10 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "Separator",
+            "OptimizeForDevices": "Off",
             "Parent": "MainContainer",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 433,
+            "PublishOrderIndex": 434,
             "Rules": [
               {
                 "Category": "Design",
@@ -680,9 +682,10 @@
                 "LayoutName": "",
                 "MetaDataIDKey": "",
                 "Name": "btn_Cancel",
+                "OptimizeForDevices": "Off",
                 "Parent": "CommandsContainer",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 435,
+                "PublishOrderIndex": 436,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1039,9 +1042,10 @@
                 "LayoutName": "",
                 "MetaDataIDKey": "",
                 "Name": "btn_Confirm",
+                "OptimizeForDevices": "Off",
                 "Parent": "CommandsContainer",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 436,
+                "PublishOrderIndex": 437,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1379,9 +1383,10 @@
             "LayoutName": "",
             "MetaDataIDKey": "",
             "Name": "CommandsContainer",
+            "OptimizeForDevices": "Off",
             "Parent": "MainContainer",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 434,
+            "PublishOrderIndex": 435,
             "Rules": [
               {
                 "Category": "Design",
@@ -1638,9 +1643,10 @@
         "LayoutName": "",
         "MetaDataIDKey": "",
         "Name": "MainContainer",
+        "OptimizeForDevices": "Off",
         "Parent": "CConfirmOverlay",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 431,
+        "PublishOrderIndex": 432,
         "Rules": [
           {
             "Category": "Design",
@@ -1830,7 +1836,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638345326779939197",
+    "LastModifiedTimestamp": "638397929499243158",
     "Name": "CConfirmOverlay",
     "Rules": [
       {
@@ -1912,7 +1918,7 @@
       "Name": "PromptText",
       "PropertyDataTypeKey": "String",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 2,
@@ -1921,7 +1927,7 @@
       "Name": "OnCancel",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 2,
@@ -1930,7 +1936,7 @@
       "Name": "OnConfirm",
       "PropertyDataTypeKey": "Boolean",
       "Tooltip": "A custom property",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
     },
     {
       "Category": 0,
@@ -1939,7 +1945,7 @@
       "Name": "ConfirmText",
       "PropertyDataTypeKey": "String",
       "Tooltip": "confirm caption",
-      "Type": "{\"Version\":\"1.335\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.336\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -1950,7 +1956,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638345326779939197",
+  "LastModifiedTimestamp": "638397929499243158",
   "Name": "c7fd7312d06a4fb1a96b5a7390dfe2d9",
   "OverridableProperties": {},
   "Version": "637709296978270458"

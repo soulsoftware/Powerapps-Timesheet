@@ -42,11 +42,14 @@ CReportByMonthOverlay As CanvasComponent:
 
         "c02_DatePicker As 'Date picker'":
             DisplayMode: =DisplayMode.Edit
+            FillColor: =
             FillPortions: =1
             Height: =32
+            IconFill: =
             LayoutMinHeight: =30
             LayoutMinWidth: =210
             ShowGoToToday: =true
+            TextColor: =
             Tooltip: ="select date"
             Value: =CReportByMonthOverlay.InitValue
             Width: =210

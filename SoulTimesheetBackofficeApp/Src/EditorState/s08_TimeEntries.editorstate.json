@@ -30,6 +30,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate1_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -126,6 +127,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -315,7 +317,9 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "Color",
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -365,6 +369,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -386,6 +391,11 @@
         {
           "Category": "Data",
           "PropertyName": "FontWeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Color",
           "RuleProviderType": "Unknown"
         },
         {
@@ -416,6 +426,11 @@
         {
           "Category": "Design",
           "PropertyName": "ZIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -476,7 +491,9 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "Color",
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -526,6 +543,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label2_2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -547,6 +565,11 @@
         {
           "Category": "Data",
           "PropertyName": "FontWeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Color",
           "RuleProviderType": "Unknown"
         },
         {
@@ -577,6 +600,11 @@
         {
           "Category": "Design",
           "PropertyName": "ZIndex",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -630,7 +658,8 @@
           "InvariantPropertyName": "Color",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -708,6 +737,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -760,6 +790,11 @@
           "Category": "Design",
           "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",
@@ -789,6 +824,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Name1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -915,6 +951,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s08_BottomBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1068,6 +1105,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_cmb_Months",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1283,6 +1321,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_cnt_LeftTopBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1470,6 +1509,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s08_CommonUtils",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1606,6 +1646,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_Container5",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1824,6 +1865,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_Container6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2011,6 +2053,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_Divider2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2174,7 +2217,8 @@
           "InvariantPropertyName": "BorderThickness",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "MaxTemplateSize"
       ],
       "DynamicProperties": [
         {
@@ -2225,6 +2269,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_gal_TimeEntries",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2387,6 +2432,11 @@
           "Category": "Design",
           "PropertyName": "BorderThickness",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -2435,7 +2485,11 @@
           "InvariantPropertyName": "LogoTooltip",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "BasePaletteColor",
+        "Font",
+        "FontColor",
+        "OnSelectLogo"
       ],
       "DynamicProperties": [
         {
@@ -2513,6 +2567,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_Header",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2544,6 +2599,21 @@
         {
           "Category": "Data",
           "PropertyName": "LogoTooltip",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "BasePaletteColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FontColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Font",
           "RuleProviderType": "Unknown"
         },
         {
@@ -2579,6 +2649,11 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSelectLogo",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -2712,6 +2787,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s08_HeaderApproved",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2929,6 +3005,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_HeaderBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3188,6 +3265,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s08_HeaderPending",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3399,6 +3477,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s08_HeaderRejected",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3617,6 +3696,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "s08_HeaderRejected_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3802,6 +3882,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_Ico_Details",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4071,6 +4152,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_ico_Home",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4376,6 +4458,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_Ico_Person",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4643,6 +4726,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_ico_Print",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4912,6 +4996,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_ico_Reload",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5098,7 +5183,9 @@
           "InvariantPropertyName": "FontSize",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "Color",
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -5148,6 +5235,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_lbl_ExpectedDays",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5164,6 +5252,11 @@
         {
           "Category": "Data",
           "PropertyName": "FontWeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Color",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5194,6 +5287,11 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -5292,7 +5390,8 @@
           "InvariantPropertyName": "Wrap",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -5356,6 +5455,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_lbl_ResourceEmail",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5448,6 +5548,11 @@
           "Category": "Behavior",
           "PropertyName": "OnSelect",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",
@@ -5507,7 +5612,9 @@
           "InvariantPropertyName": "Alignment",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "Color",
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -5557,6 +5664,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_lbl_Year",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5578,6 +5686,11 @@
         {
           "Category": "Data",
           "PropertyName": "Alignment",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Color",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5608,6 +5721,11 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -5686,6 +5804,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_MainContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5837,6 +5956,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_TimeEntries",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6028,6 +6148,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_ToolBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6216,7 +6337,8 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText"
       ],
       "DynamicProperties": [
         {
@@ -6280,6 +6402,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_ApprovedHours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6301,6 +6424,11 @@
         {
           "Category": "Data",
           "PropertyName": "Value",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
           "RuleProviderType": "Unknown"
         },
         {
@@ -6398,7 +6526,8 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText"
       ],
       "DynamicProperties": [
         {
@@ -6462,6 +6591,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_Days",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6483,6 +6613,11 @@
         {
           "Category": "Data",
           "PropertyName": "Value",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
           "RuleProviderType": "Unknown"
         },
         {
@@ -6653,6 +6788,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_DiifExpectedHours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6767,7 +6903,9 @@
           "InvariantPropertyName": "OnChange",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText",
+        "ColorBackground"
       ],
       "DynamicProperties": [
         {
@@ -6817,6 +6955,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_ExpectedDays",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6833,6 +6972,16 @@
         {
           "Category": "Data",
           "PropertyName": "FontSize",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorBackground",
           "RuleProviderType": "Unknown"
         },
         {
@@ -6935,7 +7084,8 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText"
       ],
       "DynamicProperties": [
         {
@@ -6992,6 +7142,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_PendingHours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7013,6 +7164,11 @@
         {
           "Category": "Data",
           "PropertyName": "FontWeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7110,7 +7266,8 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText"
       ],
       "DynamicProperties": [
         {
@@ -7167,6 +7324,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_RejectedHours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7188,6 +7346,11 @@
         {
           "Category": "Data",
           "PropertyName": "FontWeight",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7282,7 +7445,9 @@
           "InvariantPropertyName": "FontSize",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText",
+        "ColorBackground"
       ],
       "DynamicProperties": [
         {
@@ -7332,6 +7497,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_searchByMail",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7388,6 +7554,16 @@
         {
           "Category": "Data",
           "PropertyName": "Placeholder",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorBackground",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7495,7 +7671,8 @@
           "InvariantPropertyName": "FontWeight",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "ColorText"
       ],
       "DynamicProperties": [
         {
@@ -7559,6 +7736,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s08_txt_TotalHours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7580,6 +7758,11 @@
         {
           "Category": "Data",
           "PropertyName": "Value",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "ColorText",
           "RuleProviderType": "Unknown"
         },
         {

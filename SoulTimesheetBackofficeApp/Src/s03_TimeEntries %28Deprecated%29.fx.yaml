@@ -121,6 +121,7 @@
 
                     s03_lbl_Project As Label:
                         AlignInContainer: =AlignInContainer.End
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         FontSize: =gFont.Size
@@ -128,6 +129,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =200
+                        OnChange: =false
                         OnSelect: =
                         Text: =ThisItem.Project.Name
                         Width: =200
@@ -150,6 +152,7 @@
                         Height: =Parent.Height
                         LayoutMinHeight: =32
                         LayoutMinWidth: =100
+                        OnChange: =false
                         OnSelect: =
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -167,12 +170,14 @@
                         AlignInContainer: =AlignInContainer.Center
                         Alignment: =Align.Left
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =gFont.Size
                         FontWeight: =FontWeight.Semibold
                         Height: =Parent.Height
                         LayoutMinHeight: =32
                         LayoutMinWidth: =100
+                        OnChange: =false
                         OnSelect: =
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -188,12 +193,14 @@
                     s03_lbl_ApprovalStatus As Label:
                         AlignInContainer: =AlignInContainer.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.View
                         FontSize: =gFont.Size
                         FontWeight: =FontWeight.Semibold
                         Height: =Parent.Height
                         LayoutMinHeight: =32
                         LayoutMinWidth: =280
+                        OnChange: =false
                         OnSelect: =
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -252,14 +259,22 @@
                         "s03_chk_Select As 'Check box'":
                             BoxSide: ='Checkbox.BoxSide'.Start
                             Checked: =Not(IsBlankOrError(LookUp( s03_col_selected_items, 'AH Timesheet' = ThisItem.'AH Timesheet' )))
+                            CheckedCheckboxBackgroundFill: =
+                            CheckedCheckboxBorderColor: =
+                            CheckmarkFill: =
+                            Color: =
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
+                            HoverCheckboxBackgroundFill: =
+                            HoverCheckboxBorderColor: =
                             Label: =""
                             LayoutMinHeight: =32
                             LayoutMinWidth: =160
                             OnCheck: =Collect( s03_col_selected_items, ThisItem)
                             OnUncheck: |
                                 =Remove( s03_col_selected_items, ThisItem)
+                            UncheckedCheckboxBackgroundFill: =
+                            UncheckedCheckboxBorderColor: =
                             Width: =25
                             X: =0
                             Y: =0
@@ -267,9 +282,11 @@
 
                 s03_lbl_CreatedOn As Label:
                     AutoHeight: =false
+                    Color: =
                     DisplayMode: =DisplayMode.View
                     FontSize: =gFont.Size
                     Height: =60
+                    OnChange: =false
                     OnSelect: =
                     Overflow: ="Hidden"
                     PaddingBottom: =0
@@ -289,6 +306,7 @@
                     FontSize: =gFont.Size
                     FontWeight: =FontWeight.Semibold
                     Height: =Parent.TemplateHeight
+                    OnChange: =false
                     OnSelect: =Select(Parent)
                     Overflow: ="Hidden"
                     PaddingBottom: =0
@@ -337,6 +355,8 @@
                 ZIndex: =2
 
                 "s03_txt_searchByMail As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =
                     DelayOutput: =false
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =gFont.Size
@@ -386,10 +406,14 @@
 
                 s03_btn_Approve As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             selected_Pending_items: IfError(CountIf(s03_col_selected_items, crfc7_approvalstatus = [@'Approval Status'].Pending ),0)
@@ -398,22 +422,28 @@
                     FillColor: =RGBA(232, 244, 217, 1)
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
                     HoverFillColor: =Color.LightGreen
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ approve_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
                     PressedFillColor: =Color.Green
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |-
                         =With({ 
                             selected_pending_item_counts: IfError(CountIf(s03_col_selected_items, crfc7_approvalstatus = [@'Approval Status'].Pending ),0)
                         },
                         "Approve" & If( selected_pending_item_counts > 0 , $" ({selected_pending_item_counts})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -425,10 +455,14 @@
 
                 s03_btn_Reject As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             selected_Pending_items: IfError(CountIf(s03_col_selected_items, crfc7_approvalstatus = [@'Approval Status'].Pending ),0)
@@ -437,22 +471,28 @@
                     FillColor: =Color.Orange
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
                     HoverFillColor: =Color.OrangeRed
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ reject_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
                     PressedFillColor: =Color.Red
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |-
                         =With({ 
                             selected_pending_item_counts: IfError(CountIf(s03_col_selected_items, crfc7_approvalstatus = [@'Approval Status'].Pending ),0)
                         },
                         "Reject" & If( selected_pending_item_counts > 0 , $" ({selected_pending_item_counts})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -464,10 +504,14 @@
 
                 s03_btn_Assign As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             selected_Pending_items: IfError(CountRows(s03_col_selected_items),0)
@@ -476,22 +520,28 @@
                     FillColor: =Color.AliceBlue
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
                     HoverFillColor: =Color.LightBlue
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ multi_assign_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
                     PressedFillColor: =ColorFade(Color.BlueViolet, 0.2)
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |-
                         =With({ 
                             selected_assign_item_counts: IfError(CountRows(s03_col_selected_items),0)
                         },
                         "Assign" & If( selected_assign_item_counts > 0 , $" ({selected_assign_item_counts})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -974,9 +1024,11 @@
 
                     DataCardKey2 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -1055,9 +1107,11 @@
 
                     DataCardKey16 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         PaddingBottom: =0
                         PaddingTop: =0
                         Text: =Parent.DisplayName
@@ -1071,6 +1125,8 @@
 
                     "DataCardValue14 As 'Text box'":
                         AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
                         DelayOutput: =false
                         DisplayMode: =Parent.DisplayMode
                         FontSize: =10.5
@@ -1097,6 +1153,7 @@
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         PaddingBottom: =0
                         PaddingTop: =0
                         Text: =Parent.Error
@@ -1110,8 +1167,10 @@
 
                     StarVisible16 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         PaddingBottom: =0
                         PaddingTop: =0
                         Text: ="*"
@@ -1139,9 +1198,11 @@
 
                     DataCardKey1 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -1152,6 +1213,8 @@
                         ZIndex: =1
 
                     "DataCardValue1 As 'Text box'":
+                        ColorBackground: =
+                        ColorText: =
                         DisplayMode: =DisplayMode.View
                         FontSize: =10.5
                         Height: =32
@@ -1183,9 +1246,11 @@
 
                     DataCardKey17 As Label:
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1199,6 +1264,8 @@
 
                     "DataCardValue15 As 'Text box'":
                         AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
                         DelayOutput: =false
                         DisplayMode: =Parent.DisplayMode
                         FontSize: =10.5
@@ -1243,8 +1310,10 @@
                     StarVisible17 As Label:
                         Alignment: =Align.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1274,9 +1343,11 @@
 
                     DataCardKey12 As Label:
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1291,11 +1362,14 @@
                     "DateValue2 As 'Date picker'":
                         AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                         DisplayMode: =Parent.DisplayMode
+                        FillColor: =
                         FontWeight: ="normal"
                         Height: =32
+                        IconFill: =
                         IconSize: =16
                         PaddingBottom: =0
                         PaddingTop: =0
+                        TextColor: =
                         Tooltip: =Parent.DisplayName
                         Value: =Parent.Default
                         Width: =(Parent.Width - 48) / 2
@@ -1306,10 +1380,12 @@
                     Separator2 As Label:
                         Alignment: =Align.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =10.5
                         Height: |
                             =0
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1347,8 +1423,10 @@
                     StarVisible12 As Label:
                         Alignment: =Align.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1380,9 +1458,11 @@
 
                     DataCardKey14 As Label:
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1396,6 +1476,8 @@
 
                     "DataCardValue12 As 'Text box'":
                         AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
                         DelayOutput: =false
                         DisplayMode: =Parent.DisplayMode
                         FontSize: =10.5
@@ -1440,8 +1522,10 @@
                     StarVisible14 As Label:
                         Alignment: =Align.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1471,9 +1555,11 @@
 
                     DataCardKey20 As Label:
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1546,8 +1632,10 @@
                     StarVisible20 As Label:
                         Alignment: =Align.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1577,9 +1665,11 @@
 
                     DataCardKey15 As Label:
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0
@@ -1657,8 +1747,10 @@
                     StarVisible15 As Label:
                         Alignment: =Align.Center
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
                         PaddingTop: =0

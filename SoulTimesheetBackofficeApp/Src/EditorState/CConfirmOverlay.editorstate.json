@@ -121,6 +121,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_Cancel",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -426,6 +427,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_Confirm",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -640,6 +642,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CConfirmOverlay",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -808,6 +811,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CommandsContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1066,6 +1070,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_DeleteText",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1317,6 +1322,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "MainContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1532,6 +1538,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Separator",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [

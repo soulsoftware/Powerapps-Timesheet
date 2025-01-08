@@ -35,6 +35,7 @@ CColoredLabel As CanvasComponent:
         FontSize: =CColoredLabel.FontSize
         FontWeight: =CColoredLabel.FontWeight
         Height: =Parent.Height - (CColoredLabel.BorderThickness*2)
+        OnChange: =false
         Text: =CColoredLabel.Text
         Width: =Parent.Width - (CColoredLabel.BorderThickness*2)
         X: =CColoredLabel.BorderThickness

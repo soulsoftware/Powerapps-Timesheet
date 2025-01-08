@@ -91,6 +91,7 @@ s06_Expenses As screen:
 
                     s06_lbl_Project As Label:
                         AlignInContainer: =AlignInContainer.End
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         FontSize: =11
@@ -98,6 +99,7 @@ s06_Expenses As screen:
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =200
+                        OnChange: =false
                         OnSelect: =
                         Text: =ThisItem.Project.Name
                         Width: =200
@@ -121,6 +123,7 @@ s06_Expenses As screen:
                         Height: =Parent.Height / 2
                         LayoutMinHeight: =32
                         LayoutMinWidth: =140
+                        OnChange: =false
                         OnSelect: =
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -137,12 +140,14 @@ s06_Expenses As screen:
                     s06_lbl_Reason As Label:
                         AlignInContainer: =AlignInContainer.End
                         AutoHeight: =false
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =11
                         FontWeight: =FontWeight.Semibold
                         Height: =Parent.Height / 2
                         LayoutMinHeight: =32
                         LayoutMinWidth: =120
+                        OnChange: =false
                         OnSelect: =
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -158,12 +163,14 @@ s06_Expenses As screen:
                     s06_lbl_Status As Label:
                         AlignInContainer: =AlignInContainer.End
                         Alignment: =Align.Left
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =11
                         FontWeight: =FontWeight.Semibold
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =200
+                        OnChange: =false
                         OnSelect: =
                         Text: =ThisItem.'Approval Status'
                         Width: =100
@@ -222,14 +229,22 @@ s06_Expenses As screen:
                         "s06_chk_Select As 'Check box'":
                             BoxSide: ='Checkbox.BoxSide'.Start
                             Checked: =Not(IsBlankOrError(LookUp(s06_col_selected_items, TSExpense = ThisItem.TSExpense)))
+                            CheckedCheckboxBackgroundFill: =
+                            CheckedCheckboxBorderColor: =
+                            CheckmarkFill: =
+                            Color: =
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
+                            HoverCheckboxBackgroundFill: =
+                            HoverCheckboxBorderColor: =
                             Label: =""
                             LayoutMinHeight: =32
                             LayoutMinWidth: =160
                             OnCheck: =Collect(s06_col_selected_items, ThisItem)
                             OnUncheck: |
                                 =Remove(s06_col_selected_items, ThisItem)
+                            UncheckedCheckboxBackgroundFill: =
+                            UncheckedCheckboxBorderColor: =
                             Width: =25
                             X: =0
                             Y: =0
@@ -237,10 +252,12 @@ s06_Expenses As screen:
 
                 s06_lbl_ResourceEmail As Label:
                     AutoHeight: =false
+                    Color: =
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =12
                     FontWeight: =FontWeight.Semibold
                     Height: =30
+                    OnChange: =false
                     OnSelect: =Select(Parent)
                     Overflow: ="Hidden"
                     PaddingBottom: =0
@@ -281,8 +298,10 @@ s06_Expenses As screen:
 
                 s06_lbl_CreatedOn As Label:
                     AutoHeight: =false
+                    Color: =
                     DisplayMode: =DisplayMode.View
                     Height: =30
+                    OnChange: =false
                     OnSelect: =
                     Overflow: ="Hidden"
                     PaddingBottom: =0
@@ -306,6 +325,8 @@ s06_Expenses As screen:
                 ZIndex: =2
 
                 "s06_txt_searchByMail As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =
                     DelayOutput: =false
                     DisplayMode: =DisplayMode.Edit
                     FontWeight: ="normal"
@@ -333,16 +354,20 @@ s06_Expenses As screen:
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =8
                     FontWeight: ="normal"
+                    HandleOffFillColor: =
+                    HandleOnFillColor: =
                     Height: =32
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =160
                     OffFillColor: =RGBA(255, 255, 255, 1)
+                    OffHoverFillColor: =
                     OffText: ="Sort By Created"
                     OnChange: =Clear( s06_col_selected_items )
                     OnCheck: |-
                         =UpdateContext( { sortByDate: true} )
                     OnFillColor: =RGBA(59, 121, 183, 1)
+                    OnHoverFillColor: =
                     OnText: ="Sort By Date"
                     OnUncheck: |-
                         =UpdateContext( { sortByDate: false} )
@@ -350,6 +375,7 @@ s06_Expenses As screen:
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
                     Strikethrough: =false
+                    TextColor: =
                     Underline: =false
                     Width: =100
                     X: =426
@@ -358,10 +384,14 @@ s06_Expenses As screen:
 
                 s06_btn_Approve As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
@@ -370,20 +400,28 @@ s06_Expenses As screen:
                     FillColor: =RGBA(232, 244, 217, 1)
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ multi_approve_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |
                         =With({ 
                             valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
                         },
                         "Approve" & If( valid_selected_items > 0 , $" ({valid_selected_items})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -395,10 +433,14 @@ s06_Expenses As screen:
 
                 s06_btn_Reject As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
@@ -407,20 +449,28 @@ s06_Expenses As screen:
                     FillColor: =RGBA(232, 244, 217, 1)
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ multi_reject_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |-
                         =With({ 
                             valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
                         },
                         "Reject" & If( valid_selected_items > 0 , $" ({valid_selected_items})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -432,10 +482,14 @@ s06_Expenses As screen:
 
                 s06_btn_Assign As Button:
                     Alignment: ="center"
+                    BorderColor: =
                     BorderRadius: =0
                     BorderStyle: =""
                     BorderThickness: =0
                     ButtonType: ='Button.ButtonType'.Standard
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
                     DisplayMode: |-
                         =With({ 
                             valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
@@ -444,20 +498,28 @@ s06_Expenses As screen:
                     FillColor: =RGBA(232, 244, 217, 1)
                     Height: =32
                     HideFromAssistiveTechnologies: =false
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
                     Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
+                    OnChange: =false
                     OnSelect: |-
                         =UpdateContext({ multi_assign_mode: true})
                     PaddingBottom: =0
                     PaddingTop: =0
                     PCFTeamsTheme: ="default"
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
                     Strikethrough: =false
                     Text: |-
                         =With({ 
                             valid_selected_items: IfError(CountIf(s06_col_selected_items, 'Approval Status' = [@'Approval Status'].Pending ),0)
                         },
                         "Assign" & If( valid_selected_items > 0 , $" ({valid_selected_items})"))
+                    TextColor: =
                     Underline: =false
                     VerticalAlignment: ="middle"
                     Visible: |
@@ -468,6 +530,8 @@ s06_Expenses As screen:
                     ZIndex: =6
 
                 "s06_TotalSelected As 'Text box'":
+                    ColorBackground: =
+                    ColorText: =
                     DisplayMode: =DisplayMode.View
                     FillPortions: =1
                     Height: =32
@@ -515,13 +579,17 @@ s06_Expenses As screen:
 
                 s06_Header As Header:
                     AlignInContainer: =AlignInContainer.Stretch
+                    BasePaletteColor: =
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
+                    Font: =""
+                    FontColor: =
                     Height: =75
                     LayoutMinHeight: =Parent.Height
                     LayoutMinWidth: =
                     Logo: =Soul2
                     LogoTooltip: ="www.soulsoftware.it"
+                    OnSelectLogo: =false
                     PCFTeamsTheme: ="default"
                     Title: ="Expenses Management"// App.ActiveScreen.Name
                     UserEmail: =User().Email
@@ -849,9 +917,11 @@ s06_Expenses As screen:
 
                     DataCardKey11 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -908,6 +978,7 @@ s06_Expenses As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -919,8 +990,10 @@ s06_Expenses As screen:
 
                     StarVisible9 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Text: ="*"
                         VerticalAlignment: =VerticalAlign.Bottom
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -948,9 +1021,11 @@ s06_Expenses As screen:
 
                     DataCardKey13 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -962,6 +1037,8 @@ s06_Expenses As screen:
 
                     "DataCardValue11 As 'Text box'":
                         AccessibleLabel: =Parent.DisplayName
+                        ColorBackground: =
+                        ColorText: =
                         DisplayMode: =Parent.DisplayMode
                         FontSize: =10.5
                         Height: =Parent.Height * 0.60
@@ -980,6 +1057,7 @@ s06_Expenses As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -991,8 +1069,10 @@ s06_Expenses As screen:
 
                     StarVisible10 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -1019,9 +1099,11 @@ s06_Expenses As screen:
 
                     DataCardKey9 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -1034,9 +1116,12 @@ s06_Expenses As screen:
                     "DataCardValue8 As 'Date picker'":
                         AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
                         DisplayMode: =Parent.DisplayMode
+                        FillColor: =
                         Height: =32
+                        IconFill: =
                         MaxDate: =Date(Year(Today())+100,1,1)
                         MinDate: =Date(1900,1,1)
+                        TextColor: =
                         Tooltip: =Parent.DisplayName
                         Value: =Parent.Default
                         Width: =Parent.Width - 48
@@ -1050,6 +1135,7 @@ s06_Expenses As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -1061,8 +1147,10 @@ s06_Expenses As screen:
 
                     StarVisible7 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -1089,9 +1177,11 @@ s06_Expenses As screen:
 
                     DataCardKey5 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -1149,6 +1239,7 @@ s06_Expenses As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -1160,8 +1251,10 @@ s06_Expenses As screen:
 
                     StarVisible3 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Text: ="*"
                         VerticalAlignment: =VerticalAlign.Bottom
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -1189,9 +1282,11 @@ s06_Expenses As screen:
 
                     DataCardKey6 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -1244,6 +1339,7 @@ s06_Expenses As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -1255,8 +1351,10 @@ s06_Expenses As screen:
 
                     StarVisible4 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
+                        OnChange: =false
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -1409,9 +1507,11 @@ s06_Expenses As screen:
 
                     DataCardKey8 As Label:
                         AutoHeight: =true
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =22
+                        OnChange: =false
                         Text: =Parent.DisplayName
                         Tooltip: =Parent.DisplayName
                         VerticalAlignment: =VerticalAlign.Bottom
@@ -1471,6 +1571,7 @@ s06_Expenses As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =9
                         Height: =30
+                        OnChange: =false
                         Text: =Parent.Error
                         Tooltip: =Parent.Error
                         Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
@@ -1482,8 +1583,10 @@ s06_Expenses As screen:
 
                     StarVisible6 As Label:
                         Alignment: =Align.Center
+                        Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
+                        OnChange: =false
                         Text: ="*"
                         VerticalAlignment: =VerticalAlign.Bottom
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)

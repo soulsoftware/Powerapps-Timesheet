@@ -26,6 +26,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Approval Status_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -141,6 +142,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Created On_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -268,6 +270,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Date of Interest _Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -373,6 +376,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "owninguser_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -466,6 +470,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Reason_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -559,6 +564,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Resource Email_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -678,6 +684,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_FooterContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -879,6 +886,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_HeaderContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1131,6 +1139,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_ico_Refresh",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1323,7 +1332,9 @@
         "PaddingTop",
         "PaddingStart",
         "PaddingBottom",
-        "PaddingEnd"
+        "PaddingEnd",
+        "Color",
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -1373,6 +1384,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_lbl_Caption",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1422,6 +1434,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "Color",
+          "RuleProviderType": "Unknown"
+        },
+        {
           "Category": "Design",
           "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
@@ -1454,6 +1471,11 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -1539,6 +1561,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_tblAHTimesheet",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1717,6 +1740,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_TimesheetData",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1812,6 +1836,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Timesheet Year_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1910,6 +1935,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Working Hours_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [

@@ -121,6 +121,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c01_btn_Cancel_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -433,6 +434,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c01_btn_Confirm_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -642,7 +644,10 @@
           "InvariantPropertyName": "Value",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "TextColor",
+        "FillColor",
+        "IconFill"
       ],
       "DynamicProperties": [
         {
@@ -706,6 +711,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c02_DatePicker",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -722,6 +728,21 @@
         {
           "Category": "Data",
           "PropertyName": "Value",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "TextColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FillColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "IconFill",
           "RuleProviderType": "Unknown"
         },
         {
@@ -911,6 +932,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c02_lbl_Text",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1191,6 +1213,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CommandsContainer_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1370,6 +1393,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CReportByMonthOverlay",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1542,6 +1566,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "MainContainer_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1774,6 +1799,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Separator_4",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [

@@ -121,6 +121,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c01_html_Caption",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -331,6 +332,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "c01_img_Logo",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -537,6 +539,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TopBar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -672,6 +675,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TopBar_Container",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

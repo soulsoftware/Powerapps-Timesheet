@@ -824,6 +824,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s08_TimeEntries",
+                "type": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "s08_TimeEntries",
+                "type": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Container6.s08_lbl_ResourceEmail.TabIndex"
                 }
               ],
@@ -1034,66 +1094,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s08_TimeEntries",
-                "type": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s08_TimeEntries",
-                "type": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Person"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Details.AccessibleLabel"
                 }
               ],
@@ -1137,66 +1137,6 @@
                 "member": "TabIndex",
                 "module": "s08_TimeEntries",
                 "type": "s08_TimeEntries.s08_MainContainer.s08_gal_TimeEntries.s08_Container5.s08_Ico_Details"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "s09_TimeEntries",
-                "type": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "s09_TimeEntries",
-                "type": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp"
               }
             }
           ],
@@ -1317,6 +1257,66 @@
                 "member": "TabIndex",
                 "module": "s09_TimeEntries",
                 "type": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_Reload"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s09_TimeEntries",
+                "type": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "s09_TimeEntries",
+                "type": "s09_TimeEntries.s09_MainContainer.s09_LeftContainer.s09_cnt_LeftTopBar.s09_ico_OpenApp"
               }
             }
           ],
@@ -3824,6 +3824,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "s01_Menu.s01_Container2.s01_cmb_Year.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "s01_Menu.s01_Container2.s01_cmb_Year.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "s01_Menu",
+                "type": "s01_Menu.s01_Container2.s01_cmb_Year"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.selected_item"
                 }
               ],
@@ -4149,7 +4179,7 @@
               }
             }
           ],
-          "version": "1.335"
+          "version": "1.336"
         }
       }
     }

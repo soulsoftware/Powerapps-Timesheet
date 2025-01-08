@@ -88,6 +88,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ico_Mail",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -254,6 +255,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "OpenMail",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

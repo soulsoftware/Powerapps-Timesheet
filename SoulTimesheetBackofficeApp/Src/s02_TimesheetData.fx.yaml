@@ -166,12 +166,14 @@
         s02_lbl_Caption As Label:
             Alignment: =Align.Center
             AutoHeight: =false
+            Color: =
             DisplayMode: =DisplayMode.Edit
             FontSize: =16
             FontWeight: =FontWeight.Bold
             Height: =32
             LayoutMinHeight: =32
             LayoutMinWidth: =320
+            OnChange: =false
             Overflow: ="Hidden"
             PaddingBottom: =0
             PaddingTop: =0

@@ -15,6 +15,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -140,6 +141,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -321,6 +323,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s03_Chart_Availability",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -411,6 +414,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%ScreenContainer.ID%",
       "Name": "s03_Container",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -587,7 +591,8 @@
         "Height",
         "ZIndex",
         "FocusedBorderThickness",
-        "ContentLanguage"
+        "ContentLanguage",
+        "MaxTemplateSize"
       ],
       "DynamicProperties": [
         {
@@ -645,6 +650,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s03_gal_Availability",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -777,6 +783,11 @@
           "Category": "Design",
           "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -873,6 +884,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGallerySubtitle.ID%",
       "Name": "s03_gal_hours",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1153,6 +1165,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGalleryTitle.ID%",
       "Name": "s03_gal_Name",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1365,6 +1378,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "s03_gal_Separator",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1509,6 +1523,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s03_grp_Availability",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1617,6 +1632,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MainSectionContainer.ID%",
       "Name": "s03_MainSectionContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1873,6 +1889,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%PieChart.ID%",
       "Name": "s03_PieChart_Availability",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2102,6 +2119,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s03_PieChart_Legend",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2344,6 +2362,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s03_PieChart_Title",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2576,6 +2595,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s03_Rectangle",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2739,6 +2759,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%RightSideContainer.ID%",
       "Name": "s03_RightSideContainer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [

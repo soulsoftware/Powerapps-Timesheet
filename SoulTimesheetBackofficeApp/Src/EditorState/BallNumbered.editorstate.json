@@ -35,6 +35,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "BallNumbered",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -161,6 +162,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Circle",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -267,6 +269,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Group",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -403,6 +406,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Number",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

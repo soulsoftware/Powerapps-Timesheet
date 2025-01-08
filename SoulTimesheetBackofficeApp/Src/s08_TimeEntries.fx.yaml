@@ -56,13 +56,17 @@
 
             s08_Header As Header:
                 AlignInContainer: =AlignInContainer.Stretch
+                BasePaletteColor: =
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =1
+                Font: =""
+                FontColor: =
                 Height: =Parent.Height
                 LayoutMinHeight: =Parent.Height
                 LayoutMinWidth: =
                 Logo: =Soul2
                 LogoTooltip: ="www.soulsoftware.it"
+                OnSelectLogo: =false
                 PCFTeamsTheme: ="default"
                 Title: ="Timesheets Management" // App.ActiveScreen.Name
                 UserEmail: =User().Email
@@ -176,6 +180,8 @@
             ZIndex: =2
 
             "s08_txt_searchByMail As 'Text box'":
+                ColorBackground: =
+                ColorText: =
                 DelayOutput: =false
                 DisplayMode: =DisplayMode.Disabled
                 FontSize: =gFont.Size
@@ -234,12 +240,14 @@
 
             s08_lbl_Year As Label:
                 Alignment: =Align.Center
+                Color: =
                 DisplayMode: =DisplayMode.View
                 FontSize: =gFont.Size * 1.2
                 FontWeight: =FontWeight.Semibold
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
+                OnChange: =false
                 Text: =var_selectedYear
                 Width: =70
                 X: =0
@@ -268,12 +276,14 @@
                 ZIndex: =4
 
             s08_lbl_ExpectedDays As Label:
+                Color: =
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =gFont.Size * 1.2
                 FontWeight: =FontWeight.Semibold
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
+                OnChange: =false
                 Text: ="expected days"
                 Width: =120
                 X: =0
@@ -281,6 +291,8 @@
                 ZIndex: =5
 
             "s08_txt_ExpectedDays As 'Text box'":
+                ColorBackground: =
+                ColorText: =
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =gFont.Size * 1.2
                 FontWeight: =FontWeight.Semibold
@@ -310,12 +322,14 @@
 
             Label2 As Label:
                 Alignment: =Align.Center
+                Color: =
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =gFont.Size
                 FontWeight: =FontWeight.Bold
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
+                OnChange: =false
                 Text: ="Days"
                 Width: =80
                 X: =0
@@ -324,12 +338,14 @@
 
             Label2_2 As Label:
                 Alignment: =Align.Center
+                Color: =
                 DisplayMode: =DisplayMode.View
                 FontSize: =gFont.Size
                 FontWeight: =FontWeight.Bold
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
+                OnChange: =false
                 Text: ="Total"
                 Width: =80
                 X: =0
@@ -533,6 +549,7 @@
                         Height: =Parent.Height
                         LayoutMinHeight: =30
                         LayoutMinWidth: =320
+                        OnChange: =false
                         OnSelect: =false
                         Overflow: ="Hidden"
                         PaddingBottom: =0
@@ -560,6 +577,7 @@
                         Height: =32
                         LayoutMinHeight: =30
                         LayoutMinWidth: =Parent.Width
+                        OnChange: =false
                         Text: =ThisItem.resource_email
                         Width: =320
                         X: =0
@@ -568,6 +586,7 @@
 
                 "s08_txt_Days As 'Text box'":
                     ColorBackground: =Color.White
+                    ColorText: =
                     DisplayMode: =DisplayMode.View
                     FontSize: =gFont.Size
                     FontWeight: =FontWeight.Semibold
@@ -582,6 +601,7 @@
 
                 "s08_txt_TotalHours As 'Text box'":
                     ColorBackground: =Color.White
+                    ColorText: =
                     DisplayMode: =DisplayMode.View
                     FontSize: =gFont.Size
                     FontWeight: =FontWeight.Semibold
@@ -596,6 +616,7 @@
 
                 "s08_txt_ApprovedHours As 'Text box'":
                     ColorBackground: =gColor.ApprovedFill
+                    ColorText: =
                     DisplayMode: =DisplayMode.View
                     FontSize: =gFont.Size
                     FontWeight: =FontWeight.Semibold
@@ -610,6 +631,7 @@
 
                 "s08_txt_PendingHours As 'Text box'":
                     ColorBackground: =gColor.PendingFill
+                    ColorText: =
                     DisplayMode: =DisplayMode.View
                     FontSize: =gFont.Size
                     FontWeight: =FontWeight.Semibold
@@ -624,6 +646,7 @@
 
                 "s08_txt_RejectedHours As 'Text box'":
                     ColorBackground: =gColor.RejectedFill
+                    ColorText: =
                     DisplayMode: =DisplayMode.View
                     FontSize: =gFont.Size
                     FontWeight: =FontWeight.Semibold

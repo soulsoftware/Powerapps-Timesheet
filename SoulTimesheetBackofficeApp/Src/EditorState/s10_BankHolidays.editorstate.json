@@ -26,6 +26,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Category_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -126,6 +127,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Event Type_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -226,6 +228,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Name_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -345,6 +348,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_FooterContainer_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -546,6 +550,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_HeaderContainer_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -798,6 +803,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_ico_Refresh_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -990,7 +996,9 @@
         "PaddingTop",
         "PaddingStart",
         "PaddingBottom",
-        "PaddingEnd"
+        "PaddingEnd",
+        "Color",
+        "OnChange"
       ],
       "DynamicProperties": [
         {
@@ -1040,6 +1048,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s02_lbl_Caption_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1089,6 +1098,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "Color",
+          "RuleProviderType": "Unknown"
+        },
+        {
           "Category": "Design",
           "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
@@ -1122,6 +1136,11 @@
           "Category": "Design",
           "PropertyName": "Width",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",
@@ -1149,6 +1168,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s10_BankHolidays",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1280,6 +1300,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "s10_tbl_BankHolidays",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1477,6 +1498,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Start Time_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [

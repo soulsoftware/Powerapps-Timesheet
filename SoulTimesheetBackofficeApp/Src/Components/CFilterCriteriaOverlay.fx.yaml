@@ -60,6 +60,7 @@ CFilterCriteriaOverlay As CanvasComponent:
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
+                OnChange: =false
                 Text: ="Sort Criteria"
                 TextRole: ='Label.TextRole'.Heading2
                 Width: =320
@@ -73,21 +74,26 @@ CFilterCriteriaOverlay As CanvasComponent:
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =gFont.Size
                 FontWeight: ="normal"
+                HandleOffFillColor: =
+                HandleOnFillColor: =
                 Height: =32
                 Italic: =false
                 LayoutMinHeight: =32
                 LayoutMinWidth: =160
                 OffFillColor: =RGBA(255, 255, 255, 1)
+                OffHoverFillColor: =
                 OffText: ="Sort by Created"
                 OnChange: =
                 OnCheck: =
                 OnFillColor: =RGBA(59, 121, 183, 1)
+                OnHoverFillColor: =
                 OnText: ="Sort by Date"
                 OnUncheck: =
                 PaddingBottom: =0
                 PaddingTop: =0
                 PCFTeamsTheme: ="default"
                 Strikethrough: =false
+                TextColor: =
                 Underline: =false
                 Width: =200
                 X: =426
@@ -95,11 +101,13 @@ CFilterCriteriaOverlay As CanvasComponent:
                 ZIndex: =2
 
             c03_Label2 As Label:
+                Color: =
                 DisplayMode: =DisplayMode.View
                 FontWeight: =FontWeight.Semibold
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
+                OnChange: =false
                 Text: ="Approval Status"
                 TextRole: ='Label.TextRole'.Heading2
                 Width: =320
@@ -132,13 +140,21 @@ CFilterCriteriaOverlay As CanvasComponent:
 
             c03_IncludeDraft As Toggle:
                 DisplayMode: =DisplayMode.Edit
+                HandleOffFillColor: =
+                HandleOnFillColor: =
                 Height: =20
                 LayoutMinHeight: =32
                 LayoutMinWidth: =160
+                OffFillColor: =
+                OffHoverFillColor: =
                 OffText: ="exclude Draft"
+                OnCheck: =false
                 OnFillColor: =RGBA(39, 113, 194, 1)
+                OnHoverFillColor: =
                 OnText: ="include Draft"
+                OnUncheck: =false
                 PaddingBottom: =0
+                TextColor: =
                 Width: =160
                 X: =0
                 Y: =0
@@ -149,16 +165,28 @@ CFilterCriteriaOverlay As CanvasComponent:
                 BorderStyle: =BorderStyle.Solid
                 BorderThickness: =1
                 ButtonType: ='Button.ButtonType'.Standard
+                DisabledBorderColor: =
+                DisabledFillColor: =
+                DisabledTextColor: =
                 DisplayMode: =DisplayMode.Edit
+                FillColor: =
                 FontSize: =10.5
                 Height: =24
+                HoverBorderColor: =
+                HoverFillColor: =
+                HoverTextColor: =
                 LayoutMinHeight: =32
                 LayoutMinWidth: =96
+                OnChange: =false
                 OnSelect: |-
                     =Reset( c03_rbt_ApprovalStatus );
                     Reset( c03_IncludeDraft )
                 PaddingTop: =0
+                PressedBorderColor: =
+                PressedFillColor: =
+                PressedTextColor: =
                 Text: ="Reset"
+                TextColor: =
                 Width: =96
                 X: =0
                 Y: =0
